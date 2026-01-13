@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--
+Netlify AI / Claude – IMPORTANT ENGINE INSTRUCTIONS
+
+This site ALREADY has a fully wired AI backend. Do NOT break it.
+
+Engine:
+- Netlify Function: netlify/functions/ai-chat.js
+- Public endpoint:  /api/ai-chat   (see netlify.toml and _redirects)
+- Frontend chat JS: assets/js/chat.js
+- AI pages:
+    • strain-ai.html  (<body data-ai-mode="strain">)
+    • grow-ai.html    (<body data-ai-mode="grow">)
+
+DO NOT:
+- Delete, rename, or move netlify/functions/ai-chat.js
+- Remove or change the /api/ai-chat redirect
+- Remove the <script src="assets/js/chat.js"> on AI pages
+
+YOU MAY:
+- Edit copy, layout, and styling (HTML/CSS)
+- Add non-conflicting snippets (analytics, ads) AFTER the engine is confirmed working
+- Add new sections, tabs, pages, or imagery
+
+Always keep the /api/ai-chat endpoint working and the existing file/folder structure intact.
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WEEDIES AI – Cannabis Concierge & Grow Master</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="WEEDIES AI is your personal cannabis concierge – find dispensaries, discover strains, and design legal grow plans with AI.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-inner">
+    <div class="header-left">
+      <img src="/assets/img/cannabis-leaf-icon.png" alt="" class="header-leaf-icon rotating-leaf">
+    </div>
+    <div class="header-center">
+      <img src="/assets/img/weedies-ai-logo-transparent.png" alt="WEEDIES AI" class="header-logo-img">
+    </div>
+    <button class="menu-toggle" aria-label="Open menu" id="mobile-menu-toggle">
+      ☰
+    </button>
+    <nav id="main-nav" class="main-nav">
+      <ul class="nav-row nav-row-primary">
+        <li class="nav-item"><a href="index.html"><span class="nav-label">Home</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="dispensaries.html"><span class="nav-label">Dispensaries</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="strain-finder.html"><span class="nav-label">Strain Finder AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="grow-master.html"><span class="nav-label">Grower AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="munchies-ai.html"><span class="nav-label">Munchies AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#laws"><span class="nav-label">Laws by State</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html"><span class="nav-label">Learn</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#strains-library"><span class="nav-label">Strains Library</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#products"><span class="nav-label">Products</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#deals"><span class="nav-label">Deals</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+      <ul class="nav-row nav-row-secondary">
+        <li class="nav-item"><a href="learn.html#headshop"><span class="nav-label">Headshop</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#grow-shop"><span class="nav-label">Grow Shop</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#wellness"><span class="nav-label">Wellness</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#ride-safe"><span class="nav-label">Ride Safe</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#events"><span class="nav-label">Events</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#brands"><span class="nav-label">Brands</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="advertise.html"><span class="nav-label">Advertise</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="page-main">
+    <section class="hero">
+      <div class="hero-leaf-bg">
+        <img src="assets/img/hero-cannabis-leaf.png" alt="" class="hero-leaf-img" aria-hidden="true">
+      </div>
+    </section>
+
+    <section class="feature-grid">
+      <article class="feature-card">
+        <h2>Dispensary Finder</h2>
+        <p>Type a city or ZIP and jump straight into licensed dispensaries, delivery options, and maps via trusted partners.</p>
+        <a href="dispensaries.html" class="text-link">Search dispensaries</a>
+      </article>
+      <article class="feature-card">
+        <h2>Strain Finder AI</h2>
+        <p>Describe the high you want — giggly, creative, sleepy, pain relief — and our AI will suggest strains and where to find them.</p>
+        <a href="strain-ai.html" class="text-link">Talk to the AI budtender</a>
+      </article>
+      <article class="feature-card">
+        <h2>Grower AI (Where Legal)</h2>
+        <p>Indoor or outdoor, closet or tent — get a full grow plan, gear list, and schedule tailored to your space, budget, and legal status.</p>
+        <a href="grow-ai.html" class="text-link">Build my grow plan</a>
+      </article>
+    </section>
+
+    <section class="why-section">
+      <h2>Why WEEDIES AI Hits Different</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <h3>Not Just Menus. Answers.</h3>
+          <p>Other sites show you endless menus and reviews. WEEDIES AI listens, learns, and tells you exactly what makes sense for <strong>you</strong>.</p>
+        </div>
+        <div class="why-item">
+          <h3>Strains, Laws, and Safety in One Place.</h3>
+          <p>From terpene science to state-by-state laws, our AI keeps you informed and within the rules. No guesswork, no sketchy advice.</p>
+        </div>
+        <div class="why-item">
+          <h3>Grow Like a Pro – or Stay Store-Only.</h3>
+          <p>In legal grow states, our Grower AI designs complete setups. Not legal to grow? We’ll keep you focused on compliant options only.</p>
+        </div>
+        <div class="why-item">
+          <h3>Munchies &amp; Ride Safe, Built In.</h3>
+          <p>Too lit to cook or drive? Tap into food delivery affiliates and ride-share partners. Enjoy the night, get home safe.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="advertise-strip">
+      <div class="advertise-content">
+        <h2>Brands &amp; Dispensaries – Advertise With WEEDIES AI</h2>
+        <p>
+          When people ask our AI what to buy and where to go, it has to send them somewhere.
+          If you're a dispensary, seed bank, grow shop, or cannabis brand and want to be recommended,
+          reach out at <a href="mailto:advertise@weediesai.com">advertise@weediesai.com</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 WEEDIES AI. All rights reserved. 21+ only. We do not promote illegal activity.</p>
+    <p class="footer-links">
+      <a href="learn.html#laws">Laws &amp; Compliance</a> ·
+      <a href="learn.html">Learn</a> ·
+      <a href="advertise.html">Advertise</a>
+    </p>
+  </footer>
+</body>
+</html>

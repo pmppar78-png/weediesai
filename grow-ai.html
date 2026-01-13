@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+Netlify AI / Claude – IMPORTANT ENGINE INSTRUCTIONS
+
+This site ALREADY has a fully wired AI backend. Do NOT break it.
+
+Engine:
+- Netlify Function: netlify/functions/ai-chat.js
+- Public endpoint:  /api/ai-chat   (see netlify.toml and _redirects)
+- Frontend chat JS: assets/js/chat.js
+- AI pages:
+    • strain-ai.html  (<body data-ai-mode="strain">)
+    • grow-ai.html    (<body data-ai-mode="grow">)
+
+DO NOT:
+- Delete, rename, or move netlify/functions/ai-chat.js
+- Remove or change the /api/ai-chat redirect
+- Remove the <script src="assets/js/chat.js"> on AI pages
+
+YOU MAY:
+- Edit copy, layout, and styling (HTML/CSS)
+- Add non-conflicting snippets (analytics, ads) AFTER the engine is confirmed working
+- Add new sections, tabs, pages, or imagery
+
+Always keep the /api/ai-chat endpoint working and the existing file/folder structure intact.
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grow Master AI – WEEDIES AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Talk to WEEDIES Grow Master AI for expert cannabis cultivation guidance on growing methods, environments, plant health, and harvest techniques.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/chat.js"></script>
+</head>
+<body data-ai-mode="grow" class="chat-fullscreen">
+  <main class="page-main chat-page">
+    <div class="chat-topbar">
+      <div class="ai-header">
+        <img src="/assets/img/cannabis-leaf-icon.png" alt="" class="rotating-leaf-img">
+        <div class="ai-title-block">
+          <h1 class="ai-title">Grower AI</h1>
+          <p class="ai-subtitle">Powered by WEEDIES AI</p>
+        </div>
+        <img src="/assets/img/cannabis-leaf-icon.png" alt="" class="rotating-leaf-img">
+      </div>
+    </div>
+
+    <div class="chat-shell">
+      <div class="chat-window" id="chat-window">
+        <div class="chat-message ai">
+          <div class="chat-bubble">
+            <p>Welcome to Grow Master AI — your expert cultivation mentor for legal, personal-scale cannabis growing.</p>
+            <p>Before we begin, I need to learn a bit about you:</p>
+            <p>1. What state or country are you in?<br>
+            2. Is home growing legal there, and what is your legal plant limit?<br>
+            3. What is your grow space like (tent, closet, room, outdoor)?<br>
+            4. What style of grow are you aiming for (soil, coco, hydro, indoor, outdoor)?<br>
+            5. What is your experience level?</p>
+          </div>
+        </div>
+      </div>
+      <form class="chat-input-row" id="chat-form">
+        <textarea id="chat-input" rows="1" placeholder="Example: I'm in Colorado, have a 2x4 tent, want to try indoor soil, and I'm a complete beginner."></textarea>
+        <button type="submit" class="primary-button">Send</button>
+      </form>
+      <div class="chat-footer-tip">
+        <p>Always follow local plant limits, visibility rules, and safety guidelines. This is safe, expert guidance for legal personal cultivation only.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

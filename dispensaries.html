@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--
+Netlify AI / Claude – IMPORTANT ENGINE INSTRUCTIONS
+
+This site ALREADY has a fully wired AI backend. Do NOT break it.
+
+Engine:
+- Netlify Function: netlify/functions/ai-chat.js
+- Public endpoint:  /api/ai-chat   (see netlify.toml and _redirects)
+- Frontend chat JS: assets/js/chat.js
+- AI pages:
+    • strain-ai.html  (<body data-ai-mode="strain">)
+    • grow-ai.html    (<body data-ai-mode="grow">)
+
+DO NOT:
+- Delete, rename, or move netlify/functions/ai-chat.js
+- Remove or change the /api/ai-chat redirect
+- Remove the <script src="assets/js/chat.js"> on AI pages
+
+YOU MAY:
+- Edit copy, layout, and styling (HTML/CSS)
+- Add non-conflicting snippets (analytics, ads) AFTER the engine is confirmed working
+- Add new sections, tabs, pages, or imagery
+
+Always keep the /api/ai-chat endpoint working and the existing file/folder structure intact.
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find Dispensaries – WEEDIES AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Find licensed cannabis dispensaries and delivery services near you with WEEDIES AI.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-inner">
+    <div class="header-left">
+      <img src="/assets/img/cannabis-leaf-icon.png" alt="" class="header-leaf-icon rotating-leaf">
+    </div>
+    <div class="header-center">
+      <img src="/assets/img/weedies-ai-logo-transparent.png" alt="WEEDIES AI" class="header-logo-img">
+    </div>
+    <button class="menu-toggle" aria-label="Open menu" id="mobile-menu-toggle">
+      ☰
+    </button>
+    <nav id="main-nav" class="main-nav">
+      <ul class="nav-row nav-row-primary">
+        <li class="nav-item"><a href="index.html"><span class="nav-label">Home</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="dispensaries.html"><span class="nav-label">Dispensaries</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="strain-finder.html"><span class="nav-label">Strain Finder AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="grow-master.html"><span class="nav-label">Grower AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="munchies-ai.html"><span class="nav-label">Munchies AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#laws"><span class="nav-label">Laws by State</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html"><span class="nav-label">Learn</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#strains-library"><span class="nav-label">Strains Library</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#products"><span class="nav-label">Products</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#deals"><span class="nav-label">Deals</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+      <ul class="nav-row nav-row-secondary">
+        <li class="nav-item"><a href="learn.html#headshop"><span class="nav-label">Headshop</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#grow-shop"><span class="nav-label">Grow Shop</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#wellness"><span class="nav-label">Wellness</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#ride-safe"><span class="nav-label">Ride Safe</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#events"><span class="nav-label">Events</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#brands"><span class="nav-label">Brands</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="advertise.html"><span class="nav-label">Advertise</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="page-main narrow">
+    <section class="page-header">
+      <h1>Find Dispensaries Near You</h1>
+      <p>Enter your city or ZIP code and we’ll route you to trusted partner directories to explore menus, delivery options, and deals.</p>
+    </section>
+
+    <section class="search-section">
+      <form class="search-form" onsubmit="return false;">
+        <label>
+          City or ZIP
+          <input type="text" id="dispensary-location" placeholder="e.g. Denver, CO or 80202">
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="filter-medical"> Medical
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="filter-recreational"> Recreational
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="filter-delivery"> Delivery
+        </label>
+        <button type="button" class="primary-button" id="dispensary-search-btn">Search Partners</button>
+      </form>
+
+      <div class="results-hint">
+        <p>
+          We’ll use your search to deep-link you into major cannabis directories like Weedmaps and Leafly through affiliate links where available.
+          Always double-check licenses and reviews.
+        </p>
+      </div>
+
+      <div class="partner-links" id="dispensary-partner-links">
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h2>Stay Legal &amp; Safe</h2>
+      <p>
+        WEEDIES AI does not sell cannabis. We help you discover licensed dispensaries and educational information.
+        Availability and legality vary by state and country. Always verify your local laws and do not drive under the influence.
+      </p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>&copy; 2025 WEEDIES AI. All rights reserved.</p>
+  </footer>
+</body>
+</html>

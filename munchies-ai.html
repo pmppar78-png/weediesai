@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--
+Netlify AI / Claude – IMPORTANT ENGINE INSTRUCTIONS
+
+This site ALREADY has a fully wired AI backend. Do NOT break it.
+
+Engine:
+- Netlify Function: netlify/functions/ai-chat.js
+- Public endpoint:  /api/ai-chat   (see netlify.toml and _redirects)
+- Frontend chat JS: assets/js/chat.js
+- AI pages:
+    • strain-ai.html  (<body data-ai-mode="strain">)
+    • grow-ai.html    (<body data-ai-mode="grow">)
+    • munchies-ai.html (<body data-ai-mode="munchies">)
+
+DO NOT:
+- Delete, rename, or move netlify/functions/ai-chat.js
+- Remove or change the /api/ai-chat redirect
+- Remove the <script src="assets/js/chat.js"> on AI pages
+
+YOU MAY:
+- Edit copy, layout, and styling (HTML/CSS)
+- Add non-conflicting snippets (analytics, ads) AFTER the engine is confirmed working
+- Add new sections, tabs, pages, or imagery
+
+Always keep the /api/ai-chat endpoint working and the existing file/folder structure intact.
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Munchies AI – WEEDIES AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Talk to Munchies AI for personalized food recommendations based on your mood, cravings, and vibe.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/js/main.js"></script>
+
+  <!-- Munchies AI page-specific colors (scoped to this page only) -->
+  <style>
+    :root {
+      --gm-body: #F5FEFB;      /* soft off-white for paragraph text */
+      --gm-heading: #B4FFBF;   /* leaf green accent for headings */
+      --gm-title: #94F7A3;     /* brighter green for top-level title */
+    }
+
+    /* Body text */
+    .munchies-page .landing-writeup p,
+    .munchies-page .landing-writeup li,
+    .munchies-page .landing-writeup span {
+      color: var(--gm-body) !important;
+    }
+
+    /* Headings inside the card */
+    .munchies-page .landing-writeup h2,
+    .munchies-page .landing-writeup h3,
+    .munchies-page .landing-writeup strong,
+    .munchies-page .landing-writeup b {
+      color: var(--gm-heading) !important;
+    }
+
+    /* Top title on the page */
+    .munchies-page h1.page-title,
+    .munchies-page h1,
+    .munchies-page h2:first-of-type {
+      color: var(--gm-title) !important;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-inner">
+    <div class="header-left">
+      <img src="/assets/img/cannabis-leaf-icon.png" alt="" class="header-leaf-icon rotating-leaf">
+    </div>
+    <div class="header-center">
+      <img src="/assets/img/weedies-ai-logo-transparent.png" alt="WEEDIES AI" class="header-logo-img">
+    </div>
+    <button class="menu-toggle" aria-label="Open menu" id="mobile-menu-toggle">
+      ☰
+    </button>
+    <nav id="main-nav" class="main-nav">
+      <ul class="nav-row nav-row-primary">
+        <li class="nav-item"><a href="index.html"><span class="nav-label">Home</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="dispensaries.html"><span class="nav-label">Dispensaries</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="strain-finder.html"><span class="nav-label">Strain Finder AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="grow-master.html"><span class="nav-label">Grower AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="munchies-ai.html"><span class="nav-label">Munchies AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#laws"><span class="nav-label">Laws by State</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html"><span class="nav-label">Learn</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#strains-library"><span class="nav-label">Strains Library</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#products"><span class="nav-label">Products</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#deals"><span class="nav-label">Deals</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+      <ul class="nav-row nav-row-secondary">
+        <li class="nav-item"><a href="learn.html#headshop"><span class="nav-label">Headshop</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#grow-shop"><span class="nav-label">Grow Shop</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#wellness"><span class="nav-label">Wellness</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#ride-safe"><span class="nav-label">Ride Safe</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#events"><span class="nav-label">Events</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#brands"><span class="nav-label">Brands</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="advertise.html"><span class="nav-label">Advertise</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="page-main narrow munchies-page">
+    <section id="munchies" class="learn-section full-screen-ai-section">
+      <h2>Munchies AI</h2>
+      <div class="landing-writeup">
+        <h3>Meet Munchies AI — Your High-Vibe Food Oracle</h3>
+
+        <p>Whether you're lightly buzzed, melting into the couch, or "okay, somebody please strap me to the Earth" levels of baked, Munchies AI knows exactly what's going to taste incredible right now.</p>
+
+        <p>This is your personal flavor concierge, your late-night co-pilot, your "I got you" food expert that never judges and always delivers. Whether you're a bro, a girl, non-binary, or anything in between, if you're hungry and high, you're home here.</p>
+
+        <p>Tell Munchies AI:</p>
+
+        <ul class="leaf-list">
+          <li>Where you are</li>
+          <li>What kind of high you're riding</li>
+          <li>What you're in the mood for</li>
+          <li>What strain you smoked or ate</li>
+          <li>How hungry you actually are (light snack, real meal, full feast)</li>
+        </ul>
+
+        <p>Munchies AI takes all of that and builds a recommendation that fits your vibe, your appetite, and your location.</p>
+
+        <h3>What Munchies AI Can Do for You</h3>
+
+        <p><strong>Personalized food magic:</strong></p>
+
+        <ul class="leaf-list">
+          <li>Suggest snacks and meals that taste amazing with the kind of high you're on</li>
+          <li>Help you choose between junk food, comfort food, healthier options, or a little of everything</li>
+          <li>Match flavors to your mood and your strain's general effects (chill, giggly, sleepy, creative, social, etc.)</li>
+          <li>Give you simple, low-effort munchie ideas you can throw together in a few minutes</li>
+        </ul>
+
+        <p><strong>Delivery, drive-thru, and late-night options:</strong></p>
+
+        <ul class="leaf-list">
+          <li>Help you think through nearby fast food, diners, or local spots that usually stay open late</li>
+          <li>Suggest using delivery apps (like major food and convenience delivery services) when you don't want to leave the couch</li>
+          <li>Steer you toward easy, realistic options based on the kind of food you're craving</li>
+        </ul>
+
+        <p><strong>Easy "stoner chef" creations:</strong></p>
+
+        <ul class="leaf-list">
+          <li>Offer fun, simple snack and meal ideas with very few steps</li>
+          <li>Focus on things that are hard to mess up when you're high</li>
+          <li>Give you flavor combo ideas (sweet + salty, spicy + creamy, hot + cold) that hit even harder when the munchies kick in</li>
+        </ul>
+
+        <h3>When You're Too High</h3>
+
+        <p>Munchies AI isn't just about going harder on snacks — it can also be your calm, grounded voice when you overdid it.</p>
+
+        <p>If you're feeling too high, it can:</p>
+
+        <ul class="leaf-list">
+          <li>Suggest light snacks and drinks that many people find grounding and easier on the stomach</li>
+          <li>Talk about foods and beverages that may help you feel more stable and comfortable (like gentle citrus, light carbs, water, herbal teas, or small salty snacks)</li>
+          <li>Help you focus on hydration, balance, and simple comfort foods instead of going overboard</li>
+          <li>Offer soothing, reassuring guidance and remind you that the feeling is temporary</li>
+        </ul>
+
+        <p>It won't give medical advice, but it will do its best to point you toward choices that are calming, simple, and easy on both your body and your brain.</p>
+
+        <h3>Vibe Modes Munchies AI Handles</h3>
+
+        <p>You can ask Munchies AI things like:</p>
+
+        <ul class="leaf-list">
+          <li>"Give me the perfect lazy snack for this couch-lock."</li>
+          <li>"I'm on a giggly sativa and want something sweet and ridiculous."</li>
+          <li>"I want a real meal, not just chips. What should I get?"</li>
+          <li>"What's a good food when I'm this high but don't want to feel worse later?"</li>
+          <li>"Help, I think I'm too high. What should I eat or drink to feel more grounded?"</li>
+        </ul>
+
+        <h3>Personality and tone</h3>
+
+        <p>Munchies AI should feel like:</p>
+
+        <ul class="leaf-list">
+          <li>A chill friend who knows food</li>
+          <li>A private chef who understands cravings</li>
+          <li>A flavor nerd who gets how tastes and textures hit when you're high</li>
+          <li>A calm presence when you need to slow down and take care of yourself</li>
+        </ul>
+
+        <p>No cringe, no judgement — just genuinely helpful, fun, and steady.</p>
+      </div>
+
+      <div class="landing-cta">
+        <a href="munchies-chat.html" class="primary-button landing-cta-button">Launch Munchies AI</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

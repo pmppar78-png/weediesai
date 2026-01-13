@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--
+Netlify AI / Claude – IMPORTANT ENGINE INSTRUCTIONS
+
+This site ALREADY has a fully wired AI backend. Do NOT break it.
+
+Engine:
+- Netlify Function: netlify/functions/ai-chat.js
+- Public endpoint:  /api/ai-chat   (see netlify.toml and _redirects)
+- Frontend chat JS: assets/js/chat.js
+- AI pages:
+    • strain-ai.html  (<body data-ai-mode="strain">)
+    • grow-ai.html    (<body data-ai-mode="grow">)
+
+DO NOT:
+- Delete, rename, or move netlify/functions/ai-chat.js
+- Remove or change the /api/ai-chat redirect
+- Remove the <script src="assets/js/chat.js"> on AI pages
+
+YOU MAY:
+- Edit copy, layout, and styling (HTML/CSS)
+- Add non-conflicting snippets (analytics, ads) AFTER the engine is confirmed working
+- Add new sections, tabs, pages, or imagery
+
+Always keep the /api/ai-chat endpoint working and the existing file/folder structure intact.
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Advertise with WEEDIES AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Partner with WEEDIES AI to reach cannabis consumers, growers, and wellness-focused users.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-inner">
+    <div class="header-left">
+      <img src="/assets/img/cannabis-leaf-icon.png" alt="" class="header-leaf-icon rotating-leaf">
+    </div>
+    <div class="header-center">
+      <img src="/assets/img/weedies-ai-logo-transparent.png" alt="WEEDIES AI" class="header-logo-img">
+    </div>
+    <button class="menu-toggle" aria-label="Open menu" id="mobile-menu-toggle">
+      ☰
+    </button>
+    <nav id="main-nav" class="main-nav">
+      <ul class="nav-row nav-row-primary">
+        <li class="nav-item"><a href="index.html"><span class="nav-label">Home</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="dispensaries.html"><span class="nav-label">Dispensaries</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="strain-finder.html"><span class="nav-label">Strain Finder AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="grow-master.html"><span class="nav-label">Grower AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="munchies-ai.html"><span class="nav-label">Munchies AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#laws"><span class="nav-label">Laws by State</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html"><span class="nav-label">Learn</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#strains-library"><span class="nav-label">Strains Library</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#products"><span class="nav-label">Products</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#deals"><span class="nav-label">Deals</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+      <ul class="nav-row nav-row-secondary">
+        <li class="nav-item"><a href="learn.html#headshop"><span class="nav-label">Headshop</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#grow-shop"><span class="nav-label">Grow Shop</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#wellness"><span class="nav-label">Wellness</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#ride-safe"><span class="nav-label">Ride Safe</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#events"><span class="nav-label">Events</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#brands"><span class="nav-label">Brands</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="advertise.html"><span class="nav-label">Advertise</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="page-main narrow">
+    <section class="page-header">
+      <h1>Advertise with WEEDIES AI</h1>
+      <p>
+        WEEDIES AI is designed for modern cannabis consumers, home growers (where legal), and wellness-focused users who want smarter, safer guidance.
+        When they ask our AI what to buy and where to go, we have to send them somewhere. That can be you.
+      </p>
+    </section>
+
+    <section class="learn-section">
+      <h2>Who We Work With</h2>
+      <ul class="bullet-list">
+        <li>Licensed dispensaries and delivery services</li>
+        <li>Seed banks and genetics companies (where legal)</li>
+        <li>Grow shops, equipment manufacturers, and hydroponics retailers</li>
+        <li>Online headshops and accessory brands</li>
+        <li>Food delivery and “munchies” partners</li>
+        <li>Ride-share and transportation partners</li>
+        <li>Wellness, CBD, and harm-reduction brands</li>
+      </ul>
+    </section>
+
+    <section class="learn-section">
+      <h2>How Placement Works</h2>
+      <p>
+        We blend traditional placements with AI-native experiences:
+      </p>
+      <ul class="bullet-list">
+        <li>Featured links and tiles in relevant sections (Headshop, Grow Shop, Munchies, Ride Safe, etc.)</li>
+        <li>Contextual suggestions from Strain Finder AI and Grower AI when users ask for help</li>
+        <li>Educational content that highlights your brand’s strengths without overpromising</li>
+      </ul>
+    </section>
+
+    <section class="learn-section">
+      <h2>Let’s Talk</h2>
+      <p>
+        To discuss placements, sponsored content, or deeper integrations, email us at:
+      </p>
+      <p class="highlight-email">
+        <a href="mailto:advertise@weediesai.com">advertise@weediesai.com</a>
+      </p>
+      <p>
+        Please include your brand name, website, primary markets, and what kind of partnership you’re interested in.
+      </p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>&copy; 2025 WEEDIES AI. All rights reserved.</p>
+  </footer>
+</body>
+</html>

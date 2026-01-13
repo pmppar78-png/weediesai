@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+Netlify AI / Claude – IMPORTANT ENGINE INSTRUCTIONS
+
+This site ALREADY has a fully wired AI backend. Do NOT break it.
+
+Engine:
+- Netlify Function: netlify/functions/ai-chat.js
+- Public endpoint:  /api/ai-chat   (see netlify.toml and _redirects)
+- Frontend chat JS: assets/js/chat.js
+- AI pages:
+    • strain-ai.html  (<body data-ai-mode="strain">)
+    • grow-ai.html    (<body data-ai-mode="grow">)
+
+DO NOT:
+- Delete, rename, or move netlify/functions/ai-chat.js
+- Remove or change the /api/ai-chat redirect
+- Remove the <script src="assets/js/chat.js"> on AI pages
+
+YOU MAY:
+- Edit copy, layout, and styling (HTML/CSS)
+- Add non-conflicting snippets (analytics, ads) AFTER the engine is confirmed working
+- Add new sections, tabs, pages, or imagery
+
+Always keep the /api/ai-chat endpoint working and the existing file/folder structure intact.
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Strain Finder AI – WEEDIES AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Talk to WEEDIES Strain Finder AI to discover cannabis strains that match your mood, goals, and tolerance.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/chat.js"></script>
+</head>
+<body data-ai-mode="strain" class="chat-fullscreen">
+  <main class="page-main chat-page">
+    <div class="chat-topbar">
+      <div class="ai-header">
+        <img src="/assets/img/cannabis-leaf-icon.png" alt="" class="rotating-leaf-img">
+        <div class="ai-title-block">
+          <h1 class="ai-title">Strain Finder AI</h1>
+          <p class="ai-subtitle">Powered by WEEDIES AI</p>
+        </div>
+        <img src="/assets/img/cannabis-leaf-icon.png" alt="" class="rotating-leaf-img">
+      </div>
+    </div>
+
+    <div class="chat-shell">
+      <div class="chat-window" id="chat-window">
+        <div class="chat-message ai">
+          <div class="chat-bubble">
+            <p>Hey, I'm your AI budtender.</p>
+            <p>Tell me your mood, tolerance, and what you're hoping for (sleep, pain relief, creativity, social vibes, etc.), and I'll walk you through strains, effects, and how to stay safe.</p>
+          </div>
+        </div>
+      </div>
+      <form class="chat-input-row" id="chat-form">
+        <textarea id="chat-input" rows="1" placeholder="Example: I'm new, low tolerance, looking for something calming that won't make me paranoid."></textarea>
+        <button type="submit" class="primary-button">Send</button>
+      </form>
+      <div class="chat-footer-tip">
+        <p>Pro tip: Mention your state so I can keep suggestions aligned with your local laws.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

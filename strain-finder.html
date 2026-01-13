@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--
+Netlify AI / Claude – IMPORTANT ENGINE INSTRUCTIONS
+
+This site ALREADY has a fully wired AI backend. Do NOT break it.
+
+Engine:
+- Netlify Function: netlify/functions/ai-chat.js
+- Public endpoint:  /api/ai-chat   (see netlify.toml and _redirects)
+- Frontend chat JS: assets/js/chat.js
+- AI pages:
+    • strain-ai.html  (<body data-ai-mode="strain">)
+    • grow-ai.html    (<body data-ai-mode="grow">)
+
+DO NOT:
+- Delete, rename, or move netlify/functions/ai-chat.js
+- Remove or change the /api/ai-chat redirect
+- Remove the <script src="assets/js/chat.js"> on AI pages
+
+YOU MAY:
+- Edit copy, layout, and styling (HTML/CSS)
+- Add non-conflicting snippets (analytics, ads) AFTER the engine is confirmed working
+- Add new sections, tabs, pages, or imagery
+
+Always keep the /api/ai-chat endpoint working and the existing file/folder structure intact.
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Strain Finder AI – WEEDIES AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Discover your perfect cannabis strain with WEEDIES Strain Finder AI. Get personalized recommendations based on your mood, tolerance, and desired effects.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/js/main.js"></script>
+
+  <!-- Strain Finder AI page-specific colors (scoped to this page only) -->
+  <style>
+    :root {
+      --sf-body: #F5FEFB;      /* soft off-white for paragraph text */
+      --sf-heading: #B4FFBF;   /* leaf green accent for headings */
+      --sf-title: #94F7A3;     /* brighter green for top-level title */
+    }
+
+    /* Body text */
+    .strain-finder-page .landing-writeup p,
+    .strain-finder-page .landing-writeup li,
+    .strain-finder-page .landing-writeup span {
+      color: var(--sf-body) !important;
+    }
+
+    /* Headings inside the card */
+    .strain-finder-page .landing-writeup h2,
+    .strain-finder-page .landing-writeup h3,
+    .strain-finder-page .landing-writeup strong,
+    .strain-finder-page .landing-writeup b {
+      color: var(--sf-heading) !important;
+    }
+
+    /* Top title on the page */
+    .strain-finder-page h1.page-title,
+    .strain-finder-page h1 {
+      color: var(--sf-title) !important;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-inner">
+    <div class="header-left">
+      <img src="/assets/img/cannabis-leaf-icon.png" alt="" class="header-leaf-icon rotating-leaf">
+    </div>
+    <div class="header-center">
+      <img src="/assets/img/weedies-ai-logo-transparent.png" alt="WEEDIES AI" class="header-logo-img">
+    </div>
+    <button class="menu-toggle" aria-label="Open menu" id="mobile-menu-toggle">
+      ☰
+    </button>
+    <nav id="main-nav" class="main-nav">
+      <ul class="nav-row nav-row-primary">
+        <li class="nav-item"><a href="index.html"><span class="nav-label">Home</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="dispensaries.html"><span class="nav-label">Dispensaries</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="strain-finder.html"><span class="nav-label">Strain Finder AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="grow-master.html"><span class="nav-label">Grower AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="munchies-ai.html"><span class="nav-label">Munchies AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#laws"><span class="nav-label">Laws by State</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html"><span class="nav-label">Learn</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#strains-library"><span class="nav-label">Strains Library</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#products"><span class="nav-label">Products</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#deals"><span class="nav-label">Deals</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+      <ul class="nav-row nav-row-secondary">
+        <li class="nav-item"><a href="learn.html#headshop"><span class="nav-label">Headshop</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#grow-shop"><span class="nav-label">Grow Shop</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#wellness"><span class="nav-label">Wellness</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#ride-safe"><span class="nav-label">Ride Safe</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#events"><span class="nav-label">Events</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#brands"><span class="nav-label">Brands</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="advertise.html"><span class="nav-label">Advertise</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="page-main narrow strain-finder-page">
+    <section class="landing-content">
+      <h1>Strain Finder AI</h1>
+
+      <div class="landing-writeup">
+        <h2>Meet Your Personal Strain Finder AI</h2>
+
+        <p>Not sure what to smoke, vape, or dab next? Strain Finder AI is your always-on budtender that actually listens. Tell it how you want to feel, what you like, what you don't like, and it will do the heavy lifting for you.</p>
+
+        <p>Whether you're chasing giggly social vibes, deep relaxation, laser focus, pain relief, creativity, or a good night's sleep, Strain Finder AI helps you:</p>
+
+        <ul class="leaf-list">
+          <li>Discover specific strains that match your mood and goals</li>
+          <li>Understand how a strain is likely to feel before you try it</li>
+          <li>Avoid strains that might trigger anxiety, paranoia, or unwanted side-effects</li>
+          <li>Find similar options if your favorite strain is out of stock</li>
+        </ul>
+
+        <h3>What Strain Finder AI Knows</h3>
+
+        <p>This isn't a basic "Indica or sativa?" quiz. Strain Finder AI has deep, encyclopedic knowledge spanning the full cannabis experience:</p>
+
+        <ul class="leaf-list">
+          <li><strong>Indica, sativa &amp; hybrid profiles</strong> – body-heavy indicas, energizing sativas, and balanced hybrids. It understands how genetics influence effects.</li>
+          <li><strong>Chemistry &amp; terpenes</strong> – THC, CBD, CBN, CBG, and minor cannabinoids. Key terpenes like limonene (uplift), myrcene (sedation), linalool (calm), pinene (focus), caryophyllene (body comfort), and how they shape the experience.</li>
+          <li><strong>Tolerance &amp; experience level</strong> – new, occasional, or heavy user. It adjusts recommendations and dosing guidance based on your tolerance.</li>
+          <li><strong>Consumption methods</strong> – flower, prerolls, vapes, carts, dabs, hash, rosin, edibles, drinks, tinctures, capsules, topicals, and more. It explains how each method hits, how fast onset occurs, and how long effects last.</li>
+          <li><strong>Strain comparisons</strong> – it can compare two or more strains side-by-side and explain similarities, differences, and which might suit you better.</li>
+          <li><strong>Availability alternatives</strong> – if a strain is hard to find, it suggests similar options with comparable effects and terpene profiles.</li>
+        </ul>
+
+        <h3>Effects &amp; Feelings</h3>
+
+        <p>Strain Finder AI understands the full spectrum of cannabis effects and can help you find exactly what you're looking for:</p>
+
+        <ul class="leaf-list">
+          <li><strong>Euphoria &amp; mood lift</strong> – strains that boost happiness, giggles, and positive vibes.</li>
+          <li><strong>Relaxation &amp; calm</strong> – from light stress relief to deep body melt and couch-lock.</li>
+          <li><strong>Energy &amp; focus</strong> – daytime strains that keep you alert, productive, and mentally sharp.</li>
+          <li><strong>Creativity &amp; inspiration</strong> – strains that unlock artistic thinking and free-flowing ideas.</li>
+          <li><strong>Social &amp; talkative</strong> – strains perfect for conversation, laughing with friends, and social gatherings.</li>
+          <li><strong>Body high vs. head high</strong> – understand where you'll feel it most and how intense it gets.</li>
+          <li><strong>Sleep &amp; sedation</strong> – strains designed to help you wind down and drift off.</li>
+          <li><strong>Appetite stimulation</strong> – strains known for triggering the munchies when you need them.</li>
+        </ul>
+
+        <h3>Potential Side-Effects</h3>
+
+        <p>Strain Finder AI can warn you about strains more likely to cause unwanted effects and suggest gentler alternatives:</p>
+
+        <ul class="leaf-list">
+          <li><strong>Anxiety &amp; paranoia</strong> – some high-THC sativas can feel "racy" or overwhelming. It knows which to avoid.</li>
+          <li><strong>Dry mouth &amp; dry eyes</strong> – common across most strains, but some are worse than others.</li>
+          <li><strong>Heavy tiredness</strong> – certain indicas will knock you out. It can steer you toward functional options.</li>
+          <li><strong>Dizziness or disorientation</strong> – some strains hit harder than expected. It helps you find smoother experiences.</li>
+          <li><strong>Increased heart rate</strong> – certain strains affect some users more. It can suggest calmer alternatives.</li>
+        </ul>
+
+        <p>You can also ask:</p>
+
+        <ul class="leaf-list">
+          <li>"Which strains are less likely to make me paranoid?"</li>
+          <li>"What strain gives giggly, social energy without being too intense?"</li>
+          <li>"What should I avoid if I'm prone to anxiety?"</li>
+          <li>"Recommend a mellow edible for sleep and explain how much to start with."</li>
+          <li>"Compare Blue Dream vs. Green Crack for daytime use."</li>
+          <li>"What's a good strain for creativity that won't make me too spacey?"</li>
+        </ul>
+
+        <h3>Edibles Expertise</h3>
+
+        <p>Strain Finder AI has deep knowledge of cannabis edibles — how they work, how they differ from smoking or vaping, and how to approach them safely:</p>
+
+        <ul class="leaf-list">
+          <li><strong>Types of edibles</strong> – gummies, chocolates, baked goods, hard candies, beverages, tinctures, capsules, mints, and more. Each has its own onset profile.</li>
+          <li><strong>Onset time</strong> – unlike smoking, edibles take 30–90 minutes to kick in (sometimes longer). It explains why patience is critical.</li>
+          <li><strong>Peak effects</strong> – edibles typically peak 2–3 hours after consumption, with effects building gradually.</li>
+          <li><strong>Total duration</strong> – expect 4–8 hours total, sometimes longer. Plan accordingly and don't have obligations during this window.</li>
+          <li><strong>Why edibles feel stronger</strong> – when THC is digested, your liver converts it to 11-hydroxy-THC, which crosses the blood-brain barrier more effectively and creates a more intense, body-focused experience.</li>
+          <li><strong>Beginner dosing guidance</strong> – educational info on starting low (2.5–5mg THC for new users), waiting at least 2 hours before considering more, and building tolerance slowly.</li>
+          <li><strong>Safety reminders</strong> – start low, don't redose too quickly, avoid mixing with alcohol, stay hydrated, and have a safe space ready.</li>
+          <li><strong>Edibles vs. smoking/vaping</strong> – edibles produce longer-lasting, more body-heavy effects compared to the faster, shorter experience of inhalation.</li>
+          <li><strong>Matching edible profiles to strain effects</strong> – many edibles are labeled by strain or effect profile (indica, sativa, hybrid). It can help you choose the right one for your goals.</li>
+        </ul>
+
+        <p>Common edibles questions you can ask:</p>
+
+        <ul class="leaf-list">
+          <li>"How much should a beginner take for a gummy?"</li>
+          <li>"Why do edibles hit harder than smoking?"</li>
+          <li>"What's a good edible dose for sleep?"</li>
+          <li>"How long until this edible kicks in?"</li>
+          <li>"I took an edible an hour ago and don't feel anything — should I take more?"</li>
+        </ul>
+
+        <h3>Medicinal &amp; Wellness Guidance (Educational Only)</h3>
+
+        <p>Strain Finder AI can provide educational info about strains and products commonly used for wellness purposes:</p>
+
+        <ul class="leaf-list">
+          <li><strong>Sleep and relaxation</strong> – strains and edibles that promote restful sleep and deep calm.</li>
+          <li><strong>Mood and stress support</strong> – options for unwinding after a long day or lifting your spirits.</li>
+          <li><strong>Appetite stimulation</strong> – strains known for triggering the munchies when you need help eating.</li>
+          <li><strong>Focus and energy</strong> – daytime options that help you stay productive and alert.</li>
+          <li><strong>General comfort</strong> – strains commonly chosen for body relaxation and physical ease.</li>
+          <li><strong>CBD-forward options</strong> – low-THC, high-CBD strains for those wanting wellness benefits without intense psychoactive effects.</li>
+        </ul>
+
+        <p>It does NOT diagnose, treat, or provide medical advice. Always consult healthcare professionals for medical concerns.</p>
+
+        <h3>Dispensary &amp; Availability Helper</h3>
+
+        <p>Once you find a strain you like, Strain Finder AI can:</p>
+
+        <ul class="leaf-list">
+          <li>Suggest dispensaries where it's commonly found</li>
+          <li>Start with locations near you</li>
+          <li>Expand the radius based on how far you're willing to travel</li>
+          <li>Recommend similar strains if the exact one isn't available</li>
+        </ul>
+
+        <h3>How to Use It</h3>
+
+        <p>You can start with something simple or get specific. Here are some examples:</p>
+
+        <ul class="leaf-list">
+          <li>"I'm new and want something calming without paranoia."</li>
+          <li>"I want a creative daytime strain that keeps me talkative."</li>
+          <li>"I get anxious easily — what should I avoid?"</li>
+          <li>"I want something strong but not overwhelming."</li>
+          <li>"What's a good gummy dose for a first-timer?"</li>
+          <li>"How long do edibles last compared to smoking?"</li>
+          <li>"Recommend a sleep strain with high myrcene."</li>
+          <li>"Compare indica vs. sativa edibles for relaxation."</li>
+        </ul>
+
+        <h3>Important Reminder</h3>
+
+        <p>Strain Finder AI is for 21+ educational use only. It does not promote illegal activity. Always follow local laws, avoid driving high, start low and go slow, and consult healthcare professionals for medical concerns.</p>
+      </div>
+
+      <div class="landing-cta">
+        <a href="strain-ai.html?ref=strain-finder" class="primary-button landing-cta-button">Start Strain Finder AI</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 WEEDIES AI. All rights reserved. 21+ only. We do not promote illegal activity.</p>
+    <p class="footer-links">
+      <a href="learn.html#laws">Laws &amp; Compliance</a> ·
+      <a href="learn.html">Learn</a> ·
+      <a href="advertise.html">Advertise</a>
+    </p>
+  </footer>
+</body>
+</html>

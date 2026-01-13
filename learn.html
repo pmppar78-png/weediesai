@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<!--
+Netlify AI / Claude – IMPORTANT ENGINE INSTRUCTIONS
+
+This site ALREADY has a fully wired AI backend. Do NOT break it.
+
+Engine:
+- Netlify Function: netlify/functions/ai-chat.js
+- Public endpoint:  /api/ai-chat   (see netlify.toml and _redirects)
+- Frontend chat JS: assets/js/chat.js
+- AI pages:
+    • strain-ai.html  (<body data-ai-mode="strain">)
+    • grow-ai.html    (<body data-ai-mode="grow">)
+
+DO NOT:
+- Delete, rename, or move netlify/functions/ai-chat.js
+- Remove or change the /api/ai-chat redirect
+- Remove the <script src="assets/js/chat.js"> on AI pages
+
+YOU MAY:
+- Edit copy, layout, and styling (HTML/CSS)
+- Add non-conflicting snippets (analytics, ads) AFTER the engine is confirmed working
+- Add new sections, tabs, pages, or imagery
+
+Always keep the /api/ai-chat endpoint working and the existing file/folder structure intact.
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Learn &amp; Laws – WEEDIES AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Learn about cannabis laws, strains, products, and safe consumption with WEEDIES AI.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/js/main.js"></script>
+
+  <!-- Munchies AI card text colors (same palette as Strain Finder AI) -->
+  <style>
+    :root {
+      --munchies-body: #F5FEFB;      /* soft off-white for paragraph text */
+      --munchies-heading: #B4FFBF;   /* leaf green accent for headings */
+    }
+
+    /* Munchies AI section text styling */
+    #munchies .landing-writeup h2,
+    #munchies .landing-writeup h3,
+    #munchies .landing-writeup strong,
+    #munchies .landing-writeup b {
+      color: var(--munchies-heading) !important;
+    }
+
+    #munchies .landing-writeup p,
+    #munchies .landing-writeup li,
+    #munchies .landing-writeup span {
+      color: var(--munchies-body) !important;
+    }
+
+    /* When Munchies AI section is targeted via hash navigation,
+       hide all following sections so user can't scroll past it */
+    #munchies-ai:target ~ .learn-section {
+      display: none;
+    }
+
+    /* Munchies-mode: hide the site header (logo, nav tabs, etc.) */
+    body.munchies-mode .site-header {
+      display: none !important;
+    }
+
+    /* Munchies-mode: hide all sections ABOVE the Munchies AI section */
+    body.munchies-mode .page-header,
+    body.munchies-mode #laws,
+    body.munchies-mode #strains-library,
+    body.munchies-mode #products,
+    body.munchies-mode #deals,
+    body.munchies-mode #headshop,
+    body.munchies-mode #grow-shop {
+      display: none !important;
+    }
+
+    /* Munchies-mode: also hide sections BELOW the Munchies AI section */
+    body.munchies-mode #wellness,
+    body.munchies-mode #ride-safe,
+    body.munchies-mode #events,
+    body.munchies-mode #brands {
+      display: none !important;
+    }
+
+    /* Ensure the Munchies AI section fills the viewport properly in munchies-mode */
+    body.munchies-mode .page-main {
+      padding-top: 0;
+    }
+
+    body.munchies-mode .ai-fullpage-section {
+      padding-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-inner">
+    <div class="header-left">
+      <img src="/assets/img/cannabis-leaf-icon.png" alt="" class="header-leaf-icon rotating-leaf">
+    </div>
+    <div class="header-center">
+      <img src="/assets/img/weedies-ai-logo-transparent.png" alt="WEEDIES AI" class="header-logo-img">
+    </div>
+    <button class="menu-toggle" aria-label="Open menu" id="mobile-menu-toggle">
+      ☰
+    </button>
+    <nav id="main-nav" class="main-nav">
+      <ul class="nav-row nav-row-primary">
+        <li class="nav-item"><a href="index.html"><span class="nav-label">Home</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="dispensaries.html"><span class="nav-label">Dispensaries</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="strain-finder.html"><span class="nav-label">Strain Finder AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="grow-master.html"><span class="nav-label">Grower AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="munchies-ai.html"><span class="nav-label">Munchies AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#laws"><span class="nav-label">Laws by State</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html"><span class="nav-label">Learn</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#strains-library"><span class="nav-label">Strains Library</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#products"><span class="nav-label">Products</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#deals"><span class="nav-label">Deals</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+      <ul class="nav-row nav-row-secondary">
+        <li class="nav-item"><a href="learn.html#headshop"><span class="nav-label">Headshop</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#grow-shop"><span class="nav-label">Grow Shop</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#wellness"><span class="nav-label">Wellness</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#ride-safe"><span class="nav-label">Ride Safe</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#events"><span class="nav-label">Events</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#brands"><span class="nav-label">Brands</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="advertise.html"><span class="nav-label">Advertise</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="page-main learn-page">
+    <section class="page-header">
+      <h1>Learn, Stay Legal, and Explore</h1>
+      <p>
+        WEEDIES AI is built to keep you informed, compliant, and confident. Use this page as a hub for laws, education,
+        products, deals, and responsible-use resources.
+      </p>
+    </section>
+
+    <section id="laws" class="learn-section">
+      <h2>Laws by State (High-Level Overview)</h2>
+      <p>
+        Cannabis laws change frequently. This summary is for general education only and may not be current. Always verify
+        with official state resources before acting.
+      </p>
+      <div class="laws-grid">
+        <article class="law-card">
+          <h3>Fully Legal (Adult-Use &amp; Medical)</h3>
+          <p>Examples include CA, CO, WA, OR, NV, MI, IL, NY, NJ, MA, and others. Adult-use possession limits and home grow rules vary.</p>
+        </article>
+        <article class="law-card">
+          <h3>Medical-Only</h3>
+          <p>Some states allow medical use with a qualifying condition and card but prohibit or limit adult-use and home cultivation.</p>
+        </article>
+        <article class="law-card">
+          <h3>Limited or No Legalization</h3>
+          <p>In some states and countries, cannabis remains illegal or highly restricted. WEEDIES AI will not encourage illegal activity.</p>
+        </article>
+      </div>
+      <p class="section-note">
+        Tip: Ask Strain Finder AI or Grower AI to summarize your state’s rules. Always confirm with official state websites.
+      </p>
+    </section>
+
+    <section id="strains-library" class="learn-section">
+      <h2>Strains Library (Coming Soon)</h2>
+      <p>
+        We’re building a living library of strains organized by effects, terpene profile, THC/CBD ratio, and user goals.
+        For now, Strain Finder AI can act as your interactive strain index.
+      </p>
+    </section>
+
+    <section id="products" class="learn-section">
+      <h2>Products</h2>
+      <p>
+        Explore educational reviews and guides for vaporizers, glassware, grinders, storage, grow tents, lights, filters, nutrients, and more.
+        Many links on this site are affiliate links, which means we may earn a commission at no extra cost to you.
+      </p>
+    </section>
+
+    <section id="deals" class="learn-section">
+      <h2>Deals</h2>
+      <p>
+        This section will highlight partner promotions for accessories, grow gear, seeds (where legal), and other cannabis-adjacent products.
+        Check back often or ask Strain Finder AI what’s currently featured.
+      </p>
+    </section>
+
+    <section id="headshop" class="learn-section">
+      <h2>Headshop</h2>
+      <p>
+        Find curated links to online headshops for glass, vaporizers, rolling supplies, and storage solutions. Always shop from trusted,
+        age-verified retailers.
+      </p>
+    </section>
+
+    <section id="grow-shop" class="learn-section">
+      <h2>Grow Shop</h2>
+      <p>
+        From starter kits to advanced LED setups, we’ll connect you to reputable grow shops for tents, lights, fans, filters, nutrients,
+        and more. Grower AI can turn these into a custom shopping list for your space and budget.
+      </p>
+    </section>
+
+    <div id="munchies-ai" class="ai-fullpage-section">
+    <section id="munchies" class="learn-section full-screen-ai-section">
+      <h2>Munchies AI</h2>
+      <div class="landing-writeup">
+        <h3>Meet Munchies AI — Your High-Vibe Food Oracle</h3>
+
+        <p>Whether you're lightly buzzed, melting into the couch, or "okay, somebody please strap me to the Earth" levels of baked, Munchies AI knows exactly what's going to taste incredible right now.</p>
+
+        <p>This is your personal flavor concierge, your late-night co-pilot, your "I got you" food expert that never judges and always delivers. Whether you're a bro, a girl, non-binary, or anything in between, if you're hungry and high, you're home here.</p>
+
+        <p>Tell Munchies AI:</p>
+
+        <ul class="leaf-list">
+          <li>Where you are</li>
+          <li>What kind of high you're riding</li>
+          <li>What you're in the mood for</li>
+          <li>What strain you smoked or ate</li>
+          <li>How hungry you actually are (light snack, real meal, full feast)</li>
+        </ul>
+
+        <p>Munchies AI takes all of that and builds a recommendation that fits your vibe, your appetite, and your location.</p>
+
+        <h3>What Munchies AI Can Do for You</h3>
+
+        <p><strong>Personalized food magic:</strong></p>
+
+        <ul class="leaf-list">
+          <li>Suggest snacks and meals that taste amazing with the kind of high you're on</li>
+          <li>Help you choose between junk food, comfort food, healthier options, or a little of everything</li>
+          <li>Match flavors to your mood and your strain's general effects (chill, giggly, sleepy, creative, social, etc.)</li>
+          <li>Give you simple, low-effort munchie ideas you can throw together in a few minutes</li>
+        </ul>
+
+        <p><strong>Delivery, drive-thru, and late-night options:</strong></p>
+
+        <ul class="leaf-list">
+          <li>Help you think through nearby fast food, diners, or local spots that usually stay open late</li>
+          <li>Suggest using delivery apps (like major food and convenience delivery services) when you don't want to leave the couch</li>
+          <li>Steer you toward easy, realistic options based on the kind of food you're craving</li>
+        </ul>
+
+        <p><strong>Easy "stoner chef" creations:</strong></p>
+
+        <ul class="leaf-list">
+          <li>Offer fun, simple snack and meal ideas with very few steps</li>
+          <li>Focus on things that are hard to mess up when you're high</li>
+          <li>Give you flavor combo ideas (sweet + salty, spicy + creamy, hot + cold) that hit even harder when the munchies kick in</li>
+        </ul>
+
+        <h3>When You're Too High</h3>
+
+        <p>Munchies AI isn't just about going harder on snacks — it can also be your calm, grounded voice when you overdid it.</p>
+
+        <p>If you're feeling too high, it can:</p>
+
+        <ul class="leaf-list">
+          <li>Suggest light snacks and drinks that many people find grounding and easier on the stomach</li>
+          <li>Talk about foods and beverages that may help you feel more stable and comfortable (like gentle citrus, light carbs, water, herbal teas, or small salty snacks)</li>
+          <li>Help you focus on hydration, balance, and simple comfort foods instead of going overboard</li>
+          <li>Offer soothing, reassuring guidance and remind you that the feeling is temporary</li>
+        </ul>
+
+        <p>It won't give medical advice, but it will do its best to point you toward choices that are calming, simple, and easy on both your body and your brain.</p>
+
+        <h3>Vibe Modes Munchies AI Handles</h3>
+
+        <p>You can ask Munchies AI things like:</p>
+
+        <ul class="leaf-list">
+          <li>"Give me the perfect lazy snack for this couch-lock."</li>
+          <li>"I'm on a giggly sativa and want something sweet and ridiculous."</li>
+          <li>"I want a real meal, not just chips. What should I get?"</li>
+          <li>"What's a good food when I'm this high but don't want to feel worse later?"</li>
+          <li>"Help, I think I'm too high. What should I eat or drink to feel more grounded?"</li>
+        </ul>
+
+        <h3>Personality and tone</h3>
+
+        <p>Munchies AI should feel like:</p>
+
+        <ul class="leaf-list">
+          <li>A chill friend who knows food</li>
+          <li>A private chef who understands cravings</li>
+          <li>A flavor nerd who gets how tastes and textures hit when you're high</li>
+          <li>A calm presence when you need to slow down and take care of yourself</li>
+        </ul>
+
+        <p>No cringe, no judgement — just genuinely helpful, fun, and steady.</p>
+      </div>
+
+      <div class="landing-cta">
+        <a href="munchies-ai.html" class="primary-button landing-cta-button">Launch Munchies AI</a>
+      </div>
+    </section>
+    </div>
+
+    <section id="wellness" class="learn-section">
+      <h2>Wellness</h2>
+      <p>
+        Learn about CBD, minor cannabinoids, non-cannabis herbal supports, and harm-reduction strategies for sleep, pain, and stress.
+        WEEDIES AI can compare options and remind you when to consult a medical professional.
+      </p>
+    </section>
+
+    <section id="ride-safe" class="learn-section">
+      <h2>Ride Safe – Don't Drive High</h2>
+      <p>
+        If you're not sober, do not drive. This section highlights ride-share and transportation partners so you can get home safely:
+        Uber, Lyft, taxis, and more where available.
+      </p>
+      <p class="section-note">
+        Ask WEEDIES AI to help you plan a safe night: from dosing to timing your last hit before calling a ride.
+      </p>
+    </section>
+
+    <section id="events" class="learn-section">
+      <h2>Events (Coming Soon)</h2>
+      <p>
+        In the future, you’ll be able to browse 4/20 events, cannabis expos, educational workshops, and more. For now, ask the AI if there
+        are major events you should know about in your area.
+      </p>
+    </section>
+
+    <section id="brands" class="learn-section">
+      <h2>Brands</h2>
+      <p>
+        Discover seed banks, cultivators, dispensaries, device makers, and cannabis-adjacent brands vetted by WEEDIES AI.
+        Want your brand listed? Visit the Advertise page.
+      </p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>&copy; 2025 WEEDIES AI. Educational content only. Laws vary by jurisdiction.</p>
+  </footer>
+
+  <script>
+  (function() {
+    // Munchies-mode toggle: when #munchies-ai hash is active, add munchies-mode class to body
+    function updateMunchiesMode() {
+      var hash = window.location.hash;
+      if (hash === '#munchies-ai') {
+        document.body.classList.add('munchies-mode');
+      } else {
+        document.body.classList.remove('munchies-mode');
+      }
+    }
+
+    // Run on page load
+    document.addEventListener('DOMContentLoaded', updateMunchiesMode);
+
+    // Also run immediately in case DOMContentLoaded already fired
+    if (document.readyState !== 'loading') {
+      updateMunchiesMode();
+    }
+
+    // Run on hash change
+    window.addEventListener('hashchange', updateMunchiesMode);
+  })();
+  </script>
+</body>
+</html>

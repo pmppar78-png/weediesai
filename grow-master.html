@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!--
+Netlify AI / Claude – IMPORTANT ENGINE INSTRUCTIONS
+
+This site ALREADY has a fully wired AI backend. Do NOT break it.
+
+Engine:
+- Netlify Function: netlify/functions/ai-chat.js
+- Public endpoint:  /api/ai-chat   (see netlify.toml and _redirects)
+- Frontend chat JS: assets/js/chat.js
+- AI pages:
+    • strain-ai.html  (<body data-ai-mode="strain">)
+    • grow-ai.html    (<body data-ai-mode="grow">)
+
+DO NOT:
+- Delete, rename, or move netlify/functions/ai-chat.js
+- Remove or change the /api/ai-chat redirect
+- Remove the <script src="assets/js/chat.js"> on AI pages
+
+YOU MAY:
+- Edit copy, layout, and styling (HTML/CSS)
+- Add non-conflicting snippets (analytics, ads) AFTER the engine is confirmed working
+- Add new sections, tabs, pages, or imagery
+
+Always keep the /api/ai-chat endpoint working and the existing file/folder structure intact.
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grow Master AI – WEEDIES AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Let Grow Master AI guide your legal cannabis cultivation journey. Expert advice on growing methods, environments, plant health, and harvest techniques for personal home grows.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/js/main.js"></script>
+
+  <!-- Grow Master AI page-specific colors (scoped to this page only) -->
+  <style>
+    :root {
+      --gm-body: #F5FEFB;      /* soft off-white for paragraph text */
+      --gm-heading: #B4FFBF;   /* leaf green accent for headings */
+      --gm-title: #94F7A3;     /* brighter green for top-level title */
+    }
+
+    /* Body text */
+    .grow-master-page .landing-writeup p,
+    .grow-master-page .landing-writeup li,
+    .grow-master-page .landing-writeup span {
+      color: var(--gm-body) !important;
+    }
+
+    /* Headings inside the card */
+    .grow-master-page .landing-writeup h2,
+    .grow-master-page .landing-writeup h3,
+    .grow-master-page .landing-writeup strong,
+    .grow-master-page .landing-writeup b {
+      color: var(--gm-heading) !important;
+    }
+
+    /* Top title on the page */
+    .grow-master-page h1.page-title,
+    .grow-master-page h1 {
+      color: var(--gm-title) !important;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-inner">
+    <div class="header-left">
+      <img src="/assets/img/cannabis-leaf-icon.png" alt="" class="header-leaf-icon rotating-leaf">
+    </div>
+    <div class="header-center">
+      <img src="/assets/img/weedies-ai-logo-transparent.png" alt="WEEDIES AI" class="header-logo-img">
+    </div>
+    <button class="menu-toggle" aria-label="Open menu" id="mobile-menu-toggle">
+      ☰
+    </button>
+    <nav id="main-nav" class="main-nav">
+      <ul class="nav-row nav-row-primary">
+        <li class="nav-item"><a href="index.html"><span class="nav-label">Home</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="dispensaries.html"><span class="nav-label">Dispensaries</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="strain-finder.html"><span class="nav-label">Strain Finder AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="grow-master.html"><span class="nav-label">Grower AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="munchies-ai.html"><span class="nav-label">Munchies AI</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#laws"><span class="nav-label">Laws by State</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html"><span class="nav-label">Learn</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#strains-library"><span class="nav-label">Strains Library</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#products"><span class="nav-label">Products</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#deals"><span class="nav-label">Deals</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+      <ul class="nav-row nav-row-secondary">
+        <li class="nav-item"><a href="learn.html#headshop"><span class="nav-label">Headshop</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#grow-shop"><span class="nav-label">Grow Shop</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#wellness"><span class="nav-label">Wellness</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#ride-safe"><span class="nav-label">Ride Safe</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#events"><span class="nav-label">Events</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#brands"><span class="nav-label">Brands</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="advertise.html"><span class="nav-label">Advertise</span><img src="/assets/img/cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="page-main narrow grow-master-page">
+    <section class="landing-content">
+      <h1>Grow Master AI</h1>
+
+      <div class="landing-writeup">
+        <h2>Meet Your Grow Master AI</h2>
+
+        <p>Grow Master AI is your expert cultivation consultant for legal, personal-scale cannabis growing. Whether you're working with a small single-plant tent, a stealth closet grow, a full room, a greenhouse, or a legal outdoor setup, Grow Master AI helps you grow healthier plants and bigger, higher-quality buds.</p>
+
+        <p>It learns your grow space, experience level, strain choice, and goals—and builds a grow plan that fits your exact situation.</p>
+
+        <h3>What Grow Master AI Can Help You With</h3>
+
+        <p>Grow Master AI is trained in all major growing styles, including:</p>
+
+        <ul class="leaf-list">
+          <li>Indoor tents of all sizes</li>
+          <li>Closet and cabinet micro-grows</li>
+          <li>Balcony and patio grows</li>
+          <li>Greenhouses</li>
+          <li>Legal outdoor gardens</li>
+        </ul>
+
+        <p>It fully understands every major growing medium and system, including:</p>
+
+        <ul class="leaf-list">
+          <li>Soil and living soil</li>
+          <li>Super soil and organic amended mixes</li>
+          <li>Coco coir</li>
+          <li>Deep Water Culture (DWC)</li>
+          <li>Recirculating DWC (RDWC)</li>
+          <li>Ebb and flow systems</li>
+          <li>Drip irrigation systems</li>
+          <li>Kratky hydroponics</li>
+          <li>Nutrient Film Technique (NFT)</li>
+          <li>Aeroponics</li>
+          <li>Autopot and gravity-fed hybrid systems</li>
+        </ul>
+
+        <h3>Environmental control and conditions:</h3>
+
+        <ul class="leaf-list">
+          <li>Temperature, humidity, and VPD by growth stage</li>
+          <li>Airflow, intake/exhaust, and fan placement</li>
+          <li>Heat management and cold-weather adjustments</li>
+          <li>Ideal conditions for seedlings, veg, and bloom</li>
+        </ul>
+
+        <h3>Lighting and canopy management:</h3>
+
+        <ul class="leaf-list">
+          <li>LED, HID, and CMH lighting</li>
+          <li>Hanging height, dimmer levels, and light schedules</li>
+          <li>Preventing light burn, bleaching, and foxtailing</li>
+          <li>Tent layout optimization for maximum canopy coverage</li>
+        </ul>
+
+        <h3>Feeding and nutrition:</h3>
+
+        <ul class="leaf-list">
+          <li>Soil and organic feed strategies</li>
+          <li>Bottled nutrient schedules</li>
+          <li>Proper EC/PPM and pH ranges</li>
+          <li>Identifying deficiencies, toxicities, and lockout</li>
+          <li>Watering schedules based on medium and pot size</li>
+        </ul>
+
+        <h3>Training and yield improvements:</h3>
+
+        <ul class="leaf-list">
+          <li>LST, topping, FIM, mainlining, manifolds</li>
+          <li>SCROG and SOG</li>
+          <li>Defoliation timing and canopy shaping</li>
+          <li>Increasing bud density and final yield</li>
+        </ul>
+
+        <h3>Strain-specific guidance:</h3>
+
+        <ul class="leaf-list">
+          <li>Ideal veg times</li>
+          <li>Stretch behavior and height expectations</li>
+          <li>Nutrient sensitivity</li>
+          <li>Similar strain recommendations</li>
+        </ul>
+
+        <h3>Troubleshooting:</h3>
+
+        <ul class="leaf-list">
+          <li>Yellowing, drooping, curling, or spotting leaves</li>
+          <li>Slow growth or stunted plants</li>
+          <li>Root issues, pests, powdery mildew, or mold</li>
+          <li>Preventing and managing bud rot</li>
+          <li>Diagnosing overwatering or underwatering</li>
+        </ul>
+
+        <h3>Harvest, dry, and cure:</h3>
+
+        <ul class="leaf-list">
+          <li>Trichome timing for different effects</li>
+          <li>Flushing guidance (medium-specific)</li>
+          <li>Drying conditions to prevent mold or hay smell</li>
+          <li>Simple curing methods for smooth, flavorful buds</li>
+        </ul>
+
+        <h3>Expert Guidance, Not Legal Advice</h3>
+
+        <p>Grow Master AI is for legal, personal-scale cultivation only. Always follow your local laws and regulations.</p>
+      </div>
+
+      <div class="landing-cta">
+        <a href="/grow-ai.html" class="primary-button landing-cta-button">Start Grow Master AI</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 WEEDIES AI. All rights reserved. 21+ only. We do not promote illegal activity.</p>
+    <p class="footer-links">
+      <a href="learn.html#laws">Laws &amp; Compliance</a> ·
+      <a href="learn.html">Learn</a> ·
+      <a href="advertise.html">Advertise</a>
+    </p>
+  </footer>
+</body>
+</html>
