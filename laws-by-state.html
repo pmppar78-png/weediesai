@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cannabis Laws by State – WEEDIES AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Cannabis laws by state. Educational information about cannabis legal status, medical marijuana, recreational marijuana, possession limits, and home grow rules across the United States.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="main.js"></script>
+  <style>
+    /* Laws by State page-specific styles */
+    .laws-page-main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.8rem 1.25rem 3rem;
+    }
+
+    .laws-page-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .laws-page-header h1 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    .laws-disclaimer {
+      background: linear-gradient(135deg, rgba(45, 212, 191, 0.15), rgba(129, 230, 217, 0.08));
+      border: 1px solid rgba(45, 212, 191, 0.6);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+
+    .state-links-section {
+      background: linear-gradient(135deg, #0A637A 0%, #062B45 100%);
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 0 20px rgba(10, 99, 122, 0.3);
+    }
+
+    .state-links-section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+      text-align: center;
+    }
+
+    .state-links-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .state-links-list li {
+      margin: 0;
+    }
+
+    .state-links-list a {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #ecfeff;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: radial-gradient(circle at 30% 0, rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.2));
+      font-size: 0.85rem;
+      transition: all 0.15s ease-out;
+    }
+
+    .state-links-list a:hover {
+      border-color: rgba(190, 242, 100, 0.9);
+      box-shadow: 0 0 14px rgba(52, 211, 153, 0.8);
+      transform: translateY(-1px);
+    }
+
+    .state-section {
+      background: linear-gradient(135deg, #0A637A 0%, #062B45 100%);
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 1.5rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 20px rgba(10, 99, 122, 0.3);
+    }
+
+    .state-section h2 {
+      font-size: 1.4rem;
+      margin: 0 0 1.25rem 0;
+      color: var(--accent-lime);
+      border-bottom: 1px solid rgba(163, 230, 53, 0.3);
+      padding-bottom: 0.75rem;
+    }
+
+    .state-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .state-info-item {
+      background: rgba(15, 23, 42, 0.3);
+      border-radius: 12px;
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .state-info-item h3 {
+      font-size: 0.9rem;
+      color: var(--accent-aqua);
+      margin: 0 0 0.5rem 0;
+      font-weight: 600;
+    }
+
+    .state-info-item p {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .state-notes {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .state-notes h3 {
+      font-size: 0.9rem;
+      color: var(--accent-aqua);
+      margin: 0 0 0.5rem 0;
+      font-weight: 600;
+    }
+
+    .state-notes p {
+      font-size: 0.85rem;
+      color: #d1d5db;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .back-to-top {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: #a5f3fc;
+      text-decoration: none;
+    }
+
+    .back-to-top:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .laws-page-main {
+        padding: 1.25rem 1rem 2rem;
+      }
+
+      .state-links-section,
+      .state-section {
+        padding: 1.25rem 1rem;
+      }
+
+      .state-info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-inner">
+    <div class="header-left">
+      <img src="cannabis-leaf-icon.png" alt="" class="header-leaf-icon rotating-leaf">
+    </div>
+    <div class="header-center">
+      <img src="weedies-ai-logo-transparent.png" alt="WEEDIES AI" class="header-logo-img">
+    </div>
+    <button class="menu-toggle" aria-label="Open menu" id="mobile-menu-toggle">
+      ☰
+    </button>
+    <nav id="main-nav" class="main-nav">
+      <ul class="nav-row nav-row-primary">
+        <li class="nav-item"><a href="index.html"><span class="nav-label">Home</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="dispensaries.html"><span class="nav-label">Dispensaries</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="strain-finder.html"><span class="nav-label">Strain Finder AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="grow-master.html"><span class="nav-label">Grower AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="munchies-ai.html"><span class="nav-label">Munchies AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="laws-by-state.html"><span class="nav-label">Laws by State</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html"><span class="nav-label">Learn</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#strains-library"><span class="nav-label">Strains Library</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#products"><span class="nav-label">Products</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#deals"><span class="nav-label">Deals</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+      <ul class="nav-row nav-row-secondary">
+        <li class="nav-item"><a href="learn.html#headshop"><span class="nav-label">Headshop</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#grow-shop"><span class="nav-label">Grow Shop</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#wellness"><span class="nav-label">Wellness</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#ride-safe"><span class="nav-label">Ride Safe</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#events"><span class="nav-label">Events</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#brands"><span class="nav-label">Brands</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="advertise.html"><span class="nav-label">Advertise</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="laws-page-main">
+    <div class="laws-page-header">
+      <h1>Cannabis Laws by State</h1>
+    </div>
+
+    <div class="laws-disclaimer">
+      Cannabis laws change frequently. This information is provided for educational purposes only and does not constitute legal advice.
+    </div>
+
+    <section class="state-links-section" id="top">
+      <h2>Select a State</h2>
+      <ul class="state-links-list">
+        <li><a href="#alabama">Alabama</a></li>
+        <li><a href="#alaska">Alaska</a></li>
+        <li><a href="#arizona">Arizona</a></li>
+        <li><a href="#arkansas">Arkansas</a></li>
+        <li><a href="#california">California</a></li>
+        <li><a href="#colorado">Colorado</a></li>
+        <li><a href="#connecticut">Connecticut</a></li>
+        <li><a href="#delaware">Delaware</a></li>
+        <li><a href="#florida">Florida</a></li>
+        <li><a href="#georgia">Georgia</a></li>
+        <li><a href="#hawaii">Hawaii</a></li>
+        <li><a href="#idaho">Idaho</a></li>
+        <li><a href="#illinois">Illinois</a></li>
+        <li><a href="#indiana">Indiana</a></li>
+        <li><a href="#iowa">Iowa</a></li>
+        <li><a href="#kansas">Kansas</a></li>
+        <li><a href="#kentucky">Kentucky</a></li>
+        <li><a href="#louisiana">Louisiana</a></li>
+        <li><a href="#maine">Maine</a></li>
+        <li><a href="#maryland">Maryland</a></li>
+        <li><a href="#massachusetts">Massachusetts</a></li>
+        <li><a href="#michigan">Michigan</a></li>
+        <li><a href="#minnesota">Minnesota</a></li>
+        <li><a href="#mississippi">Mississippi</a></li>
+        <li><a href="#missouri">Missouri</a></li>
+        <li><a href="#montana">Montana</a></li>
+        <li><a href="#nebraska">Nebraska</a></li>
+        <li><a href="#nevada">Nevada</a></li>
+        <li><a href="#new-hampshire">New Hampshire</a></li>
+        <li><a href="#new-jersey">New Jersey</a></li>
+        <li><a href="#new-mexico">New Mexico</a></li>
+        <li><a href="#north-carolina">North Carolina</a></li>
+        <li><a href="#new-york">New York</a></li>
+        <li><a href="#north-dakota">North Dakota</a></li>
+        <li><a href="#ohio">Ohio</a></li>
+        <li><a href="#oklahoma">Oklahoma</a></li>
+        <li><a href="#oregon">Oregon</a></li>
+        <li><a href="#pennsylvania">Pennsylvania</a></li>
+        <li><a href="#rhode-island">Rhode Island</a></li>
+        <li><a href="#south-carolina">South Carolina</a></li>
+        <li><a href="#south-dakota">South Dakota</a></li>
+        <li><a href="#tennessee">Tennessee</a></li>
+        <li><a href="#texas">Texas</a></li>
+        <li><a href="#utah">Utah</a></li>
+        <li><a href="#vermont">Vermont</a></li>
+        <li><a href="#virginia">Virginia</a></li>
+        <li><a href="#washington">Washington</a></li>
+        <li><a href="#west-virginia">West Virginia</a></li>
+        <li><a href="#wisconsin">Wisconsin</a></li>
+        <li><a href="#wyoming">Wyoming</a></li>
+      </ul>
+    </section>
+
+    <!-- Alabama -->
+    <section class="state-section" id="alabama">
+      <h2>Alabama</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal. Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2021 under the Darren Wesley 'Ato' Hall Compassion Act (SB 46). Dispensaries began operations in 2024.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Possession of cannabis for recreational use remains a criminal offense.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients may possess up to 70 daily doses (a 70-day supply) of medical cannabis products. Recreational possession of any amount is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation is illegal for both medical patients and recreational users.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Alabama's medical program does not allow smokable flower. Approved forms include tablets, capsules, oils, and topicals. Patients must have a qualifying condition and be registered with the state.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Alaska -->
+    <section class="state-section" id="alaska">
+      <h2>Alaska</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 1998 under Ballot Measure 8. Patients with qualifying conditions can register for medical access.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2014 under Ballot Measure 2. Alaska was among the first states to legalize recreational cannabis.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 1 ounce of cannabis. Up to 7 grams of concentrate is permitted.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 6 plants per person, with no more than 3 being mature. Maximum of 12 plants per household.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Public consumption is prohibited. On-site consumption at licensed retail locations is permitted in some areas. Local governments may prohibit commercial cannabis operations.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Arizona -->
+    <section class="state-section" id="arizona">
+      <h2>Arizona</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2010 under the Arizona Medical Marijuana Act (Proposition 203). Patients with qualifying conditions can obtain a registry identification card.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2020 under Proposition 207 (Smart and Safe Arizona Act). Retail sales began in January 2021.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 1 ounce of cannabis, with no more than 5 grams being concentrate. Medical patients may possess up to 2.5 ounces.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 6 plants per individual or 12 plants per household with two or more adults. Plants must be grown in an enclosed, locked area.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Public consumption is prohibited. Employers may still enforce drug-free workplace policies. Local jurisdictions cannot opt out of allowing licensed retail operations.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Arkansas -->
+    <section class="state-section" id="arkansas">
+      <h2>Arkansas</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal. Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2016 under the Arkansas Medical Marijuana Amendment (Issue 6). Licensed dispensaries operate throughout the state.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. A 2022 ballot measure to legalize recreational use was defeated by voters.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients may possess up to 2.5 ounces of cannabis over a 14-day period. Recreational possession of any amount is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation is prohibited for both medical patients and the general public.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Arkansas has 18 qualifying conditions for medical cannabis. Patients must obtain a written certification from a licensed physician and register with the state. Smokable flower and other product forms are available.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- California -->
+    <section class="state-section" id="california">
+      <h2>California</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 1996 under the Compassionate Use Act (Proposition 215). Patients with a valid recommendation can access medical cannabis.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2016 under Proposition 64 (Adult Use of Marijuana Act). Adults 21+ may possess and use cannabis.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Up to 28.5 grams of flower and up to 8 grams of concentrate for adults 21+. Medical patients may possess larger amounts as recommended.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 6 plants per residence for personal use. Plants must be grown in a locked space not visible from public areas.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Local jurisdictions may have additional restrictions on cannabis businesses and consumption. Public consumption remains prohibited. Driving under the influence is illegal.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Colorado -->
+    <section class="state-section" id="colorado">
+      <h2>Colorado</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2000 under Amendment 20. Registered patients with qualifying conditions can access medical cannabis.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2012 under Amendment 64. Colorado was one of the first states to legalize recreational cannabis.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Colorado residents: up to 2 ounces. Non-residents: up to 1 ounce. Medical patients may possess up to 2 ounces.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may grow up to 6 plants per person, with a maximum of 12 plants per household. Only 3 plants may be flowering at a time per person.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Consumption is prohibited in public places and federal lands. Local governments may opt out of allowing retail sales. Open container laws apply to cannabis in vehicles.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Connecticut -->
+    <section class="state-section" id="connecticut">
+      <h2>Connecticut</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2012 under Public Act 12-55. The program has expanded over time to include additional qualifying conditions and product types.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2021 under Senate Bill 1201. Licensed retail sales began in January 2023.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 1.5 ounces on their person and up to 5 ounces in a locked container at home or in a vehicle's glove box or trunk.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 3 mature plants and 3 immature plants (6 total per person, 12 per household). Plants must be grown in a secure location not visible to the public.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Connecticut's law includes social equity provisions for communities disproportionately impacted by cannabis prohibition. Public consumption is prohibited except in designated areas. Employers may maintain drug-free workplace policies.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Delaware -->
+    <section class="state-section" id="delaware">
+      <h2>Delaware</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2011 under the Delaware Medical Marijuana Act. Patients with qualifying conditions can register and access cannabis through licensed compassion centers.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2023 under House Bill 1 (Delaware Marijuana Control Act). Adults 21+ may possess and use cannabis, though retail sales have not yet begun.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 1 ounce of cannabis. Medical patients may possess up to 6 ounces.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation remains illegal for both recreational users and medical patients.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>While personal possession and use is legal, Delaware has not yet established a recreational retail market. Public consumption is prohibited. Use in vehicles (including as a passenger) is illegal.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Florida -->
+    <section class="state-section" id="florida">
+      <h2>Florida</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal. Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2016 under Amendment 2 (Florida Medical Marijuana Legalization Initiative). The program is administered by the Florida Department of Health.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. A 2024 ballot measure (Amendment 3) to legalize recreational use narrowly failed to reach the required 60% threshold.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients may possess up to 2.5 ounces of smokable cannabis every 35 days. Total supply limits are set by the recommending physician. Recreational possession is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation is prohibited for both medical patients and the general public.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Florida has one of the largest medical cannabis programs in the U.S. by patient count. Products available include flower, edibles, concentrates, topicals, and more. Patients must have a qualifying condition and be registered in the Medical Marijuana Use Registry.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Georgia -->
+    <section class="state-section" id="georgia">
+      <h2>Georgia</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Limited medical cannabis (low-THC oil only) is legal. Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2015 under Haleigh's Hope Act (HB 1). Expanded in 2019 under HB 324 to allow in-state production and distribution of low-THC oil.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Possession of cannabis for recreational use remains a criminal offense with penalties varying by amount.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Registered patients may possess up to 20 fluid ounces of low-THC oil (containing no more than 5% THC). No smokable flower is permitted.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation is illegal for all purposes.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Georgia's program is one of the most restrictive in the nation. Only low-THC oil is permitted, and sales through licensed dispensaries began in 2023. Qualifying conditions include cancer, seizure disorders, multiple sclerosis, Parkinson's disease, and others.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Hawaii -->
+    <section class="state-section" id="hawaii">
+      <h2>Hawaii</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal. Recreational cannabis is decriminalized but not legal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2000 under Act 228 (Hawaii Medical Marijuana Act). Licensed dispensaries have been operating since 2017.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Decriminalized since 2020. Possession of 3 grams or less is a violation with a $130 fine and no criminal record. Larger amounts remain illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients may possess up to 4 ounces of usable cannabis. For non-patients, possession of over 3 grams is a criminal offense.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Medical patients may cultivate up to 10 plants per patient. Home cultivation by non-patients is prohibited.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Hawaii has debated recreational legalization in recent legislative sessions but has not yet passed such a law. The medical program allows for a wide range of qualifying conditions. Out-of-state medical patients can apply for temporary registration to purchase while visiting.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Idaho -->
+    <section class="state-section" id="idaho">
+      <h2>Idaho</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Cannabis is fully illegal. Idaho has some of the strictest cannabis laws in the nation.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Illegal. Idaho does not have a medical cannabis program. CBD products must contain 0% THC to be legal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Possession of any amount of cannabis is a criminal offense in Idaho.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Possession of less than 3 ounces is a misdemeanor punishable by up to 1 year in jail and a $1,000 fine. Possession of 3 ounces or more is a felony.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Cultivation of any amount of cannabis is a felony in Idaho.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Idaho amended its constitution in 2022 to require a two-thirds legislative supermajority to legalize any Schedule I controlled substance, making future legalization particularly difficult. Despite bordering several legal states, Idaho maintains strict prohibition.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Illinois -->
+    <section class="state-section" id="illinois">
+      <h2>Illinois</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2013 under the Compassionate Use of Medical Cannabis Program Act. The program has expanded to include additional qualifying conditions.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2020 under the Cannabis Regulation and Tax Act. Illinois was the first state to legalize recreational cannabis through the legislature rather than a ballot initiative.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Illinois residents: up to 30 grams of flower, 5 grams of concentrate, and 500mg of THC in infused products. Non-residents: half those amounts. Medical patients may possess higher amounts.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Only medical patients may grow at home: up to 5 plants per household. Recreational home cultivation is prohibited.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Illinois' law includes significant social equity provisions, with licenses prioritized for applicants from communities disproportionately impacted by cannabis prohibition. Public consumption is prohibited. Cannabis cannot be consumed in motor vehicles.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Indiana -->
+    <section class="state-section" id="indiana">
+      <h2>Indiana</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Cannabis is illegal for both medical and recreational use.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Illegal. Indiana does not have a medical cannabis program. Only CBD products derived from hemp with less than 0.3% THC are permitted.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Possession of any amount of cannabis is a criminal offense in Indiana.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Possession of less than 30 grams is a Class B misdemeanor (up to 180 days jail, $1,000 fine). Prior offenses or possession with intent to sell increases penalties.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Cultivation of any cannabis plants is a felony.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Indiana has considered but not passed medical cannabis legislation in recent years. The state borders Illinois and Michigan, both of which have fully legal recreational markets. Hemp-derived CBD products are legal under state law following the 2018 Farm Bill.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Iowa -->
+    <section class="state-section" id="iowa">
+      <h2>Iowa</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Limited medical cannabis (low-THC products only) is legal. Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2014 under Senate File 2360, expanded in 2017 and 2020. The Iowa Medical Cannabidiol Program allows registered patients to access low-THC products.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Possession of any amount of cannabis for recreational use is a criminal offense.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients may possess up to 4.5 grams of THC in a 90-day period. Smokable flower is not permitted. Recreational possession of any amount is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation is prohibited for all purposes.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Iowa's medical program is among the most restrictive in the country. Products are limited to capsules, tinctures, topicals, vape cartridges, and suppositories. Patients must have one of the qualifying conditions and obtain certification from a licensed healthcare practitioner.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Kansas -->
+    <section class="state-section" id="kansas">
+      <h2>Kansas</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Cannabis is fully illegal. Kansas has no medical or recreational cannabis program.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Illegal. Kansas does not have a medical cannabis program. Only CBD products with 0% THC derived from hemp are legal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Possession of any amount of cannabis is a criminal offense in Kansas.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>First-time possession of any amount is a Class B misdemeanor (up to 6 months jail, $1,000 fine). Subsequent offenses are Class A misdemeanors. Sale of any amount is a felony.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Cultivation of any cannabis plants is a felony offense.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Kansas has considered but not passed medical cannabis legislation. The state borders Colorado, which has a fully legal market, leading to concerns about cross-border transport. Hemp-derived CBD with 0% THC is legal following federal legalization.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Kentucky -->
+    <section class="state-section" id="kentucky">
+      <h2>Kentucky</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal (effective 2025). Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2023 under Senate Bill 47 (Kentucky Medical Cannabis Program). The program is scheduled to begin dispensary sales on January 1, 2025.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Possession of cannabis for recreational use remains a criminal offense.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients will be able to possess a 10-day supply of cannabis products. Smokable flower is not permitted in the first year of the program. Recreational possession of less than 8 ounces is a Class B misdemeanor.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation is prohibited for both medical patients and the general public.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Kentucky's medical program includes 21 qualifying conditions including cancer, chronic pain, epilepsy, multiple sclerosis, and PTSD. The state has a long history with hemp cultivation and is a major CBD producer. The program is expected to be fully operational by 2025.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Louisiana -->
+    <section class="state-section" id="louisiana">
+      <h2>Louisiana</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal. Recreational cannabis is decriminalized in small amounts but not legal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2015 under Act 261 (Alison Neustrom Act). Louisiana was the first Deep South state to legalize medical cannabis. The program expanded significantly in 2022 to allow smokable flower.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Decriminalized since 2021. Possession of 14 grams or less is a civil violation with a $100 fine and no jail time. Larger amounts remain criminal offenses.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients may possess up to 2.5 ounces of cannabis flower per 14 days, plus other product forms as recommended. For non-patients, possession over 14 grams is a criminal offense.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation is prohibited for both medical patients and the general public.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Louisiana's medical cannabis is produced exclusively by LSU and Southern University through licensed partners. The state has no THC cap. Qualifying conditions include cancer, HIV/AIDS, seizure disorders, Crohn's disease, muscular dystrophy, PTSD, and chronic pain, among others.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Maine -->
+    <section class="state-section" id="maine">
+      <h2>Maine</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 1999 under the Maine Medical Marijuana Act (Question 2). Maine has one of the oldest medical cannabis programs in the country with a robust caregiver system.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2016 under Question 1 (Marijuana Legalization Act). Licensed retail sales began in October 2020 after regulatory delays.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 2.5 ounces of cannabis, 5 grams of concentrate, and unlimited cannabis products within their residence. Medical patients may possess up to 2.5 ounces per a two-week period from dispensaries.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 3 mature plants, 12 immature plants, and unlimited seedlings. Medical patients and caregivers may grow additional plants based on the number of patients served.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Maine's cannabis market includes both adult-use retail and a parallel medical caregiver system that predates legalization. Social consumption clubs are permitted in some municipalities. Public consumption is prohibited. Cannabis cannot be transported across state lines.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Maryland -->
+    <section class="state-section" id="maryland">
+      <h2>Maryland</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2014 under the Natalie M. LaPrade Medical Cannabis Commission. Licensed dispensaries began operations in 2017.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2023 under Question 4 (passed by voters in 2022). Adults 21+ may purchase cannabis from licensed dispensaries.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 1.5 ounces of cannabis flower, 12 grams of concentrate, and cannabis products containing up to 750mg of THC. Possessing 1.5 to 2.5 ounces is a civil offense.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 2 plants per person, with a maximum of 4 plants per household. Plants must be grown in an enclosed, locked space and not visible from public areas.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Maryland's legalization included automatic expungement for many past cannabis convictions. Public consumption is prohibited and subject to civil fines. The state has established social equity provisions to support communities disproportionately affected by cannabis prohibition.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Massachusetts -->
+    <section class="state-section" id="massachusetts">
+      <h2>Massachusetts</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2012 under Question 3 (Massachusetts Medical Marijuana Initiative). The program established a network of Registered Marijuana Dispensaries (RMDs) across the state.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2016 under Question 4 (Massachusetts Marijuana Legalization Initiative). Massachusetts was the first East Coast state to open recreational retail sales in 2018.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 1 ounce of cannabis in public and up to 10 ounces at home. Concentrate limits are 5 grams in public. Medical patients may possess a 60-day supply.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 6 plants per person, with a maximum of 12 plants per household. Plants must be grown in a secure, enclosed area not visible from public view.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Massachusetts has established social equity programs to support communities disproportionately impacted by cannabis prohibition. Social consumption sites are permitted. Public consumption is prohibited except in licensed consumption areas. Employers may still enforce drug-free workplace policies.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Michigan -->
+    <section class="state-section" id="michigan">
+      <h2>Michigan</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2008 under Proposal 1 (Michigan Medical Marihuana Act). Michigan was the first Midwestern state to legalize medical cannabis.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2018 under Proposal 1 (Michigan Regulation and Taxation of Marihuana Act). Licensed retail sales began in December 2019.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 2.5 ounces of cannabis in public and up to 10 ounces at home. Up to 15 grams of concentrate is permitted. Medical patients may possess up to 2.5 ounces of usable cannabis.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 12 plants per household for personal use. Medical patients may also grow up to 12 plants. Plants must be kept in an enclosed, locked facility.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Michigan has one of the largest legal cannabis markets in the United States. Local municipalities may opt out of allowing retail establishments. Cannabis consumption lounges are permitted in some areas. Public consumption outside licensed areas is prohibited. Cannabis cannot be consumed while driving or in a moving vehicle.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Minnesota -->
+    <section class="state-section" id="minnesota">
+      <h2>Minnesota</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2014 under the Minnesota Medical Cannabis Act. The program initially had strict limitations but has expanded over time to include flower and additional qualifying conditions.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2023 under HF 100 (Minnesota Cannabis Law). Minnesota became the 23rd state to legalize recreational cannabis. Licensed retail sales are expected to begin in early 2025.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 2 ounces of cannabis flower in public and up to 2 pounds at home. Concentrate limits are 8 grams in public. Edibles containing up to 800mg of THC are permitted.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 8 plants per household, with no more than 4 being mature flowering plants. Plants must be grown in a private area not visible from public spaces.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Minnesota's legalization law includes significant social equity provisions, including expungement of prior cannabis convictions. The Office of Cannabis Management oversees the regulatory framework. Cannabis consumption is prohibited in public places, vehicles, and federal lands. Lower-potency hemp edibles were legalized in 2022 prior to full legalization.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Mississippi -->
+    <section class="state-section" id="mississippi">
+      <h2>Mississippi</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal. Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2022 under Senate Bill 2095 (Mississippi Medical Cannabis Act). This followed a 2020 voter initiative (Initiative 65) that was invalidated by the state Supreme Court. The legislature passed its own medical program in 2022.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Possession of cannabis for recreational use remains a criminal offense with penalties varying by amount and prior offenses.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients may purchase up to 3 ounces of cannabis per month (or 3.5 grams of THC in other product forms). Patients with certain debilitating conditions may be authorized for up to 6 ounces monthly. Recreational possession of 30 grams or less is a misdemeanor.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation is prohibited for both medical patients and the general public.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Mississippi's medical program includes over 20 qualifying conditions including cancer, epilepsy, Parkinson's disease, HIV/AIDS, PTSD, chronic pain, and sickle cell disease. The state has licensed dispensaries, cultivators, and processors. Products include flower, oils, edibles, topicals, and more. Patients must obtain certification from a licensed practitioner and register with the Mississippi State Department of Health.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Missouri -->
+    <section class="state-section" id="missouri">
+      <h2>Missouri</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2018 under Amendment 2 (Missouri Medical Marijuana Amendment). Licensed dispensaries began operations in 2020.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2022 under Amendment 3 (Missouri Marijuana Legalization Initiative). Missouri became the first state in the Midwest to legalize recreational cannabis by ballot measure. Retail sales began in February 2023.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 3 ounces of cannabis flower. Medical patients may possess up to a 60-day supply (up to 6 ounces of dried flower). The state also sets limits for concentrates and infused products.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 6 flowering plants, 6 non-flowering plants, and 6 clones per person. Medical patients may grow up to 6 flowering plants if they obtain a cultivation license. Plants must be grown in an enclosed, locked facility.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Missouri's Amendment 3 included automatic expungement of prior cannabis offenses for possession of up to 3 pounds. The state has a robust licensing system for cultivators, manufacturers, and dispensaries. Public consumption is prohibited. Local governments may not prohibit personal use or possession but may regulate business operations. Micro-licenses are available to promote small business participation.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Montana -->
+    <section class="state-section" id="montana">
+      <h2>Montana</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2004 under Initiative 148 (Montana Medical Marijuana Act). The program has undergone various regulatory changes over the years and is now administered by the Montana Department of Revenue.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2021 under Initiative 190 (Montana Marijuana Legalization Initiative), passed by voters in November 2020. Licensed adult-use sales began on January 1, 2022.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 1 ounce of cannabis flower and 8 grams of concentrate in public. At home, adults may possess the harvest from their home-grown plants. Medical patients may possess up to 1 ounce of usable cannabis.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 2 mature plants and 2 seedlings per person. Medical patients may grow up to 4 mature plants and 4 seedlings. Plants must be grown in an area that is secure and not visible from public view.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Montana's cannabis market operates in a county-by-county system where local jurisdictions can opt out of allowing retail sales. Counties that voted against I-190 may prohibit adult-use sales. A 20% tax is applied to recreational sales, with revenue directed toward conservation, veterans' services, substance abuse treatment, and the general fund. Public consumption is prohibited. Cannabis cannot be transported across state lines.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Nebraska -->
+    <section class="state-section" id="nebraska">
+      <h2>Nebraska</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal (effective 2025). Recreational cannabis is decriminalized in small amounts but not legal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2024 under Initiative 437 and Initiative 438, approved by voters in November 2024. The Nebraska Medical Cannabis Commission will regulate the program, with operations expected to begin in 2025.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Decriminalized. First-time possession of 1 ounce or less is an infraction with a $300 fine and no jail time. Subsequent offenses and larger amounts carry increased penalties.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients will be able to possess up to 5 ounces of cannabis. For non-patients, possession of 1 ounce or less is decriminalized; possession of more than 1 ounce remains a criminal offense.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted under the medical program. Home cultivation remains illegal for both medical patients and the general public.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Nebraska voters passed two ballot initiatives in 2024 to establish a medical cannabis program after years of failed legislative efforts. The state borders Colorado, which has legal recreational cannabis. Qualifying conditions will include cancer, epilepsy, PTSD, chronic pain, and other serious medical conditions. The program is expected to be operational by late 2025.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Nevada -->
+    <section class="state-section" id="nevada">
+      <h2>Nevada</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2000 under Question 9 (Nevada Medical Marijuana Act). The state established a dispensary system in 2015 before recreational legalization.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2017 under Question 2 (Nevada Marijuana Legalization Initiative), passed by voters in November 2016. Nevada was one of the first states to launch recreational sales (July 2017).</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 1 ounce of cannabis flower or 1/8 ounce (3.5 grams) of concentrate. Medical patients may possess up to 2.5 ounces of usable cannabis per 14-day period.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 6 plants per person, with a maximum of 12 plants per household, but only if they reside more than 25 miles from a licensed dispensary. Medical patients may grow at home regardless of distance from dispensaries.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Nevada's cannabis market is one of the largest in the nation, driven significantly by tourism in Las Vegas. Cannabis consumption lounges are permitted and have begun operating in Las Vegas. Public consumption outside licensed areas remains prohibited. Nevada was the first state to put cannabis sales under the control of its existing alcohol regulatory agency. A portion of cannabis tax revenue funds education.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- New Hampshire -->
+    <section class="state-section" id="new-hampshire">
+      <h2>New Hampshire</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal. Recreational cannabis is decriminalized but not legal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2013 under HB 573 (Use of Cannabis for Therapeutic Purposes). The state established Alternative Treatment Centers (ATCs) to serve registered patients.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Decriminalized since 2017. Possession of up to 3/4 ounce (21 grams) is a civil violation with a $100 fine for first offense (escalating for repeat offenses). New Hampshire remains the only New England state without legal recreational cannabis.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients may possess up to 2 ounces of cannabis in a 10-day period. For non-patients, possession of 3/4 ounce or less is decriminalized; larger amounts are criminal offenses.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation is illegal for both medical patients and the general public.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>New Hampshire has considered but not passed recreational legalization legislation despite being surrounded by legal states (Maine, Massachusetts, Vermont). The medical program serves patients with qualifying conditions including cancer, chronic pain, HIV/AIDS, epilepsy, multiple sclerosis, Crohn's disease, and PTSD. The state operates a limited number of Alternative Treatment Centers. Recent legislative efforts have focused on establishing a state-run retail model similar to the state liquor store system.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- New Jersey -->
+    <section class="state-section" id="new-jersey">
+      <h2>New Jersey</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2010 under the New Jersey Compassionate Use Medical Marijuana Act. The program has expanded significantly over the years to include additional qualifying conditions and product types.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2021 under Public Question 1, approved by voters in November 2020. The Cannabis Regulatory, Enforcement Assistance, and Marketplace Modernization Act (CREAMMA) established the regulatory framework. Licensed retail sales began in April 2022.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 6 ounces of cannabis flower. No criminal or civil penalties for possession within this limit. Medical patients may possess up to 3 ounces per month (with possible increase to 4 ounces with physician authorization).</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation is prohibited for both recreational users and medical patients. Legislative efforts to allow home grow have been introduced but not passed.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>New Jersey's cannabis market has become one of the largest on the East Coast. The state Cannabis Regulatory Commission oversees both medical and adult-use programs. Social equity provisions include prioritized licensing for applicants from economically disadvantaged areas and communities disproportionately affected by cannabis prohibition. Public consumption is prohibited. Municipalities may opt out of allowing cannabis businesses but cannot prohibit possession or personal use. The state allows cannabis delivery services.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- New Mexico -->
+    <section class="state-section" id="new-mexico">
+      <h2>New Mexico</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2007 under the Lynn and Erin Compassionate Use Act. New Mexico was one of the first states to establish a comprehensive medical cannabis program with state-licensed producers.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2021 under the Cannabis Regulation Act (HB 2), signed into law in April 2021. Licensed retail sales began on April 1, 2022.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 2 ounces of cannabis flower, 16 grams of cannabis extract, and 800mg of THC in edible form. Medical patients may possess up to 425 units (approximately 12 ounces) per 90-day period.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 6 mature plants and 6 immature plants per person, with a maximum of 12 mature and 12 immature plants per household. Plants must be grown in a locked, enclosed space not visible from public view.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>New Mexico has established a Cannabis Control Division within the Regulation and Licensing Department to oversee the adult-use market. The state's law includes automatic expungement of prior cannabis convictions for conduct now legal. No local government may prohibit the personal use, possession, or home cultivation of cannabis by adults 21+, though municipalities can regulate or prohibit cannabis businesses. Public consumption is prohibited except in licensed consumption areas. The state permits cannabis lounges and on-site consumption at licensed retailers.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- North Carolina -->
+    <section class="state-section" id="north-carolina">
+      <h2>North Carolina</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis (limited) is legal. Recreational cannabis is decriminalized in small amounts but not legal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2014 for limited use under HB 1220 (Epilepsy Alternative Treatment Act), which allowed CBD oil with less than 0.9% THC for intractable epilepsy. A broader medical program was passed in 2023 under SB 711 (NC Compassionate Care Act) but implementation is ongoing.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Decriminalized in small amounts. Possession of up to 0.5 ounce is a Class 3 misdemeanor with no jail time (maximum $200 fine). Possession of 0.5 to 1.5 ounces is a Class 1 misdemeanor. Larger amounts carry increased penalties.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Under the 2023 medical law, patients will be able to purchase limited amounts from licensed dispensaries once the program becomes operational. For non-patients, possession of any amount remains illegal, though small amounts are decriminalized.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation is illegal for both medical patients and the general public under current law.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>North Carolina's Compassionate Care Act (SB 711), passed in 2023, establishes a medical cannabis program for patients with qualifying conditions including cancer, epilepsy, HIV/AIDS, PTSD, Crohn's disease, ALS, Parkinson's disease, multiple sclerosis, and terminal illness. The law allows for the licensing of suppliers, processors, and dispensaries. Smokable flower will be permitted. The program is expected to become operational once regulations are finalized and licenses are issued. Hemp-derived CBD products with less than 0.3% THC are legal under state and federal law.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- New York -->
+    <section class="state-section" id="new-york">
+      <h2>New York</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2014 under the Compassionate Care Act. The program has expanded to include additional qualifying conditions and product types.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2021 under the Marijuana Regulation and Taxation Act (MRTA). Licensed retail sales began in 2022.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Up to 3 ounces of flower and up to 24 grams of concentrate for adults 21+.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Home cultivation will be permitted once regulations are finalized. Medical patients will be allowed up to 6 plants (3 mature, 3 immature). Adults 21+ will also be permitted to grow under similar limits.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Public consumption rules align with tobacco smoking laws. Localities may opt out of retail dispensaries or on-site consumption lounges but cannot prohibit personal possession or use.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- North Dakota -->
+    <section class="state-section" id="north-dakota">
+      <h2>North Dakota</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal. Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2016 under Initiated Statutory Measure 5 (North Dakota Compassionate Care Act), approved by voters in November 2016. Licensed dispensaries began operating in 2019.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. A ballot measure to legalize recreational cannabis (Measure 3) failed in 2018 with only 41% support. A subsequent 2022 initiative (Measure 2) also failed with approximately 45% support.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients may possess up to 3 ounces of dried cannabis flower in a 30-day period. For non-patients, possession of up to 0.5 ounce is an infraction with a $1,000 fine; larger amounts carry criminal penalties.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Medical patients may cultivate up to 8 plants (4 mature and 4 immature) if they live more than 40 miles from a dispensary. Recreational home cultivation is prohibited.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>North Dakota's medical program includes qualifying conditions such as cancer, HIV/AIDS, hepatitis C, ALS, PTSD, Crohn's disease, epilepsy, and chronic or debilitating diseases. The North Dakota Department of Health oversees the program. Products available include flower, edibles, concentrates, topicals, and tinctures. The state has a limited number of licensed dispensaries and manufacturing facilities. Smokable flower was initially prohibited but has since been permitted.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Ohio -->
+    <section class="state-section" id="ohio">
+      <h2>Ohio</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2016 under House Bill 523 (Ohio Medical Marijuana Control Program). Licensed dispensaries began operations in 2019.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2023 under Issue 2 (Ohio Marijuana Legalization Initiative), approved by voters in November 2023. Adults 21+ may possess and use cannabis, though the regulatory framework for retail sales is being established.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 2.5 ounces of cannabis flower and up to 15 grams of cannabis extract. Adults may also store up to 15 grams of extract and the equivalent of 2.5 ounces of cannabis at home.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 6 plants per person, with a maximum of 12 plants per household. Plants must be kept in a secure location not visible from public view.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Ohio's Issue 2 created the Division of Cannabis Control within the Department of Commerce to regulate adult-use cannabis. The law includes provisions for social equity applicants and expungement of certain prior cannabis convictions. Licensed retail sales through existing medical dispensaries and new adult-use retailers are expected as the regulatory framework develops. Public consumption is prohibited. Municipalities may prohibit cannabis businesses but cannot prohibit personal possession, use, or home cultivation. A 10% excise tax applies to adult-use sales, with revenue supporting social equity programs, local governments, and addiction services.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Oklahoma -->
+    <section class="state-section" id="oklahoma">
+      <h2>Oklahoma</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal. Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2018 under State Question 788 (Oklahoma Medical Marijuana Legalization Initiative), approved by voters in June 2018. Oklahoma's program is one of the most open in the nation, with no list of qualifying conditions.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. A 2023 ballot measure (State Question 820) to legalize recreational cannabis was defeated with approximately 38% support.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients may possess up to 3 ounces of cannabis on their person, 8 ounces at home, 1 ounce of concentrate, 72 ounces of edibles, and 6 mature plants. Non-patient possession of up to 1.5 ounces is a misdemeanor.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Medical patients may cultivate up to 6 mature plants and 6 seedlings per household. Non-patients may not legally grow cannabis.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Oklahoma has one of the largest and most accessible medical cannabis programs in the United States. Unlike most states, Oklahoma does not have a list of qualifying conditions; a licensed physician simply needs to recommend cannabis for any condition they deem appropriate. This has resulted in a very high patient enrollment rate. The state has licensed thousands of dispensaries, cultivators, and processors, creating a highly competitive market. The Oklahoma Medical Marijuana Authority (OMMA) oversees the program. Temporary licenses are available for out-of-state medical patients. Despite the robust medical program, recreational legalization efforts have not succeeded.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Oregon -->
+    <section class="state-section" id="oregon">
+      <h2>Oregon</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 1998 under the Oregon Medical Marijuana Act (Measure 67). Oregon was one of the earliest states to establish a medical cannabis program, administered by the Oregon Health Authority.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2014 under Measure 91 (Oregon Legalized Marijuana Initiative). Licensed retail sales began in October 2015. Oregon was among the first states to legalize recreational cannabis.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 1 ounce of cannabis flower in public and up to 8 ounces at home. Concentrate limits are 5 grams in public and 72 ounces of edibles at home. Medical patients may possess up to 24 ounces of usable cannabis.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 4 plants per household. Medical patients may grow up to 6 mature plants and 18 immature plants. Plants must be kept in a secure area not visible from public view.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Oregon's cannabis market is regulated by the Oregon Liquor and Cannabis Commission (OLCC). The state has decriminalized possession of small amounts of all drugs under Measure 110 (2020). Oregon was the first state to decriminalize psilocybin for therapeutic use. Public consumption is prohibited except in licensed consumption lounges (where permitted by local ordinance). The state has no residency requirement for purchasing cannabis. Oregon's market is known for competitive pricing due to oversupply and a large number of licensed producers.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Pennsylvania -->
+    <section class="state-section" id="pennsylvania">
+      <h2>Pennsylvania</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal. Recreational cannabis is illegal but decriminalized in some cities.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2016 under the Medical Marijuana Act (Act 16). The Pennsylvania Department of Health oversees the program, which has grown to become one of the largest in the nation by patient enrollment.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal statewide. However, Philadelphia, Pittsburgh, and several other cities have decriminalized possession of small amounts, making it a civil violation with a fine rather than a criminal offense.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients may possess a 30-day supply of cannabis as determined by their certifying physician. For non-patients, possession of 30 grams or less is a misdemeanor punishable by up to 30 days in jail and a $500 fine; larger amounts carry increased penalties.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation is prohibited for both medical patients and the general public.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Pennsylvania's medical program includes 24 qualifying conditions such as cancer, epilepsy, PTSD, chronic pain, anxiety disorders, and opioid use disorder. The state initially prohibited smokable flower but legalized it in 2018. Products available include flower, concentrates, tinctures, topicals, pills, and vaporizable products. The state has over 170 dispensary locations. Dry leaf cannabis for vaporization is permitted, but smoking cannabis remains technically prohibited under state law (though flower can be vaporized). Governor Josh Shapiro has expressed support for recreational legalization, and legislative efforts are ongoing.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Rhode Island -->
+    <section class="state-section" id="rhode-island">
+      <h2>Rhode Island</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2006 under the Edward O. Hawkins and Thomas C. Slater Medical Marijuana Act. Rhode Island was one of the first states in New England to establish a medical cannabis program.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2022 under the Rhode Island Cannabis Act, signed into law in May 2022. Licensed retail sales began on December 1, 2022. Rhode Island was the 19th state to legalize recreational cannabis.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 1 ounce of cannabis flower in public and up to 10 ounces at home. Medical patients may possess up to 2.5 ounces of usable cannabis.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 6 plants per person (3 mature and 3 immature), with a maximum of 12 plants per household. Medical patients may also grow up to 12 mature plants and 12 seedlings. Plants must be grown in an enclosed, locked area not visible from public view.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Rhode Island's cannabis program is overseen by the Cannabis Control Commission. The state's legalization law includes social equity provisions to support communities disproportionately impacted by cannabis prohibition, including priority licensing for social equity applicants and automatic expungement of prior cannabis convictions. Public consumption is prohibited. Municipalities may opt out of allowing cannabis retail establishments but cannot prohibit personal possession or use. A 10% retail excise tax applies in addition to state sales tax, with revenue supporting education, public safety, and substance abuse treatment programs. Cannabis delivery services are permitted under the law.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- South Carolina -->
+    <section class="state-section" id="south-carolina">
+      <h2>South Carolina</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Limited medical cannabis (CBD oil only) is legal. Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Limited legal access since 2014 under Julian's Law (S. 1035), which allows CBD oil with less than 0.9% THC for severe forms of epilepsy. A broader medical cannabis bill (S. 150, South Carolina Compassionate Care Act) has been debated in the legislature but not yet passed.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Possession of cannabis for recreational use is a criminal offense. First-time possession of 1 ounce or less is a misdemeanor with up to 30 days in jail.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Only patients with severe epilepsy may possess CBD oil under Julian's Law. For all others, possession of any amount of THC cannabis is illegal. Possession of 1 ounce or less is a misdemeanor; larger amounts carry increased penalties.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation of cannabis is a felony offense in South Carolina.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>South Carolina has one of the most restrictive cannabis laws in the nation. Julian's Law provides a limited defense for patients with severe epilepsy who possess CBD oil obtained from another state. The South Carolina Compassionate Care Act, which would establish a broader medical cannabis program, has passed the state Senate multiple times but has stalled in the House. Hemp-derived CBD products with less than 0.3% THC are legal under federal and state law. Hash and concentrates carry significantly higher penalties than flower.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- South Dakota -->
+    <section class="state-section" id="south-dakota">
+      <h2>South Dakota</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal. Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2020 under Initiated Measure 26 (South Dakota Medical Marijuana Initiative), approved by voters in November 2020. The South Dakota Department of Health oversees the program, with licensed dispensaries operating since 2022.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Amendment A, which would have legalized recreational cannabis, was approved by voters in 2020 but struck down by the South Dakota Supreme Court in 2021. A subsequent ballot measure (Measure 27) failed in 2022 with approximately 47% support.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients may possess up to 3 ounces of cannabis. For non-patients, possession of up to 2 ounces is a Class 1 misdemeanor (up to 1 year in jail, $2,000 fine). Possession of 2 ounces to 0.5 pound is a Class 6 felony.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Medical patients may cultivate up to 3 plants if they live more than 50 miles from a licensed dispensary. Non-patient cultivation is a felony.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>South Dakota's medical program includes qualifying conditions such as cancer, HIV/AIDS, hepatitis C, ALS, Crohn's disease, Alzheimer's disease, chronic pain, PTSD, and cachexia. The state has licensed dispensaries, cultivators, and manufacturers. Products available include flower, edibles, concentrates, topicals, and tinctures. Patients must obtain certification from a licensed practitioner and register with the state. Despite voters approving recreational legalization in 2020, the measure was invalidated due to procedural issues, and subsequent efforts have not succeeded. The state imposes strict penalties for non-medical cannabis possession.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Tennessee -->
+    <section class="state-section" id="tennessee">
+      <h2>Tennessee</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Limited medical cannabis (CBD oil only) is legal. Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Limited legal access since 2014 under the Safe Access to Medical Cannabis Act, which allows possession of CBD oil with less than 0.9% THC for intractable seizures. Tennessee does not have a comprehensive medical cannabis program.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. However, possession of 0.5 ounce or less was decriminalized in Nashville and Memphis in 2016, making it a civil violation with a $50 fine or community service (local ordinances).</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Only patients with intractable seizures may possess CBD oil. For all others, possession of 0.5 ounce or less is a Class A misdemeanor (up to 11 months 29 days in jail, $2,500 fine). Possession of more than 0.5 ounce carries felony charges.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Cultivation of any cannabis plants is a felony in Tennessee, with penalties based on the number of plants.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Tennessee has considered but not passed comprehensive medical cannabis legislation. The state's current law only provides an affirmative defense for patients with intractable seizures who possess CBD oil from a legal source. There is no state-regulated dispensary system. Hemp-derived CBD products with less than 0.3% THC are legal under federal and state law. Several Tennessee cities including Nashville, Memphis, and Knoxville have local decriminalization ordinances, but these vary in their application and enforcement. The sale of cannabis remains a felony statewide. Legislative efforts for broader medical or recreational legalization have faced significant opposition.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Texas -->
+    <section class="state-section" id="texas">
+      <h2>Texas</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Limited medical cannabis (low-THC) is legal under the Compassionate Use Program. Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Limited access since 2015 under the Compassionate Use Act (HB 3703). The program was expanded in 2019 and 2021 to include more qualifying conditions and increase THC limits. Products must contain no more than 1% THC (increased from 0.5% in 2021).</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Texas maintains strict criminal penalties for recreational cannabis possession, though some cities have local decriminalization policies.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical patients in the Compassionate Use Registry may possess low-THC cannabis as prescribed. For recreational use, possession of 2 ounces or less is a Class B misdemeanor (up to 180 days jail, $2,000 fine). Larger amounts carry felony charges.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Cultivation of any cannabis plants is a felony in Texas, regardless of the amount.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Texas has one of the most restrictive medical cannabis programs in the country. The Compassionate Use Program requires patients to have qualifying conditions including epilepsy, multiple sclerosis, spasticity, amyotrophic lateral sclerosis (ALS), autism, terminal cancer, and PTSD. There are only a limited number of licensed dispensaries statewide. Some cities including Austin, Dallas, San Antonio, and Houston have enacted cite-and-release or decriminalization policies for small amounts, but these vary widely. Delta-8 THC products derived from hemp were legally sold until recent regulatory restrictions. Concentrate possession (hash oil, etc.) of any amount is a felony.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Utah -->
+    <section class="state-section" id="utah">
+      <h2>Utah</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal. Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2018 under Proposition 2 (Utah Medical Cannabis Act), which was replaced by the Utah Legislature with HB 3001 shortly after passage. The program launched with dispensaries opening in 2020.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Utah has not pursued recreational legalization, and possession for non-medical purposes remains a criminal offense.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Medical cardholders may possess up to 113 grams of unprocessed cannabis flower or 20 grams of total composite THC in processed forms. For recreational users, possession of under 1 ounce is a Class B misdemeanor; 1-16 ounces is a Class A misdemeanor.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation is illegal for both medical patients and recreational users in Utah.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Utah's medical cannabis program is administered by the Utah Department of Health and Human Services. Patients must obtain a medical cannabis card after receiving a recommendation from a qualified medical provider. Qualifying conditions include HIV/AIDS, Alzheimer's disease, ALS, cancer, Crohn's disease, epilepsy, multiple sclerosis, PTSD, chronic pain, and others. Smokable flower was initially prohibited but is now available. The state operates a "central fill" pharmacy model for distribution. All cannabis must be purchased from state-licensed pharmacies. Public consumption is prohibited, and use in vehicles is illegal. Utah has reciprocity provisions allowing visiting patients from other states limited access under certain conditions.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Vermont -->
+    <section class="state-section" id="vermont">
+      <h2>Vermont</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2004 under Act 135. Vermont was among the earlier states to establish a medical cannabis program, with registered patients able to access cannabis from licensed dispensaries.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2018 under Act 86, making Vermont the first state to legalize recreational cannabis through its legislature (rather than ballot initiative). Retail sales began in October 2022 under the Cannabis Control Board.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 1 ounce of cannabis flower, 5 grams of concentrate, or cannabis-infused products containing up to 500mg of THC in public. Higher amounts are permitted at home.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 2 mature plants and 4 immature plants per household. Plants must be grown in an enclosed, secure location not visible from public areas.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Vermont's Cannabis Control Board oversees both the medical and adult-use programs. The state emphasized social equity provisions in its legalization framework, including priority licensing for communities disproportionately impacted by cannabis prohibition. Local municipalities may opt out of hosting retail establishments through a local vote. Public consumption is prohibited except in designated areas. Vermont does not allow on-site consumption at dispensaries. Medical patients benefit from reduced taxes compared to recreational purchases. The state borders several other legal states (Massachusetts, New York) and Canada, creating a regional market. Vermont prioritizes small-scale, craft cannabis cultivation in its licensing approach.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Virginia -->
+    <section class="state-section" id="virginia">
+      <h2>Virginia</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Legal for adults 21+. Medical cannabis is legal. Retail sales for adult-use are pending legislative action.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2018 under the Pharmaceutical Processor Permit program. Virginia Health Services regulates medical cannabis, with patients obtaining written certifications from registered practitioners for qualifying conditions including cancer, epilepsy, HIV/AIDS, PTSD, and chronic pain.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Personal possession and home cultivation became legal on July 1, 2021. Virginia was the first Southern state to legalize adult-use cannabis. However, retail sales have not yet begun as the legislature continues to work on establishing the commercial market framework.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 1 ounce (28 grams) of cannabis in public. Possession of more than 1 ounce but less than 1 pound is a civil penalty of $25. Medical patients may possess up to a 90-day supply.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Adults 21+ may cultivate up to 4 plants per household (not per person). Plants must be tagged with the grower's name, driver's license number, and a notation that cultivation is for personal use. Plants must be kept out of public view and away from minors.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Virginia's cannabis legalization included automatic expungement of certain past cannabis convictions, affecting hundreds of thousands of records. The Virginia Cannabis Control Authority (CCA) was established to oversee the adult-use market. While personal possession is legal, there is currently no legal way for adults to purchase cannabis without a medical card since retail sales haven't started. Medical dispensaries operate statewide but cannot sell to non-patients. Public consumption remains illegal, and cannabis cannot be consumed in any motor vehicle. Virginia prohibits driving under the influence of cannabis. The state's approach to legalization emphasized social equity, with provisions for communities disproportionately affected by cannabis prohibition. Gifting up to 1 ounce is permitted between adults 21+, but gifting in exchange for money or other consideration is illegal.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Washington -->
+    <section class="state-section" id="washington">
+      <h2>Washington</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Fully legal for adults 21 and older.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 1998 under Initiative 692, making Washington one of the earliest states to establish a medical cannabis program. The medical market was integrated into the recreational system in 2016, with registered patients receiving additional protections and tax exemptions.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Legal since 2012 under Initiative 502, making Washington one of the first two U.S. states (along with Colorado) to legalize recreational cannabis. Licensed retail sales began in July 2014. The Washington State Liquor and Cannabis Board (LCB) regulates the industry.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Adults 21+ may possess up to 1 ounce of usable cannabis, 16 ounces of cannabis-infused products in solid form, 72 ounces in liquid form, or 7 grams of concentrate. Medical patients can possess up to 3 ounces of usable cannabis.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Home cultivation is only permitted for registered medical patients, who may grow up to 6 plants (15 if their health care provider determines additional plants are necessary). Recreational consumers are not permitted to grow cannabis at home.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Washington pioneered cannabis legalization and has one of the most mature legal markets in the United States. The state has generated billions in cannabis tax revenue since legalization. Washington uses a 37% excise tax on retail cannabis sales (reduced from the original three-tier 25% tax system). Medical patients with recognition cards are exempt from retail sales tax. Public consumption is illegal with fines up to $100. Washington does not allow cannabis consumption lounges or on-site consumption at dispensaries. The state has strict packaging and labeling requirements. DUI laws apply to cannabis impairment. Cannabis cannot be taken across state lines, even to neighboring Oregon where it's also legal. Washington was among the first states to implement social equity provisions, though critics argue these could be strengthened. The state has seen significant market maturation with pricing stabilization over the years.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- West Virginia -->
+    <section class="state-section" id="west-virginia">
+      <h2>West Virginia</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Medical cannabis is legal. Recreational cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Legal since 2017 under the West Virginia Medical Cannabis Act (SB 386). The program launched in 2019 with patient registration, and dispensaries began serving patients in 2021. The Bureau for Public Health oversees the program.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Possession of cannabis for recreational purposes remains a criminal offense, with penalties varying based on the amount possessed and prior offenses.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>Registered patients may possess up to a 30-day supply of medical cannabis. The specific amounts depend on the form of cannabis (flower, concentrates, edibles, etc.) and physician recommendations. Recreational possession of any amount is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation is illegal for both medical patients and the general public in West Virginia.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>West Virginia's medical cannabis program has qualifying conditions including cancer, HIV/AIDS, Crohn's disease, Parkinson's disease, multiple sclerosis, PTSD, intractable seizures, and severe chronic pain. The state does not permit smoking of cannabis flower; approved forms include pills, oils, topicals, tinctures, liquid, dermal patches, and dry leaf for vaporization. Patients must register with the state and obtain a medical cannabis identification card. Cannabis products must be purchased from state-licensed dispensaries. The program has faced criticism for high costs and limited dispensary access in some regions. West Virginia does not have reciprocity with other states' medical cannabis programs. Driving under the influence of cannabis is prohibited. Public consumption is illegal. The state's program continues to expand with new dispensary locations being approved. Caregivers can be designated to assist patients who cannot obtain cannabis themselves.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Wisconsin -->
+    <section class="state-section" id="wisconsin">
+      <h2>Wisconsin</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>CBD oil is legal for limited medical use. All other cannabis is illegal.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Extremely limited. Wisconsin allows only CBD oil with no more than 0.3% THC for patients with qualifying seizure disorders under Lydia's Law (2014 Act 267). A broader medical cannabis program does not exist.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Possession of cannabis for recreational use remains a criminal offense, though first-time possession of small amounts is typically a misdemeanor.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>No legal possession limits for standard cannabis. First offense possession of any amount is a misdemeanor punishable by up to 6 months in jail and a $1,000 fine. Subsequent offenses are felonies.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Home cultivation of cannabis is illegal and considered manufacturing, which carries felony penalties.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Wisconsin has some of the strictest cannabis laws in the Midwest, contrasting sharply with neighboring states like Illinois and Michigan that have legalized recreational use. Several Wisconsin cities including Madison and Milwaukee have decriminalized possession of small amounts, reducing penalties to civil forfeitures rather than criminal charges in some cases. However, state law still prevails and possession remains illegal. The Wisconsin Legislature has considered various medical cannabis bills over the years, but none have passed. Governor Tony Evers has included cannabis legalization in budget proposals, but the Republican-controlled legislature has removed these provisions. Delta-8 THC products exist in a legal gray area. Industrial hemp cultivation is legal under the 2018 Farm Bill framework. The sharp contrast with neighboring Illinois, where recreational dispensaries operate near the border, has sparked ongoing debate about potential tax revenue loss.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+    <!-- Wyoming -->
+    <section class="state-section" id="wyoming">
+      <h2>Wyoming</h2>
+      <div class="state-info-grid">
+        <div class="state-info-item">
+          <h3>Legal Status</h3>
+          <p>Cannabis is fully illegal. Wyoming has no medical or recreational cannabis programs.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Medical Marijuana</h3>
+          <p>Not legal. Wyoming does not have a medical cannabis program. Hemp-derived CBD products with less than 0.3% THC are legal following the 2018 Farm Bill.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Recreational Marijuana</h3>
+          <p>Illegal. Possession of cannabis for any purpose is a criminal offense in Wyoming.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Possession Limits</h3>
+          <p>No legal possession. Possession of up to 3 ounces is a misdemeanor with up to 12 months in jail and a $1,000 fine. Possession of more than 3 ounces is a felony with up to 5 years imprisonment.</p>
+        </div>
+        <div class="state-info-item">
+          <h3>Home Grow</h3>
+          <p>Not permitted. Cultivation of any amount of cannabis is illegal and treated as manufacturing, carrying felony penalties including up to 5 years imprisonment for small-scale grows.</p>
+        </div>
+      </div>
+      <div class="state-notes">
+        <h3>Notes</h3>
+        <p>Wyoming maintains some of the strictest cannabis laws in the United States. The state has consistently rejected efforts to introduce medical cannabis legislation. In 2015, the legislature passed HB 32 allowing limited use of hemp extract (CBD) for intractable epilepsy patients, but this was vetoed by Governor Matt Mead. Subsequent attempts at medical cannabis legislation have failed in committee. Wyoming is bordered by Colorado and Montana, both of which have legal recreational cannabis, creating cross-border enforcement challenges. The state has no decriminalization measures at the local level. Driving under the influence of cannabis is strictly prohibited with a zero-tolerance policy. Industrial hemp cultivation was legalized in 2019 following federal legalization. Delta-8 THC exists in a legal gray area. Wyoming's conservative political climate and small population have made cannabis reform particularly challenging. Law enforcement maintains active enforcement against cannabis possession and trafficking.</p>
+      </div>
+      <a href="#top" class="back-to-top">Back to top</a>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 WEEDIES AI. All rights reserved. 21+ only. We do not promote illegal activity.</p>
+    <p class="footer-links">
+      <a href="laws-by-state.html">Laws by State</a> ·
+      <a href="learn.html">Learn</a> ·
+      <a href="advertise.html">Advertise</a>
+    </p>
+  </footer>
+</body>
+</html>
