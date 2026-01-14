@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cannabis Wellness & Lifestyle – WEEDIES AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Explore cannabis wellness resources, relaxation routines, recovery, and mindfulness. Educational content only.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="main.js"></script>
+  <style>
+    .wellness-hero {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .wellness-hero h1 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 1rem;
+    }
+    .wellness-hero p {
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      color: #e5e7eb;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .disclaimer-block {
+      background: linear-gradient(135deg, rgba(45, 212, 191, 0.2), rgba(129, 230, 217, 0.1));
+      border: 1px solid rgba(45, 212, 191, 0.7);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 0.85rem;
+      color: #e5e7eb;
+    }
+    .disclaimer-block p {
+      margin: 0.35rem 0;
+      font-size: 0.85rem;
+    }
+    .partners-section h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 1.4rem;
+    }
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .partner-card {
+      background: linear-gradient(135deg, #0A637A 0%, #062B45 100%);
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 1.25rem;
+      box-shadow: 0 0 20px rgba(10, 99, 122, 0.3);
+      display: flex;
+      flex-direction: column;
+    }
+    .partner-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+    .partner-card p {
+      font-size: 0.9rem;
+      color: #d1d5db;
+      margin: 0 0 1rem;
+      flex: 1;
+    }
+    .partner-card .partner-link {
+      display: inline-block;
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      color: #022c22;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      text-align: center;
+      transition: filter 0.15s, transform 0.15s;
+    }
+    .partner-card .partner-link:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+    }
+    @media (max-width: 600px) {
+      .partners-grid {
+        grid-template-columns: 1fr;
+      }
+      .wellness-hero {
+        padding: 1.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-inner">
+    <div class="header-left">
+      <img src="cannabis-leaf-icon.png" alt="" class="header-leaf-icon rotating-leaf">
+    </div>
+    <div class="header-center">
+      <img src="weedies-ai-logo-transparent.png" alt="WEEDIES AI" class="header-logo-img">
+    </div>
+    <button class="menu-toggle" aria-label="Open menu" id="mobile-menu-toggle">
+      ☰
+    </button>
+    <nav id="main-nav" class="main-nav">
+      <ul class="nav-row nav-row-primary">
+        <li class="nav-item"><a href="index.html"><span class="nav-label">Home</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="dispensaries.html"><span class="nav-label">Dispensaries</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="strain-finder.html"><span class="nav-label">Strain Finder AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="grow-master.html"><span class="nav-label">Grower AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="munchies-ai.html"><span class="nav-label">Munchies AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="laws-by-state.html"><span class="nav-label">Laws by State</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html"><span class="nav-label">Learn</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+      <ul class="nav-row nav-row-secondary">
+        <li class="nav-item"><a href="headshop.html"><span class="nav-label">Headshop</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="grow-shop.html"><span class="nav-label">Grow Shop</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="wellness.html"><span class="nav-label">Wellness</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#ride-safe"><span class="nav-label">Ride Safe</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#events"><span class="nav-label">Events</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#brands"><span class="nav-label">Brands</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="advertise.html"><span class="nav-label">Advertise</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="page-main">
+    <section class="wellness-hero">
+      <h1>Cannabis Wellness &amp; Lifestyle</h1>
+      <div class="disclaimer-block">
+        <p><strong>Educational only</strong> — not medical advice.</p>
+        <p>Cannabis effects vary. Use responsibly. 21+ only.</p>
+        <p>For health concerns, consult a licensed professional.</p>
+      </div>
+      <p>Explore resources for relaxation routines, recovery support, mindfulness practices, and overall lifestyle enhancement. Whether you're winding down after a long day or seeking products that complement your wellness journey, these curated partners offer a wide range of options.</p>
+    </section>
+
+    <section class="partners-section">
+      <h2>Wellness Partners</h2>
+      <div class="partners-grid">
+
+        <article class="partner-card">
+          <h3>Amazon</h3>
+          <p>Wide selection of wellness products, from supplements to relaxation essentials.</p>
+          <a href="https://www.amazon.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Amazon</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Walmart</h3>
+          <p>Everyday wellness items at accessible prices, including vitamins and personal care.</p>
+          <a href="https://www.walmart.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Walmart</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Target</h3>
+          <p>Curated wellness and self-care products for everyday routines.</p>
+          <a href="https://www.target.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Target</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>iHerb</h3>
+          <p>Natural products including vitamins, supplements, and organic goods.</p>
+          <a href="https://www.iherb.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit iHerb</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Vitacost</h3>
+          <p>Health and wellness products at discounted prices.</p>
+          <a href="https://www.vitacost.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Vitacost</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Thrive Market</h3>
+          <p>Membership-based marketplace for organic and sustainable products.</p>
+          <a href="https://thrivemarket.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Thrive Market</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>GNC</h3>
+          <p>Vitamins, supplements, and sports nutrition products.</p>
+          <a href="https://www.gnc.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit GNC</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>The Vitamin Shoppe</h3>
+          <p>Specialized retailer for vitamins, minerals, and wellness supplements.</p>
+          <a href="https://www.vitaminshoppe.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit The Vitamin Shoppe</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Casper</h3>
+          <p>Sleep products including mattresses, pillows, and bedding for better rest.</p>
+          <a href="https://casper.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Casper</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Purple</h3>
+          <p>Innovative mattresses and sleep accessories designed for comfort.</p>
+          <a href="https://purple.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Purple</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Eight Sleep</h3>
+          <p>Smart sleep technology including temperature-controlled mattresses.</p>
+          <a href="https://www.eightsleep.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Eight Sleep</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Therabody</h3>
+          <p>Recovery devices including massage guns and wellness tech.</p>
+          <a href="https://www.therabody.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Therabody</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Calm</h3>
+          <p>Meditation and sleep app for relaxation and mindfulness practices.</p>
+          <a href="https://www.calm.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Calm</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Headspace</h3>
+          <p>Guided meditation and mindfulness resources for mental wellness.</p>
+          <a href="https://www.headspace.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Headspace</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Gaia</h3>
+          <p>Streaming platform for yoga, meditation, and conscious content.</p>
+          <a href="https://www.gaia.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Gaia</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Manduka</h3>
+          <p>Premium yoga mats and accessories for your practice.</p>
+          <a href="https://www.manduka.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Manduka</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Liforme</h3>
+          <p>Eco-friendly yoga mats with alignment guides.</p>
+          <a href="https://liforme.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Liforme</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Alo Yoga</h3>
+          <p>Yoga apparel and accessories for active lifestyles.</p>
+          <a href="https://www.aloyoga.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Alo Yoga</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Vitruvi</h3>
+          <p>Essential oil diffusers and natural home wellness products.</p>
+          <a href="https://vitruvi.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Vitruvi</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Plant Therapy</h3>
+          <p>Essential oils and aromatherapy products for relaxation.</p>
+          <a href="https://www.planttherapy.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Plant Therapy</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Booking.com</h3>
+          <p>Accommodations and travel planning for wellness retreats and getaways.</p>
+          <a href="https://www.booking.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Booking.com</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Expedia</h3>
+          <p>Travel bookings including hotels, flights, and vacation packages.</p>
+          <a href="https://www.expedia.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Expedia</a>
+        </article>
+
+        <article class="partner-card">
+          <h3>Hotels.com</h3>
+          <p>Hotel bookings with rewards for frequent travelers.</p>
+          <a href="https://www.hotels.com/" class="partner-link" rel="sponsored noopener noreferrer" target="_blank">Visit Hotels.com</a>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 WEEDIES AI. All rights reserved. 21+ only. We do not promote illegal activity.</p>
+    <p class="footer-links">
+      <a href="learn.html#laws">Laws &amp; Compliance</a> ·
+      <a href="learn.html">Learn</a> ·
+      <a href="advertise.html">Advertise</a>
+    </p>
+  </footer>
+</body>
+</html>
