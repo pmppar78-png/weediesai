@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Headshop Partners – WEEDIES AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Discover trusted headshop partners for smoking accessories, vaporizers, and more. Accessories only.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="main.js"></script>
+  <style>
+    /* Headshop page-specific styles */
+    .headshop-page-main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.8rem 1.25rem 3rem;
+    }
+
+    .headshop-page-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .headshop-page-header h1 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+    }
+
+    .headshop-disclaimer {
+      font-size: 0.85rem;
+      color: #e5e7eb;
+      max-width: 600px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    .headshop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .headshop-card {
+      background: linear-gradient(135deg, #0A637A 0%, #062B45 100%);
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 1.5rem;
+      box-shadow: 0 0 20px rgba(10, 99, 122, 0.3);
+    }
+
+    .headshop-card h2 {
+      font-size: 1.15rem;
+      margin: 0 0 0.75rem 0;
+      color: #a3e635;
+    }
+
+    .headshop-card h2 a {
+      color: #a3e635;
+      text-decoration: none;
+      transition: color 0.15s ease-out;
+    }
+
+    .headshop-card h2 a:hover {
+      color: #bef264;
+      text-decoration: underline;
+    }
+
+    .headshop-card p {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: #e5e7eb;
+      margin: 0 0 1rem 0;
+    }
+
+    .headshop-card .visit-link {
+      display: inline-block;
+      font-size: 0.9rem;
+      color: #a5f3fc;
+      text-decoration: none;
+      transition: color 0.15s ease-out;
+    }
+
+    .headshop-card .visit-link:hover {
+      color: #67e8f9;
+      text-decoration: underline;
+    }
+
+    /* Navigation buttons */
+    .headshop-nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      padding-bottom: 1rem;
+    }
+
+    .headshop-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1.5rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s ease-out;
+    }
+
+    .headshop-nav-btn.primary {
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      color: #022c22;
+      box-shadow: 0 0 22px rgba(74, 222, 128, 0.9);
+    }
+
+    .headshop-nav-btn.primary:hover {
+      filter: brightness(1.07);
+      transform: translateY(-1px);
+    }
+
+    .headshop-nav-btn.secondary {
+      background: rgba(15, 23, 42, 0.35);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      color: #ecfeff;
+    }
+
+    .headshop-nav-btn.secondary:hover {
+      border-color: rgba(94, 234, 212, 0.9);
+      box-shadow: 0 0 14px rgba(45, 212, 191, 0.7);
+    }
+
+    @media (max-width: 768px) {
+      .headshop-page-main {
+        padding: 1.25rem 1rem 2rem;
+      }
+
+      .headshop-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .headshop-card {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-inner">
+    <div class="header-left">
+      <img src="cannabis-leaf-icon.png" alt="" class="header-leaf-icon rotating-leaf">
+    </div>
+    <div class="header-center">
+      <img src="weedies-ai-logo-transparent.png" alt="WEEDIES AI" class="header-logo-img">
+    </div>
+    <button class="menu-toggle" aria-label="Open menu" id="mobile-menu-toggle">
+      ☰
+    </button>
+    <nav id="main-nav" class="main-nav">
+      <ul class="nav-row nav-row-primary">
+        <li class="nav-item"><a href="index.html"><span class="nav-label">Home</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="dispensaries.html"><span class="nav-label">Dispensaries</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="strain-finder.html"><span class="nav-label">Strain Finder AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="grow-master.html"><span class="nav-label">Grower AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="munchies-ai.html"><span class="nav-label">Munchies AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="laws-by-state.html"><span class="nav-label">Laws by State</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html"><span class="nav-label">Learn</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+      <ul class="nav-row nav-row-secondary">
+        <li class="nav-item"><a href="headshop.html"><span class="nav-label">Headshop</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#grow-shop"><span class="nav-label">Grow Shop</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#wellness"><span class="nav-label">Wellness</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#ride-safe"><span class="nav-label">Ride Safe</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#events"><span class="nav-label">Events</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#brands"><span class="nav-label">Brands</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="advertise.html"><span class="nav-label">Advertise</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="headshop-page-main">
+    <section class="headshop-page-header">
+      <h1>Headshop Partners</h1>
+      <p class="headshop-disclaimer">Accessories only. Please follow your local laws.</p>
+    </section>
+
+    <div class="headshop-grid">
+      <!-- Smoke Cartel -->
+      <article class="headshop-card">
+        <h2><a href="https://www.smokecartel.com/" target="_blank" rel="noopener noreferrer">Smoke Cartel</a></h2>
+        <p>Online headshop offering a wide selection of glass pipes, bongs, dab rigs, and smoking accessories from top brands.</p>
+        <a href="https://www.smokecartel.com/" target="_blank" rel="noopener noreferrer" class="visit-link">Visit Store →</a>
+      </article>
+
+      <!-- Grasscity -->
+      <article class="headshop-card">
+        <h2><a href="https://www.grasscity.com/" target="_blank" rel="noopener noreferrer">Grasscity</a></h2>
+        <p>One of the original online headshops featuring bongs, vaporizers, grinders, and rolling supplies since 2000.</p>
+        <a href="https://www.grasscity.com/" target="_blank" rel="noopener noreferrer" class="visit-link">Visit Store →</a>
+      </article>
+
+      <!-- DankStop -->
+      <article class="headshop-card">
+        <h2><a href="https://dankstop.com/" target="_blank" rel="noopener noreferrer">DankStop</a></h2>
+        <p>Curated selection of glass water pipes, hand pipes, vaporizers, and accessories with fast shipping.</p>
+        <a href="https://dankstop.com/" target="_blank" rel="noopener noreferrer" class="visit-link">Visit Store →</a>
+      </article>
+
+      <!-- Everything 420 -->
+      <article class="headshop-card">
+        <h2><a href="https://www.everything420.com/" target="_blank" rel="noopener noreferrer">Everything 420</a></h2>
+        <p>Subscription boxes and individual products including pipes, rolling papers, storage solutions, and more.</p>
+        <a href="https://www.everything420.com/" target="_blank" rel="noopener noreferrer" class="visit-link">Visit Store →</a>
+      </article>
+
+      <!-- Vapor.com -->
+      <article class="headshop-card">
+        <h2><a href="https://www.vapor.com/" target="_blank" rel="noopener noreferrer">Vapor.com</a></h2>
+        <p>Specializing in portable and desktop vaporizers from leading brands with expert reviews and guidance.</p>
+        <a href="https://www.vapor.com/" target="_blank" rel="noopener noreferrer" class="visit-link">Visit Store →</a>
+      </article>
+
+      <!-- Puffco -->
+      <article class="headshop-card">
+        <h2><a href="https://www.puffco.com/" target="_blank" rel="noopener noreferrer">Puffco</a></h2>
+        <p>Premium electronic dab rigs and portable concentrate vaporizers known for innovation and quality design.</p>
+        <a href="https://www.puffco.com/" target="_blank" rel="noopener noreferrer" class="visit-link">Visit Store →</a>
+      </article>
+
+      <!-- Storz & Bickel -->
+      <article class="headshop-card">
+        <h2><a href="https://www.storz-bickel.com/" target="_blank" rel="noopener noreferrer">Storz &amp; Bickel</a></h2>
+        <p>German-engineered vaporizers including the Volcano and Mighty, known for medical-grade vapor quality.</p>
+        <a href="https://www.storz-bickel.com/" target="_blank" rel="noopener noreferrer" class="visit-link">Visit Store →</a>
+      </article>
+
+      <!-- Hemply Balance -->
+      <article class="headshop-card">
+        <h2><a href="https://hemplybalance.com/" target="_blank" rel="noopener noreferrer">Hemply Balance</a></h2>
+        <p>Wellness-focused accessories and hemp-based products for a balanced lifestyle approach.</p>
+        <a href="https://hemplybalance.com/" target="_blank" rel="noopener noreferrer" class="visit-link">Visit Store →</a>
+      </article>
+
+      <!-- The Kind Pen -->
+      <article class="headshop-card">
+        <h2><a href="https://thekindpen.com/" target="_blank" rel="noopener noreferrer">The Kind Pen</a></h2>
+        <p>Affordable vape pens and portable vaporizers for dry herb and concentrates with lifetime warranties.</p>
+        <a href="https://thekindpen.com/" target="_blank" rel="noopener noreferrer" class="visit-link">Visit Store →</a>
+      </article>
+
+      <!-- GRAV Labs -->
+      <article class="headshop-card">
+        <h2><a href="https://grav.com/" target="_blank" rel="noopener noreferrer">GRAV Labs</a></h2>
+        <p>Austin-based glassware company crafting scientific glass pipes, bubblers, and innovative smoking devices.</p>
+        <a href="https://grav.com/" target="_blank" rel="noopener noreferrer" class="visit-link">Visit Store →</a>
+      </article>
+
+      <!-- RAW Rolling Papers -->
+      <article class="headshop-card">
+        <h2><a href="https://rawthentic.com/" target="_blank" rel="noopener noreferrer">RAW Rolling Papers</a></h2>
+        <p>Natural unrefined rolling papers, cones, and rolling accessories made from pure hemp and plant fibers.</p>
+        <a href="https://rawthentic.com/" target="_blank" rel="noopener noreferrer" class="visit-link">Visit Store →</a>
+      </article>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <nav class="headshop-nav-buttons">
+      <a href="learn.html" class="headshop-nav-btn secondary">Learn More</a>
+      <a href="index.html" class="headshop-nav-btn primary">Back to Home</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 WEEDIES AI. All rights reserved. 21+ only. Accessories only.</p>
+    <p class="footer-links">
+      <a href="laws-by-state.html">Laws by State</a> ·
+      <a href="learn.html">Learn</a> ·
+      <a href="advertise.html">Advertise</a>
+    </p>
+  </footer>
+</body>
+</html>
