@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Grow Shop — Seeds & Grow Gear – WEEDIES AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Discover reputable seed banks and grow gear retailers. Seeds, lights, nutrients, tents, and automation. Always follow your local laws.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="main.js"></script>
+  <style>
+    /* Grow Shop page-specific styles */
+    .growshop-page-main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.8rem 1.25rem 3rem;
+    }
+
+    .growshop-page-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .growshop-page-header h1 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+    }
+
+    .growshop-intro {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      max-width: 700px;
+      margin: 0 auto 0.5rem;
+      line-height: 1.6;
+    }
+
+    .growshop-disclaimer {
+      font-size: 0.85rem;
+      color: #a3e635;
+      max-width: 600px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    .growshop-section-title {
+      font-size: 1.25rem;
+      color: #a3e635;
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(163, 230, 53, 0.3);
+    }
+
+    .growshop-section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .growshop-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .growshop-card {
+      background: linear-gradient(135deg, #0A637A 0%, #062B45 100%);
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 0 20px rgba(10, 99, 122, 0.3);
+    }
+
+    .growshop-card h3 {
+      font-size: 1.1rem;
+      margin: 0 0 0.5rem 0;
+      color: #a3e635;
+    }
+
+    .growshop-card h3 a {
+      color: #a3e635;
+      text-decoration: none;
+      transition: color 0.15s ease-out;
+    }
+
+    .growshop-card h3 a:hover {
+      color: #bef264;
+      text-decoration: underline;
+    }
+
+    .growshop-card p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #e5e7eb;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .growshop-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      color: #022c22;
+      background: linear-gradient(135deg, #a3e635, #84cc16);
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    /* Navigation buttons */
+    .growshop-nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      padding-bottom: 1rem;
+    }
+
+    .growshop-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1.5rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.15s ease-out;
+    }
+
+    .growshop-nav-btn.primary {
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      color: #022c22;
+      box-shadow: 0 0 22px rgba(74, 222, 128, 0.9);
+    }
+
+    .growshop-nav-btn.primary:hover {
+      filter: brightness(1.07);
+      transform: translateY(-1px);
+    }
+
+    .growshop-nav-btn.secondary {
+      background: rgba(15, 23, 42, 0.35);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      color: #ecfeff;
+    }
+
+    .growshop-nav-btn.secondary:hover {
+      border-color: rgba(94, 234, 212, 0.9);
+      box-shadow: 0 0 14px rgba(45, 212, 191, 0.7);
+    }
+
+    @media (max-width: 768px) {
+      .growshop-page-main {
+        padding: 1.25rem 1rem 2rem;
+      }
+
+      .growshop-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .growshop-card {
+        padding: 1.1rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-inner">
+    <div class="header-left">
+      <img src="cannabis-leaf-icon.png" alt="" class="header-leaf-icon rotating-leaf">
+    </div>
+    <div class="header-center">
+      <img src="weedies-ai-logo-transparent.png" alt="WEEDIES AI" class="header-logo-img">
+    </div>
+    <button class="menu-toggle" aria-label="Open menu" id="mobile-menu-toggle">
+      ☰
+    </button>
+    <nav id="main-nav" class="main-nav">
+      <ul class="nav-row nav-row-primary">
+        <li class="nav-item"><a href="index.html"><span class="nav-label">Home</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="dispensaries.html"><span class="nav-label">Dispensaries</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="strain-finder.html"><span class="nav-label">Strain Finder AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="grow-master.html"><span class="nav-label">Grower AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="munchies-ai.html"><span class="nav-label">Munchies AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="laws-by-state.html"><span class="nav-label">Laws by State</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html"><span class="nav-label">Learn</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+      <ul class="nav-row nav-row-secondary">
+        <li class="nav-item"><a href="headshop.html"><span class="nav-label">Headshop</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="grow-shop.html"><span class="nav-label">Grow Shop</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#wellness"><span class="nav-label">Wellness</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#ride-safe"><span class="nav-label">Ride Safe</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#events"><span class="nav-label">Events</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="learn.html#brands"><span class="nav-label">Brands</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="advertise.html"><span class="nav-label">Advertise</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="growshop-page-main">
+    <section class="growshop-page-header">
+      <h1>Grow Shop — Seeds &amp; Grow Gear</h1>
+      <p class="growshop-intro">This page links to reputable grow gear and seed retailers. Whether you're starting your first grow or upgrading your setup, these partners offer quality genetics, lighting, nutrients, and automation tools.</p>
+      <p class="growshop-disclaimer">Always follow your local laws regarding cultivation.</p>
+    </section>
+
+    <!-- SEEDS & GENETICS -->
+    <h2 class="growshop-section-title">Seeds &amp; Genetics</h2>
+    <div class="growshop-grid">
+      <article class="growshop-card">
+        <h3><a href="https://northatlanticseed.com/" target="_blank" rel="sponsored noopener">North Atlantic Seed Company</a></h3>
+        <p>US-based seed bank with a wide selection of feminized, autoflower, and regular seeds from top breeders. Fast domestic shipping.</p>
+        <span class="growshop-tag">Seeds</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.seedsman.com/" target="_blank" rel="sponsored noopener">Seedsman</a></h3>
+        <p>One of the largest online seed banks offering thousands of strains from hundreds of breeders worldwide.</p>
+        <span class="growshop-tag">Seeds</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.ilovegrowingmarijuana.com/" target="_blank" rel="sponsored noopener">ILGM (I Love Growing Marijuana)</a></h3>
+        <p>Beginner-friendly seed bank with germination guarantees, grow guides, and popular strain varieties.</p>
+        <span class="growshop-tag">Seeds</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.cropkingseeds.com/" target="_blank" rel="sponsored noopener">Crop King Seeds</a></h3>
+        <p>Canadian seed bank with 20+ years of experience offering feminized, autoflower, and CBD seeds.</p>
+        <span class="growshop-tag">Seeds</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.marijuana-seeds.nl/" target="_blank" rel="sponsored noopener">MSNL (Marijuana Seeds NL)</a></h3>
+        <p>Amsterdam-based seed bank with discreet worldwide shipping and a loyalty rewards program.</p>
+        <span class="growshop-tag">Seeds</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.herbiesheadshop.com/" target="_blank" rel="sponsored noopener">Herbies Seeds</a></h3>
+        <p>European seed superstore featuring exclusive strains and express shipping options to most countries.</p>
+        <span class="growshop-tag">Seeds</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://homegrowncannabisco.com/" target="_blank" rel="sponsored noopener">Homegrown Cannabis Co.</a></h3>
+        <p>Curated genetics with detailed grow diaries and community support for home cultivators.</p>
+        <span class="growshop-tag">Seeds</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.royalqueenseeds.com/" target="_blank" rel="sponsored noopener">Royal Queen Seeds</a></h3>
+        <p>Award-winning European breeder known for consistent quality and innovative genetics.</p>
+        <span class="growshop-tag">Seeds</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.barneysfarm.com/" target="_blank" rel="sponsored noopener">Barney's Farm</a></h3>
+        <p>Amsterdam coffeeshop brand with decades of breeding experience and multiple Cannabis Cup winners.</p>
+        <span class="growshop-tag">Seeds</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://dutch-passion.com/" target="_blank" rel="sponsored noopener">Dutch Passion</a></h3>
+        <p>Pioneer seed company since 1987, credited with developing feminized seed technology.</p>
+        <span class="growshop-tag">Seeds</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.humboldtseedcompany.com/" target="_blank" rel="sponsored noopener">Humboldt Seed Company</a></h3>
+        <p>California heritage genetics from the legendary Emerald Triangle growing region.</p>
+        <span class="growshop-tag">Seeds</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.nirvana-shop.com/" target="_blank" rel="sponsored noopener">Nirvana Shop</a></h3>
+        <p>Established Dutch seed bank offering affordable, reliable genetics with worldwide delivery.</p>
+        <span class="growshop-tag">Seeds</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://sensiseeds.com/" target="_blank" rel="sponsored noopener">Sensi Seeds</a></h3>
+        <p>Legendary Amsterdam seed bank and cannabis museum operators with classic genetics dating back decades.</p>
+        <span class="growshop-tag">Seeds</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.greenhouseseeds.nl/" target="_blank" rel="sponsored noopener">Green House Seed Co.</a></h3>
+        <p>Award-winning breeder behind famous strains, known for Strain Hunters expeditions worldwide.</p>
+        <span class="growshop-tag">Seeds</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.fastbuds.com/" target="_blank" rel="sponsored noopener">Fast Buds</a></h3>
+        <p>Specialists in autoflowering genetics, offering quick harvest cycles without sacrificing potency.</p>
+        <span class="growshop-tag">Autoflower</span>
+      </article>
+    </div>
+
+    <!-- LIGHTS & ENVIRONMENT -->
+    <h2 class="growshop-section-title">Lights &amp; Environment</h2>
+    <div class="growshop-grid">
+      <article class="growshop-card">
+        <h3><a href="https://www.acinfinity.com/" target="_blank" rel="sponsored noopener">AC Infinity</a></h3>
+        <p>Premium grow tent ventilation, LED grow lights, and climate controllers with smart app integration.</p>
+        <span class="growshop-tag">Lights</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.spider-farmer.com/" target="_blank" rel="sponsored noopener">Spider Farmer</a></h3>
+        <p>Popular LED grow lights with Samsung diodes, known for excellent value and energy efficiency.</p>
+        <span class="growshop-tag">Lights</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.mars-hydro.com/" target="_blank" rel="sponsored noopener">Mars Hydro</a></h3>
+        <p>Affordable full-spectrum LED lights and complete grow tent kits for beginners and pros alike.</p>
+        <span class="growshop-tag">Lights</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.viparspectra.com/" target="_blank" rel="sponsored noopener">Viparspectra</a></h3>
+        <p>Budget-friendly LED grow lights with reliable performance for indoor cultivation setups.</p>
+        <span class="growshop-tag">Lights</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://horticulturelightinggroup.com/" target="_blank" rel="sponsored noopener">HLG (Horticulture Lighting Group)</a></h3>
+        <p>High-end quantum board LED lights trusted by commercial growers for maximum efficiency and yields.</p>
+        <span class="growshop-tag">Lights</span>
+      </article>
+    </div>
+
+    <!-- TENTS & STRUCTURES -->
+    <h2 class="growshop-section-title">Tents &amp; Structures</h2>
+    <div class="growshop-grid">
+      <article class="growshop-card">
+        <h3><a href="https://www.gorillagrowtent.com/" target="_blank" rel="sponsored noopener">Gorilla Grow Tent</a></h3>
+        <p>Premium heavy-duty grow tents with height extension kits and superior light-blocking fabric.</p>
+        <span class="growshop-tag">Tents</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://vivosun.com/" target="_blank" rel="sponsored noopener">Vivosun</a></h3>
+        <p>Affordable grow tents, ventilation equipment, and complete indoor gardening solutions.</p>
+        <span class="growshop-tag">Tents</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.secretjardin.com/" target="_blank" rel="sponsored noopener">Secret Jardin</a></h3>
+        <p>European-designed grow tents with innovative features and durable construction for serious growers.</p>
+        <span class="growshop-tag">Tents</span>
+      </article>
+    </div>
+
+    <!-- NUTRIENTS & SOIL -->
+    <h2 class="growshop-section-title">Nutrients &amp; Soil</h2>
+    <div class="growshop-grid">
+      <article class="growshop-card">
+        <h3><a href="https://foxfarm.com/" target="_blank" rel="sponsored noopener">FoxFarm</a></h3>
+        <p>Premium soils, fertilizers, and nutrient lines trusted by growers for decades. Ocean Forest and Happy Frog favorites.</p>
+        <span class="growshop-tag">Nutrients</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://generalhydroponics.com/" target="_blank" rel="sponsored noopener">General Hydroponics</a></h3>
+        <p>Industry-standard hydroponic nutrients and the famous Flora Series feeding system.</p>
+        <span class="growshop-tag">Nutrients</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.advancednutrients.com/" target="_blank" rel="sponsored noopener">Advanced Nutrients</a></h3>
+        <p>pH Perfect technology and comprehensive nutrient systems designed specifically for cannabis cultivation.</p>
+        <span class="growshop-tag">Nutrients</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.rootsorganics.com/" target="_blank" rel="sponsored noopener">Roots Organics</a></h3>
+        <p>Organic soils and amendments for natural, living soil growing methods and clean harvests.</p>
+        <span class="growshop-tag">Nutrients</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://buildasoil.com/" target="_blank" rel="sponsored noopener">BuildASoil</a></h3>
+        <p>Living soil specialists offering custom soil blends, amendments, and no-till growing supplies.</p>
+        <span class="growshop-tag">Nutrients</span>
+      </article>
+    </div>
+
+    <!-- VENTILATION / ODOR / CLIMATE -->
+    <h2 class="growshop-section-title">Ventilation &amp; Climate</h2>
+    <div class="growshop-grid">
+      <article class="growshop-card">
+        <h3><a href="https://phreshfilter.com/" target="_blank" rel="sponsored noopener">Phresh Filter</a></h3>
+        <p>Premium activated carbon filters for superior odor control in indoor grow rooms.</p>
+        <span class="growshop-tag">Odor Control</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://can-filters.com/" target="_blank" rel="sponsored noopener">Can-Filters</a></h3>
+        <p>Industry-leading carbon filters and fans trusted by commercial cultivators worldwide.</p>
+        <span class="growshop-tag">Odor Control</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://inkbird.com/" target="_blank" rel="sponsored noopener">Inkbird</a></h3>
+        <p>Affordable temperature and humidity controllers for precise environmental management.</p>
+        <span class="growshop-tag">Climate</span>
+      </article>
+    </div>
+
+    <!-- IRRIGATION & AUTOMATION -->
+    <h2 class="growshop-section-title">Irrigation &amp; Automation</h2>
+    <div class="growshop-grid">
+      <article class="growshop-card">
+        <h3><a href="https://www.blumat.com/" target="_blank" rel="sponsored noopener">Blumat</a></h3>
+        <p>Automatic gravity-fed watering systems using ceramic sensors for consistent soil moisture.</p>
+        <span class="growshop-tag">Automation</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://floraflex.com/" target="_blank" rel="sponsored noopener">Floraflex</a></h3>
+        <p>Precision drip irrigation systems and nutrients designed for consistent feeding schedules.</p>
+        <span class="growshop-tag">Automation</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://autopot.co.uk/" target="_blank" rel="sponsored noopener">Autopot</a></h3>
+        <p>Self-watering pot systems using gravity and AquaValve technology for hands-off cultivation.</p>
+        <span class="growshop-tag">Automation</span>
+      </article>
+    </div>
+
+    <!-- EDUCATION / TOOLS -->
+    <h2 class="growshop-section-title">Education &amp; Resources</h2>
+    <div class="growshop-grid">
+      <article class="growshop-card">
+        <h3><a href="https://www.growweedeasy.com/" target="_blank" rel="sponsored noopener">Grow Weed Easy</a></h3>
+        <p>Comprehensive growing guides, tutorials, and troubleshooting resources for cultivators of all levels.</p>
+        <span class="growshop-tag">Education</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://www.royalqueenseeds.com/blog/" target="_blank" rel="sponsored noopener">Royal Queen Seeds Blog</a></h3>
+        <p>In-depth articles on growing techniques, strain guides, and cannabis science from expert breeders.</p>
+        <span class="growshop-tag">Education</span>
+      </article>
+    </div>
+
+    <!-- MARKETPLACES / RETAILERS -->
+    <h2 class="growshop-section-title">Marketplaces &amp; Retailers</h2>
+    <div class="growshop-grid">
+      <article class="growshop-card">
+        <h3><a href="https://www.amazon.com/" target="_blank" rel="sponsored noopener">Amazon</a></h3>
+        <p>General marketplace for grow tents, lights, fans, timers, and gardening supplies with fast shipping.</p>
+        <span class="growshop-tag">Marketplace</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://hydrobuilder.com/" target="_blank" rel="sponsored noopener">Hydrobuilder</a></h3>
+        <p>Specialized hydroponic and indoor gardening superstore with expert support and competitive pricing.</p>
+        <span class="growshop-tag">Marketplace</span>
+      </article>
+
+      <article class="growshop-card">
+        <h3><a href="https://growershouse.com/" target="_blank" rel="sponsored noopener">GrowersHouse</a></h3>
+        <p>One-stop shop for grow equipment, nutrients, and supplies with knowledgeable customer service.</p>
+        <span class="growshop-tag">Marketplace</span>
+      </article>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <nav class="growshop-nav-buttons">
+      <a href="grow-master.html" class="growshop-nav-btn secondary">Grower AI</a>
+      <a href="index.html" class="growshop-nav-btn primary">Back to Home</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 WEEDIES AI. All rights reserved. 21+ only. We do not promote illegal activity.</p>
+    <p class="footer-links">
+      <a href="laws-by-state.html">Laws by State</a> ·
+      <a href="learn.html">Learn</a> ·
+      <a href="advertise.html">Advertise</a>
+    </p>
+  </footer>
+</body>
+</html>
