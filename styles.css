@@ -1277,6 +1277,96 @@ body.chat-fullscreen .page-main.chat-page {
   text-decoration: none;
 }
 
+/* Homepage info sections */
+.info-section {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0A637A 0%, #062B45 100%);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(10, 99, 122, 0.3);
+}
+
+.info-section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.4rem;
+  color: var(--accent-lime);
+}
+
+.info-section p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #e5e7eb;
+  margin-bottom: 0.75rem;
+}
+
+.info-section p:last-child {
+  margin-bottom: 0;
+}
+
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.how-step {
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 16px;
+  padding: 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.how-step h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--accent-aqua);
+}
+
+.how-step p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.faq-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.faq-item {
+  background: rgba(15, 23, 42, 0.4);
+  border-radius: 16px;
+  padding: 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.faq-item h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: var(--accent-aqua);
+}
+
+.faq-item p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .info-section {
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .info-section h2 {
+    font-size: 1.25rem;
+  }
+
+  .how-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Strain Finder AI page typography */
 .strain-finder-page h1 {
   color: var(--hf-text-title);
