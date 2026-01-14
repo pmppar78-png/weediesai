@@ -28,11 +28,168 @@ Always keep the /api/ai-chat endpoint working and the existing file/folder struc
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Advertise with WEEDIES AI</title>
+  <title>Advertise With WeediesAI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Partner with WEEDIES AI to reach cannabis consumers, growers, and wellness-focused users.">
+  <meta name="description" content="Partner with WeediesAI to reach cannabis consumers, enthusiasts, and wellness-focused audiences through our AI-powered platform.">
   <link rel="stylesheet" href="styles.css">
   <script defer src="main.js"></script>
+  <style>
+    /* Page-specific styles for Advertise page */
+    .advertise-hero {
+      text-align: center;
+      padding: 2rem 0 1.5rem;
+    }
+
+    .advertise-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      margin-bottom: 0;
+      background: linear-gradient(135deg, #a3e635, #22c55e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .advertise-intro {
+      background: linear-gradient(135deg, #0A637A 0%, #062B45 100%);
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 1.5rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 20px rgba(10, 99, 122, 0.3);
+    }
+
+    .advertise-intro p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: #e5e7eb;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .advertise-intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .advertise-section {
+      background: linear-gradient(135deg, #0A637A 0%, #062B45 100%);
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 1.5rem 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 0 20px rgba(10, 99, 122, 0.3);
+    }
+
+    .advertise-section h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent-lime);
+      margin: 0 0 1rem 0;
+    }
+
+    .advertise-section p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #e5e7eb;
+      margin: 0 0 0.75rem 0;
+    }
+
+    .advertise-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .advertise-section ul li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #e5e7eb;
+    }
+
+    .advertise-section ul li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.5em;
+      width: 8px;
+      height: 8px;
+      background: var(--accent-emerald);
+      border-radius: 50%;
+    }
+
+    .advertise-section ul li:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, rgba(45, 212, 191, 0.25), rgba(34, 197, 94, 0.2));
+      border: 1px solid rgba(45, 212, 191, 0.7);
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      color: #ffffff;
+    }
+
+    .contact-section p {
+      font-size: 1rem;
+      color: #f0fdf4;
+    }
+
+    .contact-email {
+      display: inline-block;
+      margin: 1rem 0;
+      padding: 0.75rem 2rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #022c22;
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 0 22px rgba(74, 222, 128, 0.7);
+      transition: all 0.2s ease;
+    }
+
+    .contact-email:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(74, 222, 128, 0.9);
+    }
+
+    .compliance-note {
+      background: rgba(15, 23, 42, 0.6);
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 1rem 1.5rem;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+
+    .compliance-note p {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .advertise-intro,
+      .advertise-section {
+        padding: 1.25rem 1.25rem;
+      }
+
+      .advertise-hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .contact-email {
+        font-size: 1rem;
+        padding: 0.65rem 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -69,52 +226,67 @@ Always keep the /api/ai-chat endpoint working and the existing file/folder struc
 </header>
 
   <main class="page-main narrow">
-    <section class="page-header">
-      <h1>Advertise with WEEDIES AI</h1>
-      <p>
-        WEEDIES AI is designed for modern cannabis consumers, home growers (where legal), and wellness-focused users who want smarter, safer guidance.
-        When they ask our AI what to buy and where to go, we have to send them somewhere. That can be you.
-      </p>
+    <!-- Page Title -->
+    <section class="advertise-hero">
+      <h1>Advertise With WeediesAI</h1>
     </section>
 
-    <section class="learn-section">
-      <h2>Who We Work With</h2>
-      <ul class="bullet-list">
-        <li>Licensed dispensaries and delivery services</li>
-        <li>Seed banks and genetics companies (where legal)</li>
-        <li>Grow shops, equipment manufacturers, and hydroponics retailers</li>
-        <li>Online headshops and accessory brands</li>
-        <li>Food delivery and “munchies” partners</li>
-        <li>Ride-share and transportation partners</li>
-        <li>Wellness, CBD, and harm-reduction brands</li>
+    <!-- Intro Section -->
+    <section class="advertise-intro">
+      <p>WeediesAI is an AI-powered cannabis information platform designed to connect users with education, discovery, and intelligent tools. From strain recommendations to growing guidance and wellness resources, our platform serves as a trusted companion for the next generation of cannabis consumers.</p>
+      <p>We combine cutting-edge artificial intelligence with deep industry knowledge to deliver personalized, relevant experiences. When users seek guidance, we provide informed answers. When they look for products and services, we point them in the right direction.</p>
+      <p>This is where your brand can make an impact.</p>
+    </section>
+
+    <!-- Why Advertise With Us -->
+    <section class="advertise-section">
+      <h2>Why Advertise With Us</h2>
+      <ul>
+        <li><strong>AI-Driven Discovery:</strong> Our intelligent systems match users with relevant information, products, and services based on their specific needs and preferences.</li>
+        <li><strong>Highly Targeted Audience:</strong> Reach cannabis-interested consumers who are actively seeking information, recommendations, and solutions.</li>
+        <li><strong>Clean, Compliant Platform:</strong> WeediesAI operates with a commitment to compliance and responsibility, ensuring your brand appears in a trustworthy environment.</li>
+        <li><strong>Forward-Looking Technology:</strong> Position your brand alongside innovative AI experiences that represent the future of cannabis discovery and education.</li>
+        <li><strong>Scalable Visibility:</strong> Whether you are a local operation or a national brand, our platform offers opportunities to grow alongside your audience.</li>
       </ul>
     </section>
 
-    <section class="learn-section">
-      <h2>How Placement Works</h2>
-      <p>
-        We blend traditional placements with AI-native experiences:
-      </p>
-      <ul class="bullet-list">
-        <li>Featured links and tiles in relevant sections (Headshop, Grow Shop, Munchies, Ride Safe, etc.)</li>
-        <li>Contextual suggestions from Strain Finder AI and Grower AI when users ask for help</li>
-        <li>Educational content that highlights your brand’s strengths without overpromising</li>
+    <!-- Who Should Advertise -->
+    <section class="advertise-section">
+      <h2>Who Should Advertise</h2>
+      <ul>
+        <li><strong>Cannabis Accessories and Headshops:</strong> Reach consumers actively seeking quality glassware, vaporizers, rolling accessories, and more.</li>
+        <li><strong>Wellness and Lifestyle Brands:</strong> Connect with health-conscious users exploring CBD, wellness supplements, and mindful consumption.</li>
+        <li><strong>Cannabis Events and Experiences:</strong> Promote conferences, festivals, educational workshops, and community gatherings to an engaged audience.</li>
+        <li><strong>Technology Platforms:</strong> Showcase apps, software, and digital services built for the modern cannabis ecosystem.</li>
+        <li><strong>Educational and Informational Brands:</strong> Partner with us to deliver valuable content and resources to curious, knowledge-seeking users.</li>
       </ul>
     </section>
 
-    <section class="learn-section">
-      <h2>Let’s Talk</h2>
-      <p>
-        To discuss placements, sponsored content, or deeper integrations, email us at:
-      </p>
-      <p class="highlight-email">
-        <a href="mailto:advertise@weediesai.com">advertise@weediesai.com</a>
-      </p>
-      <p>
-        Please include your brand name, website, primary markets, and what kind of partnership you’re interested in.
-      </p>
+    <!-- Advertising Opportunities -->
+    <section class="advertise-section">
+      <h2>Advertising Opportunities</h2>
+      <ul>
+        <li><strong>Sponsored Placements:</strong> Feature your brand prominently within relevant sections of our platform, ensuring visibility where it matters most.</li>
+        <li><strong>Featured Recommendations:</strong> Be included in curated suggestions delivered to users based on their interests and queries.</li>
+        <li><strong>Brand Visibility in AI Experiences:</strong> Integrate your brand naturally into AI-assisted interactions, reaching users at moments of high engagement.</li>
+        <li><strong>Custom Placements:</strong> Work with our team to develop tailored advertising solutions that align with your specific goals and audience.</li>
+      </ul>
     </section>
+
+    <!-- Contact Section -->
+    <section class="advertise-section contact-section">
+      <h2>Get Started Today</h2>
+      <p>Ready to connect with cannabis consumers, enthusiasts, and wellness-focused audiences? We would like to hear from you.</p>
+      <a href="mailto:advertise@weediesai.com" class="contact-email">advertise@weediesai.com</a>
+      <p>Reach out to discuss partnership opportunities, request a media kit, or learn more about how WeediesAI can help amplify your brand.</p>
+    </section>
+
+    <!-- Compliance Note -->
+    <div class="compliance-note">
+      <p>All advertising on WeediesAI is informational in nature. We do not facilitate direct sales or promote the sale of controlled substances. All partners must comply with applicable laws and regulations.</p>
+    </div>
   </main>
+
   <footer class="site-footer">
     <p>&copy; 2025 WEEDIES AI. All rights reserved.</p>
   </footer>
