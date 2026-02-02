@@ -1,0 +1,8 @@
+# robots.txt for weediesai.com
+# Allow all crawlers access to all public content
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://weediesai.com/sitemap.xml
