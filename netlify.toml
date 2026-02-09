@@ -2,7 +2,106 @@
   publish = "."
   functions = "netlify/functions"
 
+# Disable Netlify's automatic Pretty URLs to prevent duplicate URL paths
+# (e.g., /about and /about.html both serving the same content)
+[processing]
+  [processing.html]
+    pretty_urls = false
+
+# API function proxy – internal rewrite, not a public page
 [[redirects]]
   from = "/api/ai-chat"
   to = "/.netlify/functions/ai-chat"
   status = 200
+
+# 301 canonical redirects: clean URLs → .html versions
+# Prevents duplicate URL indexing (Google sees /about and /about.html as separate)
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 301
+
+[[redirects]]
+  from = "/advertise"
+  to = "/advertise.html"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 301
+
+[[redirects]]
+  from = "/dispensaries"
+  to = "/dispensaries.html"
+  status = 301
+
+[[redirects]]
+  from = "/grow-ai"
+  to = "/grow-ai.html"
+  status = 301
+
+[[redirects]]
+  from = "/grow-master"
+  to = "/grow-master.html"
+  status = 301
+
+[[redirects]]
+  from = "/grow-shop"
+  to = "/grow-shop.html"
+  status = 301
+
+[[redirects]]
+  from = "/headshop"
+  to = "/headshop.html"
+  status = 301
+
+[[redirects]]
+  from = "/laws-by-state"
+  to = "/laws-by-state.html"
+  status = 301
+
+[[redirects]]
+  from = "/learn"
+  to = "/learn.html"
+  status = 301
+
+[[redirects]]
+  from = "/munchies-ai"
+  to = "/munchies-ai.html"
+  status = 301
+
+[[redirects]]
+  from = "/munchies-chat"
+  to = "/munchies-chat.html"
+  status = 301
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 301
+
+[[redirects]]
+  from = "/ride-safe"
+  to = "/ride-safe.html"
+  status = 301
+
+[[redirects]]
+  from = "/strain-ai"
+  to = "/strain-ai.html"
+  status = 301
+
+[[redirects]]
+  from = "/strain-finder"
+  to = "/strain-finder.html"
+  status = 301
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 301
+
+[[redirects]]
+  from = "/wellness"
+  to = "/wellness.html"
+  status = 301
