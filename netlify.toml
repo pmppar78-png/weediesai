@@ -14,94 +14,128 @@
   to = "/.netlify/functions/ai-chat"
   status = 200
 
+# Redirect /index.html to / to prevent duplicate homepage indexing
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
 # 301 canonical redirects: clean URLs → .html versions
+# force = true ensures these fire even when Netlify can resolve a static asset
 # Prevents duplicate URL indexing (Google sees /about and /about.html as separate)
 [[redirects]]
   from = "/about"
   to = "/about.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/advertise"
   to = "/advertise.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/contact"
   to = "/contact.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/dispensaries"
   to = "/dispensaries.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/grow-ai"
   to = "/grow-ai.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/grow-master"
   to = "/grow-master.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/grow-shop"
   to = "/grow-shop.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/headshop"
   to = "/headshop.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/laws-by-state"
   to = "/laws-by-state.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/learn"
   to = "/learn.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/munchies-ai"
   to = "/munchies-ai.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/munchies-chat"
   to = "/munchies-chat.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/privacy"
   to = "/privacy.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/ride-safe"
   to = "/ride-safe.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/strain-ai"
   to = "/strain-ai.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/strain-finder"
   to = "/strain-finder.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/terms"
   to = "/terms.html"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/wellness"
   to = "/wellness.html"
   status = 301
+  force = true
+
+# Custom headers for SEO and security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
