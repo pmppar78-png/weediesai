@@ -13,6 +13,14 @@
   to = "/.netlify/functions/ai-chat"
   status = 200
 
+# ── Trailing-slash → clean URL 301 redirects ─────────────────
+# Prevents duplicate content at /page/ vs /page (fixes Google "chose different canonical").
+[[redirects]]
+  from = "/:page/"
+  to = "/:page"
+  status = 301
+  force = true
+
 # ── .html → clean URL 301 redirects ──────────────────────────
 # force = true so the redirect fires even though the .html file exists on disk.
 # Google and browsers will follow these to the canonical clean URL.
@@ -232,3 +240,102 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# ── HTTP Link canonical headers ──────────────────────────────
+# Reinforces the <link rel="canonical"> in HTML with an HTTP-level signal.
+# This helps Google resolve "Duplicate, Google chose different canonical" issues.
+
+[[headers]]
+  for = "/"
+  [headers.values]
+    Link = '<https://weediesai.com/>; rel="canonical"'
+
+[[headers]]
+  for = "/about"
+  [headers.values]
+    Link = '<https://weediesai.com/about>; rel="canonical"'
+
+[[headers]]
+  for = "/advertise"
+  [headers.values]
+    Link = '<https://weediesai.com/advertise>; rel="canonical"'
+
+[[headers]]
+  for = "/contact"
+  [headers.values]
+    Link = '<https://weediesai.com/contact>; rel="canonical"'
+
+[[headers]]
+  for = "/dispensaries"
+  [headers.values]
+    Link = '<https://weediesai.com/dispensaries>; rel="canonical"'
+
+[[headers]]
+  for = "/grow-ai"
+  [headers.values]
+    Link = '<https://weediesai.com/grow-ai>; rel="canonical"'
+
+[[headers]]
+  for = "/grow-master"
+  [headers.values]
+    Link = '<https://weediesai.com/grow-master>; rel="canonical"'
+
+[[headers]]
+  for = "/grow-shop"
+  [headers.values]
+    Link = '<https://weediesai.com/grow-shop>; rel="canonical"'
+
+[[headers]]
+  for = "/headshop"
+  [headers.values]
+    Link = '<https://weediesai.com/headshop>; rel="canonical"'
+
+[[headers]]
+  for = "/laws-by-state"
+  [headers.values]
+    Link = '<https://weediesai.com/laws-by-state>; rel="canonical"'
+
+[[headers]]
+  for = "/learn"
+  [headers.values]
+    Link = '<https://weediesai.com/learn>; rel="canonical"'
+
+[[headers]]
+  for = "/munchies-ai"
+  [headers.values]
+    Link = '<https://weediesai.com/munchies-ai>; rel="canonical"'
+
+[[headers]]
+  for = "/munchies-chat"
+  [headers.values]
+    Link = '<https://weediesai.com/munchies-chat>; rel="canonical"'
+
+[[headers]]
+  for = "/privacy"
+  [headers.values]
+    Link = '<https://weediesai.com/privacy>; rel="canonical"'
+
+[[headers]]
+  for = "/ride-safe"
+  [headers.values]
+    Link = '<https://weediesai.com/ride-safe>; rel="canonical"'
+
+[[headers]]
+  for = "/strain-ai"
+  [headers.values]
+    Link = '<https://weediesai.com/strain-ai>; rel="canonical"'
+
+[[headers]]
+  for = "/strain-finder"
+  [headers.values]
+    Link = '<https://weediesai.com/strain-finder>; rel="canonical"'
+
+[[headers]]
+  for = "/terms"
+  [headers.values]
+    Link = '<https://weediesai.com/terms>; rel="canonical"'
+
+[[headers]]
+  for = "/wellness"
+  [headers.values]
+    Link = '<https://weediesai.com/wellness>; rel="canonical"'
