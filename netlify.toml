@@ -22,6 +22,14 @@
   to = "/.netlify/functions/ai-chat"
   status = 200
 
+# ── Domain canonicalization ──────────────────────────────────
+# Force www to non-www (primary domain: weediesai.com)
+[[redirects]]
+  from = "https://www.weediesai.com/*"
+  to = "https://weediesai.com/:splat"
+  status = 301
+  force = true
+
 # ── .html → clean URL 301 redirects ──────────────────────────
 # force = true so the redirect fires even though the .html file exists on disk.
 # Google and browsers will follow these to the canonical clean URL.
