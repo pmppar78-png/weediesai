@@ -2,24 +2,25 @@
   publish = "."
   functions = "netlify/functions"
 
-# Disable Netlify's automatic Pretty URLs — we handle routing explicitly below
-[processing]
-  [processing.html]
+# Disable all Netlify post-processing to prevent conflicts with explicit redirect rules
+[build.processing]
+  skip_processing = false
+  [build.processing.html]
     pretty_urls = false
+  [build.processing.css]
+    bundle = false
+    minify = false
+  [build.processing.js]
+    bundle = false
+    minify = false
+  [build.processing.images]
+    compress = false
 
 # ── API function proxy (internal rewrite, not a public page) ──
 [[redirects]]
   from = "/api/ai-chat"
   to = "/.netlify/functions/ai-chat"
   status = 200
-
-# ── Trailing-slash → clean URL 301 redirects ─────────────────
-# Prevents duplicate content at /page/ vs /page (fixes Google "chose different canonical").
-[[redirects]]
-  from = "/:page/"
-  to = "/:page"
-  status = 301
-  force = true
 
 # ── .html → clean URL 301 redirects ──────────────────────────
 # force = true so the redirect fires even though the .html file exists on disk.
