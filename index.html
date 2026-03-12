@@ -28,14 +28,110 @@ Always keep the /api/ai-chat endpoint working and the existing file/folder struc
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>WEEDIES AI – Cannabis Concierge & Grow Master</title>
+  <title>WEEDIES AI | Free Cannabis Strain Finder, Dispensary Locator & Grow Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="WEEDIES AI is your personal cannabis concierge – find dispensaries, discover strains, and design legal grow plans with AI.">
+  <meta name="description" content="Find cannabis strains, dispensaries near you, and legal grow guides with free AI tools. Strain recommendations, state-by-state weed laws, and cultivation tips for adults 21+.">
   <link rel="canonical" href="https://weediesai.com/">
   <meta property="og:url" content="https://weediesai.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="WEEDIES AI | Free Cannabis Strain Finder, Dispensary Locator & Grow Guide">
+  <meta property="og:description" content="Find cannabis strains, dispensaries near you, and legal grow guides with free AI tools. Strain recommendations, state-by-state weed laws, and cultivation tips.">
+  <meta property="og:site_name" content="WEEDIES AI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WEEDIES AI | Free Cannabis Strain Finder, Dispensary Locator & Grow Guide">
+  <meta name="twitter:description" content="Find cannabis strains, dispensaries near you, and legal grow guides with free AI tools.">
   <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="styles.css">
   <script defer src="main.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://weediesai.com/#organization",
+      "name": "WEEDIES AI",
+      "url": "https://weediesai.com",
+      "description": "AI-powered cannabis education platform offering strain recommendations, dispensary finding, and legal grow guides for adults 21+.",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "email": "hello@weediesai.com",
+          "contactType": "customer service"
+        },
+        {
+          "@type": "ContactPoint",
+          "email": "advertise@weediesai.com",
+          "contactType": "sales"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://weediesai.com/#website",
+      "name": "WEEDIES AI",
+      "url": "https://weediesai.com",
+      "description": "Free AI-powered cannabis tools: strain finder, dispensary locator, grow guide, munchies recommendations, and state-by-state cannabis law information.",
+      "publisher": {
+        "@id": "https://weediesai.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is WeediesAI free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Our AI tools are free for personal use. We earn revenue through affiliate partnerships and advertising from licensed businesses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does WeediesAI sell cannabis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. WeediesAI is an informational platform. We do not sell, ship, or distribute cannabis products. We connect you with licensed dispensaries and retailers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the grow advice legal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our Grower AI provides cultivation information for educational purposes in states where home growing is legal. Always verify your state's specific laws before growing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate are strain recommendations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our AI draws from extensive strain databases and user-reported effects. However, individual experiences vary based on tolerance, biology, and product quality. Use recommendations as a starting point."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I trust the dispensary links?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We only link to state-licensed dispensaries and established directory services. We recommend verifying licensing status on your state's official cannabis regulatory website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if cannabis isn't legal where I live?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WeediesAI is for educational purposes only. If cannabis is not legal in your jurisdiction, we encourage you to learn about the topic while respecting local laws."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
   <header class="site-header">
@@ -71,7 +167,7 @@ Always keep the /api/ai-chat endpoint working and the existing file/folder struc
   </div>
 </header>
 
-  <p style="text-align: center; color: #a3e635; font-weight: 500; margin: 1.25rem 0; font-size: 1.1rem;">Welcome to WeediesAI — the future is now.</p>
+  <h1 style="text-align: center; color: #a3e635; font-weight: 600; margin: 1.25rem 0; font-size: 1.3rem;">WEEDIES AI — Your Free AI-Powered Cannabis Concierge</h1>
 
   <main class="page-main">
     <section class="hero">
@@ -82,24 +178,24 @@ Always keep the /api/ai-chat endpoint working and the existing file/folder struc
 
     <section class="feature-grid">
       <article class="feature-card">
-        <h2>Dispensary Finder</h2>
-        <p>Type a city or ZIP and jump straight into licensed dispensaries, delivery options, and maps via trusted partners.</p>
-        <a href="/dispensaries" class="text-link">Search dispensaries</a>
+        <h2>Find Dispensaries Near You</h2>
+        <p>Search licensed recreational and medical cannabis dispensaries by city or ZIP code. Find weed delivery, menus, deals, and reviews from trusted partners like Weedmaps and Leafly.</p>
+        <a href="/dispensaries" class="text-link">Search dispensaries near me</a>
       </article>
       <article class="feature-card">
-        <h2>Strain Finder AI</h2>
-        <p>Describe the high you want — giggly, creative, sleepy, pain relief — and our AI will suggest strains and where to find them.</p>
-        <a href="/strain-ai" class="text-link">Talk to the AI budtender</a>
+        <h2>Cannabis Strain Finder AI</h2>
+        <p>Tell our AI what you want — relaxation, creativity, pain relief, sleep, or energy — and get personalized cannabis strain recommendations based on your tolerance and preferences.</p>
+        <a href="/strain-finder" class="text-link">Find your perfect strain</a>
       </article>
       <article class="feature-card">
-        <h2>Grower AI (Where Legal)</h2>
-        <p>Indoor or outdoor, closet or tent — get a full grow plan, gear list, and schedule tailored to your space, budget, and legal status.</p>
-        <a href="/grow-ai" class="text-link">Build my grow plan</a>
+        <h2>How to Grow Weed at Home</h2>
+        <p>Get a free AI-powered cannabis grow guide. Indoor tents, outdoor gardens, soil, hydroponics — complete cultivation plans tailored to your space and experience level, where legal.</p>
+        <a href="/grow-master" class="text-link">Start your grow plan</a>
       </article>
     </section>
 
     <section class="why-section">
-      <h2>Why WEEDIES AI Hits Different</h2>
+      <h2>Why WEEDIES AI Is the Best Free Cannabis Tool Online</h2>
       <div class="why-grid">
         <div class="why-item">
           <h3>Not Just Menus. Answers.</h3>
@@ -134,8 +230,8 @@ Always keep the /api/ai-chat endpoint working and the existing file/folder struc
     <section class="info-section what-is-section">
       <div class="info-content">
         <h2>What is WeediesAI?</h2>
-        <p>WeediesAI is an educational platform and AI-powered toolkit built for cannabis enthusiasts who value informed decisions. Whether you're exploring strains, researching growing techniques in legal states, or simply looking for trusted dispensaries in your area, our AI assistants provide personalized, research-backed guidance.</p>
-        <p>We combine curated information from trusted sources with conversational AI technology to answer your questions about cannabis — from terpene profiles and effects to state-by-state legal considerations. WeediesAI does not sell cannabis products. Instead, we connect you with licensed dispensaries, reputable retailers, and educational resources so you can make choices that work for you.</p>
+        <p>WeediesAI is an educational platform and AI-powered toolkit built for cannabis enthusiasts who value informed decisions. Whether you're <a href="/strain-finder" style="color: #a5f3fc;">exploring strains</a>, researching <a href="/grow-master" style="color: #a5f3fc;">growing techniques</a> in legal states, or simply looking for <a href="/dispensaries" style="color: #a5f3fc;">trusted dispensaries</a> in your area, our AI assistants provide personalized, research-backed guidance.</p>
+        <p>We combine curated information from trusted sources with conversational AI technology to answer your questions about cannabis — from terpene profiles and effects to <a href="/laws-by-state" style="color: #a5f3fc;">state-by-state legal considerations</a>. WeediesAI does not sell cannabis products. Instead, we connect you with licensed dispensaries, reputable retailers, and educational resources so you can make choices that work for you.</p>
         <p>Our mission is simple: help adults 21 and older navigate the cannabis landscape with confidence, clarity, and compliance.</p>
       </div>
     </section>
@@ -143,7 +239,7 @@ Always keep the /api/ai-chat endpoint working and the existing file/folder struc
     <section class="info-section how-it-works-section">
       <div class="info-content">
         <h2>How It Works</h2>
-        <p>Using WeediesAI is straightforward. Select one of our AI tools from the navigation — Strain Finder AI, Grower AI, or Munchies AI — and start a conversation. Describe what you're looking for in plain language, and our AI will provide tailored recommendations.</p>
+        <p>Using WeediesAI is straightforward. Select one of our AI tools from the navigation — <a href="/strain-finder" style="color: #a5f3fc;">Strain Finder AI</a>, <a href="/grow-master" style="color: #a5f3fc;">Grower AI</a>, or <a href="/munchies-ai" style="color: #a5f3fc;">Munchies AI</a> — and start a conversation. Describe what you're looking for in plain language, and our AI will provide tailored recommendations.</p>
         <div class="how-steps">
           <div class="how-step">
             <h3>1. Choose Your Tool</h3>
@@ -165,7 +261,7 @@ Always keep the /api/ai-chat endpoint working and the existing file/folder struc
       <div class="info-content">
         <h2>Responsible Use &amp; Legal Awareness</h2>
         <p>Cannabis laws vary significantly by state and country. WeediesAI is designed for adults aged 21 and older in jurisdictions where cannabis use is legal. Before purchasing, growing, or consuming cannabis, always verify that your activities comply with local, state, and federal laws.</p>
-        <p>We encourage responsible consumption. If you choose to use cannabis, do so in moderation and never drive or operate machinery while impaired. Our Ride Safe page connects you with transportation options so you can enjoy responsibly.</p>
+        <p>We encourage responsible consumption. If you choose to use cannabis, do so in moderation and never drive or operate machinery while impaired. Our <a href="/ride-safe" style="color: #a5f3fc;">Ride Safe page</a> connects you with transportation options so you can enjoy responsibly.</p>
         <p><strong>Important:</strong> WeediesAI does not provide medical advice. The information on this site is for educational purposes only and should not replace consultation with a healthcare professional. We make no claims about cannabis treating, curing, or preventing any medical condition.</p>
       </div>
     </section>
@@ -204,7 +300,7 @@ Always keep the /api/ai-chat endpoint working and the existing file/folder struc
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2025 WEEDIES AI. All rights reserved. For adults 21+ only. We do not sell cannabis or promote illegal activity.</p>
+    <p>&copy; 2026 WEEDIES AI. All rights reserved. For adults 21+ only. We do not sell cannabis or promote illegal activity.</p>
     <p style="font-size: 0.75rem; color: #d1d5db; margin-top: 0.5rem;">WeediesAI provides educational information and tools. Follow local laws; cannabis is legal only in certain jurisdictions. No medical advice.</p>
     <p class="footer-links">
       <a href="/privacy">Privacy Policy</a> ·
@@ -213,8 +309,16 @@ Always keep the /api/ai-chat endpoint working and the existing file/folder struc
       <a href="/contact">Contact</a>
     </p>
     <p class="footer-links">
-      <a href="/learn#laws">Laws &amp; Compliance</a> ·
-      <a href="/learn">Learn</a> ·
+      <a href="/laws-by-state">Cannabis Laws by State</a> ·
+      <a href="/learn">Learn About Cannabis</a> ·
+      <a href="/strain-finder">Strain Finder AI</a> ·
+      <a href="/grow-master">Grow Master AI</a>
+    </p>
+    <p class="footer-links">
+      <a href="/headshop">Headshop</a> ·
+      <a href="/grow-shop">Grow Shop</a> ·
+      <a href="/wellness">Wellness</a> ·
+      <a href="/ride-safe">Ride Safe</a> ·
       <a href="/advertise">Advertise</a>
     </p>
   </footer>
