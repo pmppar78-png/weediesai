@@ -96,4 +96,22 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://weediesai.com/grow-ai</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://weediesai.com/strain-ai</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://weediesai.com/munchies-chat</loc>
+    <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
