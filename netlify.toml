@@ -2,11 +2,12 @@
   publish = "."
   functions = "netlify/functions"
 
-# Disable all Netlify post-processing to prevent conflicts with explicit redirect rules
+# Enable Pretty URLs so Netlify natively serves .html files at clean paths
+# (e.g. about.html → /about) and auto-redirects .html requests to clean URLs.
 [build.processing]
   skip_processing = false
   [build.processing.html]
-    pretty_urls = false
+    pretty_urls = true
   [build.processing.css]
     bundle = false
     minify = false
@@ -30,127 +31,8 @@
   status = 301
   force = true
 
-# ── .html → clean URL 301 redirects ──────────────────────────
-# force = true so the redirect fires even though the .html file exists on disk.
-# Google and browsers will follow these to the canonical clean URL.
-
-[[redirects]]
-  from = "/index.html"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/about.html"
-  to = "/about"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/advertise.html"
-  to = "/advertise"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/contact.html"
-  to = "/contact"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/dispensaries.html"
-  to = "/dispensaries"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/grow-ai.html"
-  to = "/grow-ai"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/grow-master.html"
-  to = "/grow-master"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/grow-shop.html"
-  to = "/grow-shop"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/headshop.html"
-  to = "/headshop"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/laws-by-state.html"
-  to = "/laws-by-state"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/learn.html"
-  to = "/learn"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/munchies-ai.html"
-  to = "/munchies-ai"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/munchies-chat.html"
-  to = "/munchies-chat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/privacy.html"
-  to = "/privacy"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/ride-safe.html"
-  to = "/ride-safe"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/strain-ai.html"
-  to = "/strain-ai"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/strain-finder.html"
-  to = "/strain-finder"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/terms.html"
-  to = "/terms"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/wellness.html"
-  to = "/wellness"
-  status = 301
-  force = true
-
 # ── Trailing slash → non-trailing slash 301 redirects ─────────
 # Prevents duplicate content at /page/ vs /page. Canonical is always non-trailing.
-# force = true ensures this fires even when Netlify would serve content at /page/.
 
 [[redirects]]
   from = "/about/"
@@ -260,100 +142,6 @@
   status = 301
   force = true
 
-# ── Clean URL → .html 200 rewrites ───────────────────────────
-# These serve the .html file content at the clean URL path (no redirect visible).
-# No force needed — the clean paths have no matching static files on disk.
-
-[[redirects]]
-  from = "/about"
-  to = "/about.html"
-  status = 200
-
-[[redirects]]
-  from = "/advertise"
-  to = "/advertise.html"
-  status = 200
-
-[[redirects]]
-  from = "/contact"
-  to = "/contact.html"
-  status = 200
-
-[[redirects]]
-  from = "/dispensaries"
-  to = "/dispensaries.html"
-  status = 200
-
-[[redirects]]
-  from = "/grow-ai"
-  to = "/grow-ai.html"
-  status = 200
-
-[[redirects]]
-  from = "/grow-master"
-  to = "/grow-master.html"
-  status = 200
-
-[[redirects]]
-  from = "/grow-shop"
-  to = "/grow-shop.html"
-  status = 200
-
-[[redirects]]
-  from = "/headshop"
-  to = "/headshop.html"
-  status = 200
-
-[[redirects]]
-  from = "/laws-by-state"
-  to = "/laws-by-state.html"
-  status = 200
-
-[[redirects]]
-  from = "/learn"
-  to = "/learn.html"
-  status = 200
-
-[[redirects]]
-  from = "/munchies-ai"
-  to = "/munchies-ai.html"
-  status = 200
-
-[[redirects]]
-  from = "/munchies-chat"
-  to = "/munchies-chat.html"
-  status = 200
-
-[[redirects]]
-  from = "/privacy"
-  to = "/privacy.html"
-  status = 200
-
-[[redirects]]
-  from = "/ride-safe"
-  to = "/ride-safe.html"
-  status = 200
-
-[[redirects]]
-  from = "/strain-ai"
-  to = "/strain-ai.html"
-  status = 200
-
-[[redirects]]
-  from = "/strain-finder"
-  to = "/strain-finder.html"
-  status = 200
-
-[[redirects]]
-  from = "/terms"
-  to = "/terms.html"
-  status = 200
-
-[[redirects]]
-  from = "/wellness"
-  to = "/wellness.html"
-  status = 200
-
 # Custom headers for SEO and security
 [[headers]]
   for = "/*"
@@ -364,7 +152,6 @@
 
 # ── HTTP Link canonical headers ──────────────────────────────
 # Reinforces the <link rel="canonical"> in HTML with an HTTP-level signal.
-# This helps Google resolve "Duplicate, Google chose different canonical" issues.
 
 [[headers]]
   for = "/"
@@ -462,9 +249,8 @@
     Link = '<https://weediesai.com/wellness>; rel="canonical"'
 
 # ── X-Robots-Tag noindex for .html paths ──────────────────────
-# Tells Google to deindex .html URLs that are redirect sources.
-# Even though these 301 redirect, Google may still try to index them.
-# This header ensures Google drops them from the index entirely.
+# Safety net: if Google somehow accesses a .html URL directly,
+# tell it not to index the redirect source.
 
 [[headers]]
   for = "/*.html"
