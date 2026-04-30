@@ -2,8 +2,13 @@
   publish = "."
   functions = "netlify/functions"
 
-# Enable Pretty URLs so Netlify natively serves .html files at clean paths
-# (e.g. about.html → /about) and auto-redirects .html requests to clean URLs.
+# Pretty URLs: Netlify natively serves /page from page.html, strips trailing
+# slashes, and 301-redirects /page.html and /page/ to the clean canonical /page.
+# This is the SINGLE source of truth for URL canonicalization. Do NOT add
+# explicit per-page trailing-slash redirect rules — Netlify's redirect engine
+# matches both "/page/" and "/page" against `from = "/page/"`, so combined with
+# `force = true` those rules create infinite self-redirect loops on the
+# canonical clean URL.
 [build.processing]
   skip_processing = false
   [build.processing.html]
@@ -28,117 +33,6 @@
 [[redirects]]
   from = "https://www.weediesai.com/*"
   to = "https://weediesai.com/:splat"
-  status = 301
-  force = true
-
-# ── Trailing slash → non-trailing slash 301 redirects ─────────
-# Prevents duplicate content at /page/ vs /page. Canonical is always non-trailing.
-
-[[redirects]]
-  from = "/about/"
-  to = "/about"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/advertise/"
-  to = "/advertise"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/contact/"
-  to = "/contact"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/dispensaries/"
-  to = "/dispensaries"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/grow-ai/"
-  to = "/grow-ai"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/grow-master/"
-  to = "/grow-master"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/grow-shop/"
-  to = "/grow-shop"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/headshop/"
-  to = "/headshop"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/laws-by-state/"
-  to = "/laws-by-state"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/learn/"
-  to = "/learn"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/munchies-ai/"
-  to = "/munchies-ai"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/munchies-chat/"
-  to = "/munchies-chat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/privacy/"
-  to = "/privacy"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/ride-safe/"
-  to = "/ride-safe"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/strain-ai/"
-  to = "/strain-ai"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/strain-finder/"
-  to = "/strain-finder"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/terms/"
-  to = "/terms"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/wellness/"
-  to = "/wellness"
   status = 301
   force = true
 
@@ -249,8 +143,9 @@
     Link = '<https://weediesai.com/wellness>; rel="canonical"'
 
 # ── X-Robots-Tag noindex for .html paths ──────────────────────
-# Safety net: if Google somehow accesses a .html URL directly,
-# tell it not to index the redirect source.
+# Safety net: if a crawler reaches a .html URL directly (before pretty_urls
+# redirects it), tell it not to index that variant. The canonical clean URL
+# (e.g. /grow-ai) is unaffected because the path pattern matches *.html only.
 
 [[headers]]
   for = "/*.html"
