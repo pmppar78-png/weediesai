@@ -24,6 +24,22 @@
   to = "/.netlify/functions/ai-chat"
   status = 200
 
+# ── Homepage /index variant ──────────────────────────────────
+# pretty_urls serves index.html at both "/" and "/index", creating a duplicate
+# that Google flags as "Alternate page with proper canonical tag". Redirect to
+# the canonical root URL.
+[[redirects]]
+  from = "/index"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index/"
+  to = "/"
+  status = 301
+  force = true
+
 # ── Trailing-slash page variants (200 rewrites, not redirects) ──
 # Google had discovered slash variants as "Page with redirect". These rules keep
 # those variants crawlable without changing the canonical clean URL signals.
