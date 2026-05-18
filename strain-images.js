@@ -34,12 +34,12 @@ function generate(strain){
     isExact = mapping.isExact;
     alt = isExact
       ? name + " cannabis flower photo"
-      : "Cannabis flower photo representing " + type + " strains";
+      : "Representative cannabis flower image for " + name;
   } else {
     var idx = (hash(name) % FALLBACK_IMAGES.length);
     src = FALLBACK_IMAGES[idx];
     isExact = false;
-    alt = "Cannabis flower photo representing " + type + " strains";
+    alt = "Representative cannabis flower image for " + name;
   }
 
   return '<img src="' + src + '" alt="' + alt + '" loading="lazy" decoding="async" width="600" height="400" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.onerror=null;this.src=\'/images/strains/' + typeLower + '-1.jpg\'"' + (isExact ? ' data-exact="true"' : ' data-exact="false"') + '>';
