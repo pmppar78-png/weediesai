@@ -137,6 +137,27 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
+    .sl-img-caption {
+      text-align: center;
+      font-size: 0.68rem;
+      color: #94a3b8;
+      font-style: italic;
+      padding: 0.3rem 0.5rem 0;
+      letter-spacing: 0.01em;
+    }
+    .sl-img-caption.verified {
+      color: #4ade80;
+    }
+
+    .sl-photo-note {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #94a3b8;
+      margin-top: 1.5rem;
+      padding: 0 1rem;
+      line-height: 1.6;
+      font-style: italic;
+    }
     .sl-card-type-badge.indica { background: #7c3aed; color: #fff; }
     .sl-card-type-badge.sativa { background: #65a30d; color: #fff; }
     .sl-card-type-badge.hybrid { background: #0891b2; color: #fff; }
@@ -350,6 +371,8 @@
       <a href="/strain-finder" class="primary-button">Ask Strain Finder AI</a>
     </section>
 
+    <p class="sl-photo-note">Strain photos are representative unless marked as verified. Cannabis appearance can vary by grower, phenotype, lighting, and harvest.</p>
+
     <p class="sl-disclaimer">WeediesAI provides cannabis information for educational purposes only. Laws vary by location. Always follow local laws and consult qualified professionals where appropriate.</p>
   </main>
 
@@ -407,11 +430,14 @@
 
     function renderCard(s){
       var t=s.type.toLowerCase();
+      var mapping=(typeof STRAIN_IMAGE_MAP!=="undefined")?STRAIN_IMAGE_MAP[s.name]:null;
+      var isExact=mapping&&mapping.isExact;
       var html='<article class="sl-card">';
       html+='<div class="sl-card-img '+t+'">';
       html+=StrainImages.generate(s);
       html+='<span class="sl-card-type-badge '+t+'">'+escHtml(s.type)+'</span>';
       html+='</div>';
+      html+='<p class="sl-img-caption'+(isExact?' verified':'')+'">'+(isExact?'Verified strain photo':'Representative flower image')+'</p>';
       html+='<div class="sl-card-body">';
       html+='<h2>'+escHtml(s.name)+'</h2>';
       html+='<p class="sl-desc">'+escHtml(s.description)+'</p>';
