@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cannabis Strain Library — Browse Every Strain by Type, Effects & Flavor | WEEDIES AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Explore the complete WeediesAI cannabis strain library. Browse indica, sativa, and hybrid strains with effects, flavors, terpenes, THC/CBD info, genetics, and more.">
+  <link rel="canonical" href="https://weediesai.com/strain-library">
+  <meta property="og:url" content="https://weediesai.com/strain-library">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Cannabis Strain Library — Browse Every Strain | WEEDIES AI">
+  <meta property="og:description" content="Explore the complete WeediesAI cannabis strain library. Browse indica, sativa, and hybrid strains with effects, flavors, terpenes, THC/CBD info, and more.">
+  <meta property="og:site_name" content="WEEDIES AI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cannabis Strain Library — Browse Every Strain | WEEDIES AI">
+  <meta name="twitter:description" content="Explore the complete WeediesAI cannabis strain library with effects, flavors, terpenes, and more.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="main.js"></script>
+  <style>
+    .sl-header { text-align: center; padding: 2rem 1rem 0.5rem; }
+    .sl-header h1 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 0.5rem; color: #ffffff; }
+    .sl-header p { font-size: 0.9rem; color: #e5e7eb; max-width: 600px; margin: 0 auto; }
+
+    .sl-search-wrap {
+      max-width: 600px;
+      margin: 1.5rem auto 0;
+      position: relative;
+    }
+    .sl-search {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-family: inherit;
+      box-sizing: border-box;
+      transition: border-color 0.15s;
+    }
+    .sl-search::placeholder { color: #9ca3af; }
+    .sl-search:focus {
+      outline: none;
+      border-color: var(--accent-emerald);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+    }
+    .sl-search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #9ca3af;
+      font-size: 1rem;
+      pointer-events: none;
+    }
+
+    .sl-filters {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1.25rem auto 0;
+      max-width: 900px;
+    }
+    .sl-filter-btn {
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.4);
+      color: #ecfeff;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.15s ease-out;
+      font-family: inherit;
+    }
+    .sl-filter-btn:hover {
+      border-color: rgba(94, 234, 212, 0.9);
+      box-shadow: 0 0 10px rgba(45, 212, 191, 0.5);
+    }
+    .sl-filter-btn.active {
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      color: #022c22;
+      font-weight: 700;
+      border-color: transparent;
+      box-shadow: 0 0 14px rgba(74, 222, 128, 0.6);
+    }
+
+    .sl-count {
+      text-align: center;
+      font-size: 0.82rem;
+      color: #d1d5db;
+      margin: 1rem 0 0.25rem;
+    }
+
+    .sl-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.3rem;
+      margin-top: 1rem;
+    }
+
+    .sl-card {
+      background: linear-gradient(135deg, #0A637A 0%, #062B45 100%);
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 20px rgba(10, 99, 122, 0.3);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sl-card-img {
+      position: relative;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .sl-card-img.indica { background: linear-gradient(135deg, #4c1d95 0%, #1e1b4b 50%, #064e3b 100%); }
+    .sl-card-img.sativa { background: linear-gradient(135deg, #365314 0%, #14532d 50%, #052e16 100%); }
+    .sl-card-img.hybrid { background: linear-gradient(135deg, #0e7490 0%, #064e3b 50%, #1e3a5f 100%); }
+
+    .sl-card-img img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      opacity: 0.3;
+    }
+    .sl-card-type-badge {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .sl-card-type-badge.indica { background: #7c3aed; color: #fff; }
+    .sl-card-type-badge.sativa { background: #65a30d; color: #fff; }
+    .sl-card-type-badge.hybrid { background: #0891b2; color: #fff; }
+
+    .sl-card-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+
+    .sl-card-body h2 {
+      font-size: 1.1rem;
+      margin: 0 0 0.4rem;
+      color: #ffffff;
+    }
+    .sl-card-body .sl-desc {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: #e5e7eb;
+      margin: 0 0 0.75rem;
+    }
+
+    .sl-detail { margin-bottom: 0.5rem; }
+    .sl-detail-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent-aqua);
+      margin-bottom: 0.15rem;
+    }
+    .sl-detail-val {
+      font-size: 0.82rem;
+      color: #e5e7eb;
+      line-height: 1.5;
+    }
+
+    .sl-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: auto;
+      padding-top: 0.75rem;
+    }
+    .sl-tag {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #a5f3fc;
+      background: rgba(15, 23, 42, 0.5);
+    }
+
+    .sl-empty {
+      text-align: center;
+      padding: 3rem 1rem;
+      grid-column: 1 / -1;
+    }
+    .sl-empty h3 {
+      font-size: 1.15rem;
+      margin: 0 0 0.5rem;
+      color: #ffffff;
+    }
+    .sl-empty p {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      margin: 0 0 1rem;
+    }
+
+    .sl-cta-section {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, #0A637A 0%, #062B45 100%);
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 20px rgba(10, 99, 122, 0.3);
+      text-align: center;
+    }
+    .sl-cta-section h2 {
+      font-size: 1.35rem;
+      margin: 0 0 0.75rem;
+      color: var(--accent-lime);
+    }
+    .sl-cta-section p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #e5e7eb;
+      margin: 0 0 1.25rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .sl-disclaimer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #d1d5db;
+      margin-top: 2rem;
+      padding: 0 1rem;
+      line-height: 1.6;
+    }
+
+    .sl-expand-btn {
+      display: none;
+      margin: 0 auto;
+      padding: 0.5rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.5);
+      color: #ecfeff;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.15s ease-out;
+      font-family: inherit;
+    }
+    .sl-expand-btn:hover {
+      border-color: rgba(94, 234, 212, 0.9);
+      box-shadow: 0 0 14px rgba(45, 212, 191, 0.7);
+    }
+
+    @media (max-width: 768px) {
+      .sl-grid { grid-template-columns: 1fr; }
+      .sl-card-img { height: 110px; }
+      .sl-cta-section { padding: 1.5rem; }
+      .sl-cta-section h2 { font-size: 1.15rem; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Cannabis Strain Library",
+  "description": "Browse the complete WeediesAI cannabis strain library with indica, sativa, and hybrid strains including effects, flavors, terpenes, THC/CBD levels, and genetics.",
+  "url": "https://weediesai.com/strain-library",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "WEEDIES AI",
+    "url": "https://weediesai.com"
+  }
+}
+</script>
+</head>
+<body>
+  <header class="site-header">
+  <div class="header-overlay"></div>
+  <div class="header-inner">
+    <div class="header-left">
+      <img src="cannabis-leaf-icon.png" alt="" class="header-leaf-icon rotating-leaf">
+    </div>
+    <div class="header-center">
+      <img src="weedies-ai-logo-transparent.png" alt="WEEDIES AI" class="header-logo-img">
+    </div>
+    <button class="menu-toggle" aria-label="Open menu" id="mobile-menu-toggle">
+      ☰
+    </button>
+    <nav id="main-nav" class="main-nav">
+      <ul class="nav-row nav-row-primary">
+        <li class="nav-item"><a href="/"><span class="nav-label">Home</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="/dispensaries"><span class="nav-label">Dispensaries</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="/strain-finder"><span class="nav-label">Strain Finder AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="/strain-library"><span class="nav-label">Strain Library</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="/grow-master"><span class="nav-label">Grower AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="/munchies-ai"><span class="nav-label">Munchies AI</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="/laws-by-state"><span class="nav-label">Laws by State</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="/learn"><span class="nav-label">Learn</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+      <ul class="nav-row nav-row-secondary">
+        <li class="nav-item"><a href="/headshop"><span class="nav-label">Headshop</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="/grow-shop"><span class="nav-label">Grow Shop</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="/wellness"><span class="nav-label">Wellness</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="/ride-safe"><span class="nav-label">Ride Safe</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+        <li class="nav-item"><a href="/advertise"><span class="nav-label">Advertise</span><img src="cannabis-leaf-icon.png" alt="" class="nav-leaf-icon"></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main class="page-main">
+    <section class="sl-header">
+      <h1>Cannabis Strain Library</h1>
+      <p>Explore our comprehensive strain database. Search by name, filter by type, and discover detailed profiles including effects, flavors, terpenes, and genetics.</p>
+      <div class="sl-search-wrap">
+        <span class="sl-search-icon" aria-hidden="true">&#128269;</span>
+        <input type="search" class="sl-search" id="sl-search" placeholder="Search any cannabis strain..." autocomplete="off">
+      </div>
+    </section>
+
+    <div class="sl-filters" id="sl-filters">
+      <button class="sl-filter-btn active" data-filter="all">All Strains</button>
+      <button class="sl-filter-btn" data-filter="Indica">Indica</button>
+      <button class="sl-filter-btn" data-filter="Sativa">Sativa</button>
+      <button class="sl-filter-btn" data-filter="Hybrid">Hybrid</button>
+      <button class="sl-filter-btn" data-filter="effect-Relaxed">Relaxed</button>
+      <button class="sl-filter-btn" data-filter="effect-Euphoric">Euphoric</button>
+      <button class="sl-filter-btn" data-filter="effect-Energetic">Energetic</button>
+      <button class="sl-filter-btn" data-filter="effect-Creative">Creative</button>
+      <button class="sl-filter-btn" data-filter="effect-Sleepy">Sleepy</button>
+      <button class="sl-filter-btn" data-filter="effect-Focused">Focused</button>
+      <button class="sl-filter-btn" data-filter="flavor-Berry">Berry</button>
+      <button class="sl-filter-btn" data-filter="flavor-Citrus">Citrus</button>
+      <button class="sl-filter-btn" data-filter="flavor-Earthy">Earthy</button>
+      <button class="sl-filter-btn" data-filter="flavor-Sweet">Sweet</button>
+      <button class="sl-filter-btn" data-filter="flavor-Diesel">Diesel</button>
+      <button class="sl-filter-btn" data-filter="flavor-Pine">Pine</button>
+    </div>
+
+    <p class="sl-count" id="sl-count"></p>
+
+    <div class="sl-grid" id="sl-grid"></div>
+    <button class="sl-expand-btn" id="sl-expand">Show More Strains</button>
+
+    <section class="sl-cta-section">
+      <h2>Want help choosing the right strain?</h2>
+      <p>Use the WeediesAI Strain Finder AI to compare effects, flavors, grow difficulty, terpene profiles, and similar strains.</p>
+      <a href="/strain-finder" class="primary-button">Ask Strain Finder AI</a>
+    </section>
+
+    <p class="sl-disclaimer">WeediesAI provides cannabis information for educational purposes only. Laws vary by location. Always follow local laws and consult qualified professionals where appropriate.</p>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 WEEDIES AI. All rights reserved. 21+ only. We do not sell cannabis or promote illegal activity.</p>
+    <p class="footer-links">
+      <a href="/privacy">Privacy Policy</a> &middot;
+      <a href="/terms">Terms of Service</a> &middot;
+      <a href="/about">About Us</a> &middot;
+      <a href="/contact">Contact</a>
+    </p>
+    <p class="footer-links">
+      <a href="/dispensaries">Find Dispensaries</a> &middot;
+      <a href="/strain-finder">Strain Finder AI</a> &middot;
+      <a href="/laws-by-state">Cannabis Laws by State</a> &middot;
+      <a href="/grow-master">Grow Master AI</a> &middot;
+      <a href="/learn">Learn About Cannabis</a> &middot;
+      <a href="/advertise">Advertise</a>
+    </p>
+  </footer>
+
+  <script src="strain-data.js"></script>
+  <script>
+  (function(){
+    var grid=document.getElementById("sl-grid");
+    var searchInput=document.getElementById("sl-search");
+    var countEl=document.getElementById("sl-count");
+    var filtersEl=document.getElementById("sl-filters");
+    var expandBtn=document.getElementById("sl-expand");
+    var BATCH=30;
+    var shown=0;
+    var filtered=[];
+    var activeFilter="all";
+    var query="";
+
+    function escHtml(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+    function matchStrain(s){
+      var q=query.toLowerCase();
+      if(q&&s.name.toLowerCase().indexOf(q)===-1) return false;
+      if(activeFilter==="all") return true;
+      if(activeFilter==="Indica"||activeFilter==="Sativa"||activeFilter==="Hybrid") return s.type===activeFilter;
+      if(activeFilter.indexOf("effect-")===0){
+        var eff=activeFilter.slice(7);
+        return s.effects&&s.effects.indexOf(eff)!==-1;
+      }
+      if(activeFilter.indexOf("flavor-")===0){
+        var flav=activeFilter.slice(7);
+        return s.flavors&&s.flavors.some(function(f){return f.toLowerCase().indexOf(flav.toLowerCase())!==-1;});
+      }
+      return true;
+    }
+
+    function renderCard(s){
+      var t=s.type.toLowerCase();
+      var html='<article class="sl-card">';
+      html+='<div class="sl-card-img '+t+'">';
+      html+='<img src="cannabis-leaf-icon.png" alt="'+escHtml(s.name)+' cannabis strain" loading="lazy" width="80" height="80">';
+      html+='<span class="sl-card-type-badge '+t+'">'+escHtml(s.type)+'</span>';
+      html+='</div>';
+      html+='<div class="sl-card-body">';
+      html+='<h2>'+escHtml(s.name)+'</h2>';
+      html+='<p class="sl-desc">'+escHtml(s.description)+'</p>';
+      if(s.effects&&s.effects.length){
+        html+='<div class="sl-detail"><div class="sl-detail-label">Effects</div><div class="sl-detail-val">'+s.effects.map(escHtml).join(", ")+'</div></div>';
+      }
+      if(s.flavors&&s.flavors.length){
+        html+='<div class="sl-detail"><div class="sl-detail-label">Flavors</div><div class="sl-detail-val">'+s.flavors.map(escHtml).join(", ")+'</div></div>';
+      }
+      if(s.thc){
+        html+='<div class="sl-detail"><div class="sl-detail-label">THC</div><div class="sl-detail-val">'+escHtml(s.thc)+'</div></div>';
+      }
+      if(s.cbd&&s.cbd!=="0.1%"){
+        html+='<div class="sl-detail"><div class="sl-detail-label">CBD</div><div class="sl-detail-val">'+escHtml(s.cbd)+'</div></div>';
+      }
+      if(s.terpenes&&s.terpenes.length){
+        html+='<div class="sl-detail"><div class="sl-detail-label">Terpenes</div><div class="sl-detail-val">'+s.terpenes.map(escHtml).join(", ")+'</div></div>';
+      }
+      if(s.genetics){
+        html+='<div class="sl-detail"><div class="sl-detail-label">Genetics</div><div class="sl-detail-val">'+escHtml(s.genetics)+'</div></div>';
+      }
+      if(s.similar&&s.similar.length){
+        html+='<div class="sl-tags">';
+        s.similar.forEach(function(sim){html+='<span class="sl-tag">'+escHtml(sim)+'</span>';});
+        html+='</div>';
+      }
+      html+='</div></article>';
+      return html;
+    }
+
+    function render(){
+      filtered=STRAIN_DATA.filter(matchStrain);
+      filtered.sort(function(a,b){return a.name.localeCompare(b.name);});
+      shown=0;
+      grid.innerHTML="";
+      if(filtered.length===0){
+        grid.innerHTML='<div class="sl-empty"><h3>No exact match found</h3><p>Try a different search term or filter, or ask our AI for personalized help.</p><a href="/strain-finder" class="primary-button">Ask Strain Finder AI</a></div>';
+        countEl.textContent="0 strains found";
+        expandBtn.style.display="none";
+        return;
+      }
+      countEl.textContent=filtered.length+" strain"+(filtered.length!==1?"s":"")+" found";
+      showMore();
+    }
+
+    function showMore(){
+      var end=Math.min(shown+BATCH,filtered.length);
+      var frag="";
+      for(var i=shown;i<end;i++){frag+=renderCard(filtered[i]);}
+      grid.insertAdjacentHTML("beforeend",frag);
+      shown=end;
+      expandBtn.style.display=shown<filtered.length?"block":"none";
+    }
+
+    expandBtn.addEventListener("click",showMore);
+
+    var debounce;
+    searchInput.addEventListener("input",function(){
+      clearTimeout(debounce);
+      debounce=setTimeout(function(){
+        query=searchInput.value.trim();
+        render();
+      },150);
+    });
+
+    filtersEl.addEventListener("click",function(e){
+      var btn=e.target.closest(".sl-filter-btn");
+      if(!btn) return;
+      filtersEl.querySelectorAll(".sl-filter-btn").forEach(function(b){b.classList.remove("active");});
+      btn.classList.add("active");
+      activeFilter=btn.getAttribute("data-filter");
+      render();
+    });
+
+    render();
+  })();
+  </script>
+</body>
+</html>
