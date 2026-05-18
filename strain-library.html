@@ -144,9 +144,38 @@
       font-style: italic;
       padding: 0.3rem 0.5rem 0;
       letter-spacing: 0.01em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+    .sl-img-caption .sl-badge-icon {
+      font-style: normal;
+      font-size: 0.72rem;
+      line-height: 1;
     }
     .sl-img-caption.verified {
       color: #4ade80;
+    }
+    .sl-img-caption.verified .sl-badge-icon {
+      color: #4ade80;
+    }
+
+    .sl-photo-explanation {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      max-width: 700px;
+      margin: 0.5rem auto 0.75rem;
+      padding: 0.75rem 1.25rem;
+      line-height: 1.65;
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 12px;
+    }
+    .sl-photo-explanation strong {
+      color: #4ade80;
+      font-weight: 600;
     }
 
     .sl-photo-note {
@@ -362,6 +391,8 @@
 
     <p class="sl-count" id="sl-count"></p>
 
+    <p class="sl-photo-explanation" id="sl-photo-explanation">Some strain images are verified strain-specific photos and are marked with a <strong>Verified strain photo</strong> badge. Other images are representative cannabis flower photos because cannabis appearance can vary by grower, phenotype, lighting, harvest, and available legal image rights.</p>
+
     <div class="sl-grid" id="sl-grid"></div>
     <button class="sl-expand-btn" id="sl-expand">Show More Strains</button>
 
@@ -371,7 +402,7 @@
       <a href="/strain-finder" class="primary-button">Ask Strain Finder AI</a>
     </section>
 
-    <p class="sl-photo-note">Strain photos are representative unless marked as verified. Cannabis appearance can vary by grower, phenotype, lighting, and harvest.</p>
+    <p class="sl-photo-note">All strain photos on this page are labeled as either verified or representative. Cannabis appearance varies by grower, phenotype, lighting, and harvest conditions.</p>
 
     <p class="sl-disclaimer">WeediesAI provides cannabis information for educational purposes only. Laws vary by location. Always follow local laws and consult qualified professionals where appropriate.</p>
   </main>
@@ -437,7 +468,7 @@
       html+=StrainImages.generate(s);
       html+='<span class="sl-card-type-badge '+t+'">'+escHtml(s.type)+'</span>';
       html+='</div>';
-      html+='<p class="sl-img-caption'+(isExact?' verified':'')+'">'+(isExact?'Verified strain photo':'Representative flower image')+'</p>';
+      html+='<p class="sl-img-caption'+(isExact?' verified':'')+'">'+(isExact?'<span class="sl-badge-icon">&#10003;</span> Verified strain photo':'<span class="sl-badge-icon">&#8505;</span> Representative photo')+'</p>';
       html+='<div class="sl-card-body">';
       html+='<h2>'+escHtml(s.name)+'</h2>';
       html+='<p class="sl-desc">'+escHtml(s.description)+'</p>';
