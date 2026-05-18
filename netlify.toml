@@ -125,6 +125,11 @@
   status = 200
 
 [[redirects]]
+  from = "/strain-library/"
+  to = "/strain-library.html"
+  status = 200
+
+[[redirects]]
   from = "/terms/"
   to = "/terms.html"
   status = 200
@@ -237,6 +242,11 @@
   for = "/strain-finder"
   [headers.values]
     Link = '<https://weediesai.com/strain-finder>; rel="canonical"'
+
+[[headers]]
+  for = "/strain-library"
+  [headers.values]
+    Link = '<https://weediesai.com/strain-library>; rel="canonical"'
 
 [[headers]]
   for = "/terms"
