@@ -113,20 +113,16 @@
     .sl-card-img {
       position: relative;
       height: 140px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
     }
     .sl-card-img.indica { background: linear-gradient(135deg, #4c1d95 0%, #1e1b4b 50%, #064e3b 100%); }
     .sl-card-img.sativa { background: linear-gradient(135deg, #365314 0%, #14532d 50%, #052e16 100%); }
     .sl-card-img.hybrid { background: linear-gradient(135deg, #0e7490 0%, #064e3b 50%, #1e3a5f 100%); }
 
-    .sl-card-img img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      opacity: 0.3;
+    .sl-card-img svg {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
     .sl-card-type-badge {
       position: absolute;
@@ -373,6 +369,7 @@
     </p>
   </footer>
 
+  <script src="strain-images.js"></script>
   <script src="strain-data.js"></script>
   <script>
   (function(){
@@ -409,7 +406,7 @@
       var t=s.type.toLowerCase();
       var html='<article class="sl-card">';
       html+='<div class="sl-card-img '+t+'">';
-      html+='<img src="cannabis-leaf-icon.png" alt="'+escHtml(s.name)+' cannabis strain" loading="lazy" width="80" height="80">';
+      html+=StrainImages.generate(s);
       html+='<span class="sl-card-type-badge '+t+'">'+escHtml(s.type)+'</span>';
       html+='</div>';
       html+='<div class="sl-card-body">';
