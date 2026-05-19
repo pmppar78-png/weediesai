@@ -197,52 +197,85 @@ Always keep the /api/ai-chat endpoint working and the existing file/folder struc
     </section>
 
     <section class="trending-section">
-      <h2>Trending Strains of 2026</h2>
-      <p class="trending-subtitle">Most searched and talked-about strains this season</p>
-      <div class="trending-grid">
-        <div class="trending-card">
-          <h3>Gelato</h3>
-          <div class="trending-type hybrid">Hybrid</div>
-          <p>A dessert-flavored hybrid dominating searches in 2026 for its balanced euphoric and relaxed effects.</p>
-          <div class="trending-tags">
-            <span class="trending-tag">Relaxed</span>
-            <span class="trending-tag">Euphoric</span>
-            <span class="trending-tag">Sweet</span>
-          </div>
-        </div>
-        <div class="trending-card">
-          <h3>Runtz</h3>
-          <div class="trending-type hybrid">Hybrid</div>
-          <p>Candy-like terpene profile and vibrant colors keep Runtz at the top of most-searched hybrid lists.</p>
-          <div class="trending-tags">
-            <span class="trending-tag">Happy</span>
-            <span class="trending-tag">Uplifting</span>
-            <span class="trending-tag">Fruity</span>
-          </div>
-        </div>
-        <div class="trending-card">
-          <h3>Gary Payton</h3>
-          <div class="trending-type hybrid">Hybrid</div>
-          <p>This Cookies collab strain continues trending with its potent, balanced effects and unique diesel-sweet flavor.</p>
-          <div class="trending-tags">
-            <span class="trending-tag">Euphoric</span>
-            <span class="trending-tag">Creative</span>
-            <span class="trending-tag">Diesel</span>
-          </div>
-        </div>
-        <div class="trending-card">
-          <h3>Granddaddy Purple</h3>
-          <div class="trending-type indica">Indica</div>
-          <p>A classic indica with surging 2026 interest for its deeply relaxed, sleepy effects and grape flavor profile.</p>
-          <div class="trending-tags">
-            <span class="trending-tag">Relaxed</span>
-            <span class="trending-tag">Sleepy</span>
-            <span class="trending-tag">Berry</span>
-          </div>
-        </div>
+      <h2 id="trending-title">Trending Strains</h2>
+      <p class="trending-subtitle" id="trending-subtitle">Most searched and talked-about strains this season</p>
+      <div class="trending-grid" id="trending-grid">
+        <noscript>
+          <div class="trending-card"><h3>Gelato</h3><div class="trending-type hybrid">Hybrid</div><p>A dessert-flavored hybrid dominating searches for its balanced euphoric and relaxed effects.</p></div>
+          <div class="trending-card"><h3>Runtz</h3><div class="trending-type hybrid">Hybrid</div><p>Candy-like terpene profile and vibrant colors keep Runtz at the top of most-searched hybrid lists.</p></div>
+          <div class="trending-card"><h3>Wedding Cake</h3><div class="trending-type hybrid">Hybrid</div><p>Rich tangy flavors and dense trichome coverage make Wedding Cake a perennial favorite among connoisseurs.</p></div>
+          <div class="trending-card"><h3>Granddaddy Purple</h3><div class="trending-type indica">Indica</div><p>A classic indica with surging interest for its deeply relaxed, sleepy effects and grape flavor profile.</p></div>
+        </noscript>
       </div>
       <p style="text-align:center; margin-top:1rem;"><a href="/strain-library" class="text-link">Explore all 198 strains in our library &rarr;</a></p>
     </section>
+    <script>
+    (function(){
+      var TRENDING_POOL=[
+        {name:"Gelato",type:"Hybrid",blurb:"A dessert-flavored hybrid dominating searches for its balanced euphoric and relaxed effects.",tags:["Relaxed","Euphoric","Sweet"]},
+        {name:"Runtz",type:"Hybrid",blurb:"Candy-like terpene profile and vibrant colors keep Runtz at the top of most-searched hybrid lists.",tags:["Happy","Uplifting","Fruity"]},
+        {name:"Gary Payton",type:"Hybrid",blurb:"This Cookies collab strain continues trending with its potent, balanced effects and unique diesel-sweet flavor.",tags:["Euphoric","Creative","Diesel"]},
+        {name:"Granddaddy Purple",type:"Indica",blurb:"A classic indica with surging interest for its deeply relaxed, sleepy effects and grape flavor profile.",tags:["Relaxed","Sleepy","Berry"]},
+        {name:"Wedding Cake",type:"Hybrid",blurb:"Rich tangy flavors and dense trichome coverage make Wedding Cake a perennial favorite among connoisseurs.",tags:["Relaxed","Euphoric","Vanilla"]},
+        {name:"Ice Cream Cake",type:"Indica",blurb:"Creamy vanilla aroma and heavy relaxation effects have pushed Ice Cream Cake into top trending lists.",tags:["Relaxed","Sleepy","Creamy"]},
+        {name:"Cereal Milk",type:"Hybrid",blurb:"Sweet, creamy flavor reminiscent of breakfast cereal milk has made this a sought-after modern strain.",tags:["Euphoric","Creative","Sweet"]},
+        {name:"Jealousy",type:"Hybrid",blurb:"Complex floral and fuel aromas with perfectly balanced effects make Jealousy a breakout hit.",tags:["Euphoric","Relaxed","Floral"]},
+        {name:"Apple Fritter",type:"Hybrid",blurb:"Rich apple pastry flavor and remarkable terpene profile keep Apple Fritter in high demand.",tags:["Relaxed","Euphoric","Apple"]},
+        {name:"Zkittlez",type:"Indica",blurb:"Tropical candy flavors and a calm, focused buzz have earned Zkittlez a loyal following.",tags:["Relaxed","Happy","Tropical"]},
+        {name:"Mimosa",type:"Hybrid",blurb:"Bright citrus aroma and uplifting daytime effects make Mimosa a popular morning strain choice.",tags:["Happy","Energetic","Citrus"]},
+        {name:"White Runtz",type:"Hybrid",blurb:"Frosty trichomes and long-lasting euphoria have made this rare Runtz phenotype highly sought after.",tags:["Euphoric","Relaxed","Sweet"]},
+        {name:"Kush Mints",type:"Hybrid",blurb:"Sharp minty flavor and premium potency from elite genetics keep Kush Mints trending among enthusiasts.",tags:["Relaxed","Creative","Mint"]},
+        {name:"Biscotti",type:"Indica",blurb:"Cookie dough and diesel aromas with cerebral-to-body effects make Biscotti an evening favorite.",tags:["Relaxed","Creative","Cookie"]},
+        {name:"London Pound Cake",type:"Indica",blurb:"Sweet berry cake flavor and powerful sedating effects have made London Pound Cake a top-shelf staple.",tags:["Relaxed","Sleepy","Berry"]},
+        {name:"MAC 1",type:"Hybrid",blurb:"This premium Miracle Alien Cookies phenotype delivers creamy, floral aromas with perfectly balanced effects.",tags:["Euphoric","Creative","Floral"]},
+        {name:"GMO Cookies",type:"Indica",blurb:"Pungent garlic-forward terpenes and powerful relaxation have built a devoted following for GMO Cookies.",tags:["Relaxed","Euphoric","Garlic"]},
+        {name:"Slurricane",type:"Indica",blurb:"Tropical berry flavor with wave after wave of physical relaxation makes Slurricane a top indica pick.",tags:["Relaxed","Sleepy","Tropical"]},
+        {name:"Purple Punch",type:"Indica",blurb:"Grape candy aroma and a one-two punch of euphoria and relaxation keep Purple Punch highly popular.",tags:["Relaxed","Sleepy","Grape"]},
+        {name:"Lava Cake",type:"Indica",blurb:"Rich chocolate and earthy flavors with heavy relaxation have made Lava Cake a dessert-strain standout.",tags:["Relaxed","Sleepy","Chocolate"]},
+        {name:"Tropicana Cookies",type:"Sativa",blurb:"Vibrant citrus flavors and energizing effects make Tropicana Cookies a top sativa trending pick.",tags:["Euphoric","Energetic","Citrus"]},
+        {name:"Pink Runtz",type:"Hybrid",blurb:"Eye-catching pink and purple buds with sweet candy flavor keep Pink Runtz in high demand.",tags:["Euphoric","Happy","Candy"]},
+        {name:"Gorilla Glue #4",type:"Hybrid",blurb:"Award-winning potency and heavy-handed euphoria keep GG4 among the most searched strains year after year.",tags:["Relaxed","Euphoric","Earthy"]},
+        {name:"Blue Dream",type:"Hybrid",blurb:"Full-body relaxation with cerebral invigoration makes Blue Dream one of North America’s most popular strains.",tags:["Relaxed","Creative","Berry"]}
+      ];
+
+      var now=new Date();
+      var year=now.getFullYear();
+      var biweek=Math.floor((now.getMonth()*30+now.getDate())/14);
+      var seed=year*100+biweek;
+
+      function seededShuffle(arr,s){
+        var a=arr.slice();
+        for(var i=a.length-1;i>0;i--){
+          s=(s*9301+49297)%233280;
+          var j=Math.floor((s/233280)*i);
+          var t=a[i];a[i]=a[j];a[j]=t;
+        }
+        return a;
+      }
+
+      var picked=seededShuffle(TRENDING_POOL,seed).slice(0,4);
+      var months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+      var periodStart=new Date(year,now.getMonth(),1+(biweek%2)*14);
+      var periodLabel=months[periodStart.getMonth()]+" "+periodStart.getFullYear();
+
+      document.getElementById("trending-title").textContent="Trending Strains — "+periodLabel;
+      document.getElementById("trending-subtitle").textContent="Most searched and talked-about strains this period";
+
+      var grid=document.getElementById("trending-grid");
+      var html="";
+      picked.forEach(function(s){
+        var tc=s.type.toLowerCase();
+        html+='<div class="trending-card">';
+        html+='<h3>'+s.name+'</h3>';
+        html+='<div class="trending-type '+tc+'">'+s.type+'</div>';
+        html+='<p>'+s.blurb+'</p>';
+        html+='<div class="trending-tags">';
+        s.tags.forEach(function(tag){html+='<span class="trending-tag">'+tag+'</span>';});
+        html+='</div></div>';
+      });
+      grid.innerHTML=html;
+    })();
+    </script>
 
     <section class="why-section">
       <h2>Why WEEDIES AI Is the Best Free Cannabis Tool Online</h2>
