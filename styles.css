@@ -12,6 +12,122 @@
   --hf-text-title: #94F7A3;     /* slightly stronger leaf green for big title */
 }
 
+/* Age Gate */
+body.age-gate-active {
+  overflow: hidden;
+}
+
+#age-gate-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2, 6, 23, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 1.5rem;
+  animation: ageGateFadeIn 0.3s ease-out;
+}
+
+#age-gate-overlay.age-gate-closing {
+  animation: ageGateFadeOut 0.3s ease-out forwards;
+}
+
+@keyframes ageGateFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ageGateFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.age-gate-box {
+  background: linear-gradient(135deg, #0A637A 0%, #062B45 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 22px;
+  box-shadow: 0 0 40px rgba(10, 99, 122, 0.4);
+  padding: 2.5rem 2rem;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  animation: ageGateSlideUp 0.3s ease-out;
+}
+
+@keyframes ageGateSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.age-gate-leaf {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.age-gate-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.75rem;
+}
+
+.age-gate-question {
+  font-size: 1.05rem;
+  color: #e5e7eb;
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+.age-gate-note {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+
+.age-gate-buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.age-gate-btn {
+  padding: 0.6rem 1.75rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: all 0.15s ease-out;
+}
+
+.age-gate-btn-yes {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  color: #022c22;
+  box-shadow: 0 0 18px rgba(74, 222, 128, 0.6);
+}
+
+.age-gate-btn-yes:hover {
+  filter: brightness(1.07);
+  transform: translateY(-1px);
+}
+
+.age-gate-btn-no {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  color: #e5e7eb;
+}
+
+.age-gate-btn-no:hover {
+  border-color: rgba(148, 163, 184, 0.9);
+}
+
 /* Reset */
 
 *,
@@ -1275,6 +1391,100 @@ body.chat-fullscreen .page-main.chat-page {
 .footer-links a {
   color: #a5f3fc;
   text-decoration: none;
+}
+
+.freshness-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  color: #94a3b8;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.3);
+  letter-spacing: 0.02em;
+}
+
+.footer-freshness {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  margin-top: 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+.trending-section {
+  margin-top: 2.5rem;
+}
+
+.trending-section h2 {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem;
+  color: var(--accent-lime);
+  text-align: center;
+}
+
+.trending-subtitle {
+  text-align: center;
+  font-size: 0.88rem;
+  color: #d1d5db;
+  margin-bottom: 1.25rem;
+}
+
+.trending-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.trending-card {
+  background: linear-gradient(135deg, #0A637A 0%, #062B45 100%);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(10, 99, 122, 0.3);
+  padding: 1.25rem;
+}
+
+.trending-card h3 {
+  font-size: 1rem;
+  margin: 0 0 0.2rem;
+  color: #ffffff;
+}
+
+.trending-card .trending-type {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+
+.trending-type.indica { color: #a78bfa; }
+.trending-type.sativa { color: #a3e635; }
+.trending-type.hybrid { color: #22d3ee; }
+
+.trending-card p {
+  font-size: 0.85rem;
+  color: #e5e7eb;
+  line-height: 1.55;
+  margin: 0 0 0.5rem;
+}
+
+.trending-card .trending-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.trending-tag {
+  padding: 0.12rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #a5f3fc;
+  background: rgba(15, 23, 42, 0.5);
+}
+
+@media (max-width: 768px) {
+  .trending-grid { grid-template-columns: 1fr; }
 }
 
 /* Homepage info sections */
